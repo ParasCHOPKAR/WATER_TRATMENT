@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aquagreen Tech Solutions</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #000;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    nav .logo img {
+      height: 60px;
+      margin-right: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul li {
+      position: relative;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00ff99;
+    }
+
+    /* Dropdown */
+    nav ul li ul {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background: #111;
+      display: none;
+      flex-direction: column;
+      padding: 10px 0;
+      border-radius: 8px;
+      min-width: 250px;
+    }
+
+    nav ul li ul li {
+      padding: 10px 20px;
+    }
+
+    nav ul li ul li a {
+      font-weight: 400;
+      color: #ccc;
+    }
+
+    nav ul li ul li a:hover {
+      color: #00ff99;
+    }
+
+    nav ul li:hover ul {
+      display: flex;
+    }
+
+    /* Button */
+    .btn {
+      background: #00cc66;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00ff99;
+    }
+
+    /* Hero Section */
+    #hero {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    #hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    #hero h1 span {
+      color: #00ff99;
+      text-shadow: 0 0 20px #00ff99;
+    }
+
+    #hero p {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 700px;
+    }
+
+    #hero .scroll {
+      margin-top: 60px;
+      font-size: 1rem;
+      color: #aaa;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.4;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <img src="https://assets-global.website-files.com/64a2ab71942e1d57feb6fe39/64a2ab71942e1d1147fe5e68_Aquagreen-logo.png" alt="Logo">
+    </div>
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">ABOUT US</a></li>
+      <li>
+        <a href="#">PRODUCTS</a>
+        <ul>
+          <li><a href="#">Water Treatment Solutions</a></li>
+          <li><a href="#">Waste Water Treatment Solutions</a></li>
+          <li><a href="#">Water & Waste Water Treatment Chemicals</a></li>
+        </ul>
+      </li>
+      <li><a href="#">SERVICES</a></li>
+      <li><a href="#">OUR WORK</a></li>
+      <li><a href="#">CONTACT</a></li>
+    </ul>
+    <a href="#" class="btn">GET MORE DETAILS</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <h1>Welcome to <span>AQUAGREEN TECH SOLUTIONS</span></h1>
+    <p>
+      Leading solutions in Water & Wastewater Treatment, delivering sustainable innovations for industries and communities.
+    </p>
+    <div class="scroll">Scroll Down</div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,783 @@
+<!-- background: linear-gradient(135deg, #f9f9f9, #fff); -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aquagreen TECH SOLUTIONS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+  <style>
+    
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 0px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+      z-index: 1000;
+    }
+
+.navbar.scrolled {
+ background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
+
+  backdrop-filter: blur(10px);
+  border-bottom: 3px solid rgba(0, 207, 255, 0.6);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  transition: all 0.5s ease-in-out;
+}
+
+
+
+.nav-links li,
+.dropdown-menu li,
+.sub-dropdown-menu li {
+  list-style: none;
+}
+
+    .logo img {
+      height: 100px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+.nav-links > li > a {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #444;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-links > li > a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #00CFFF, #6CC04A);
+  transition: width 0.3s ease-in-out;
+}
+.nav-links > li > a:hover {
+  color: #ff7b00; /* highlight color */
+}
+
+.nav-links > li > a:hover::after {
+  width: 100%;
+}
+
+    .nav-links > li > a:hover {
+      color:  #ff7b00;
+    }
+
+    .dropdown-menu,
+    .sub-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      background: #fff;
+      min-width: 200px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    .dropdown-menu a,
+    .sub-dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a:hover,
+    .sub-dropdown-menu a:hover {
+      background: #ff7b00;
+      color: white;
+    }
+
+    .nav-links li:hover > .dropdown-menu {
+      display: flex;
+    }
+
+    .sub-dropdown:hover > .sub-dropdown-menu {
+      display: flex;
+      top: 0;
+      left: 100%;
+    }
+
+    .dropdown-arrow {
+      font-size: 12px;
+    }
+
+    /* ----------- MOBILE VIEW ----------- */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.95); /* <-- Mobile-only navbar background */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        height: 100vh;
+        width: 280px;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 80px 20px;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+      }
+
+      .overlay.show {
+        display: block;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links > li > a {
+        color: white;
+        padding: 12px 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .dropdown-menu,
+      .sub-dropdown-menu {
+        position: static;
+        display: none;
+        background: #222;
+        box-shadow: none;
+        width: 100%;
+      }
+
+      .dropdown-menu a,
+      .sub-dropdown-menu a {
+        color: white;
+        padding-left: 30px;
+      }
+
+      .sub-dropdown-menu {
+        padding-left: 10px;
+      }
+
+      .dropdown-menu.show,
+      .sub-dropdown-menu.show {
+        display: flex !important;
+        flex-direction: column;
+      }
+
+      .nav-links li:hover > .dropdown-menu,
+      .sub-dropdown:hover > .sub-dropdown-menu {
+        display: none;
+      }
+
+      .nav-links .dropdown-toggle {
+        cursor: pointer;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <!-- ✅ Final Responsive Navbar -->
+<nav class="navbar" id="navbar">
+  <!-- Logo -->
+  <a href="index.html" class="logo">
+    <img src="images/LOGO_02.png" alt="Aquagreen Logo">
+  </a>
+
+  <!-- Mobile Toggle -->
+  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+
+  <!-- Navigation -->
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="About.html">ABOUT US</a></li>
+
+    <!-- PRODUCTS DROPDOWN -->
+    <li class="dropdown">
+      <a href="PRODUCT.html" class="has-dropdown">
+        PRODUCTS <span class="arrow">▼</span>
+      </a>
+      <ul class="dropdown-menu">
+        <li class="sub-dropdown">
+          <a href="PRODUCT.html">Water Treatment Systems ▸</a>
+          <ul class="sub-dropdown-menu">
+            <li><a href="PRODUCT.html">Ozone System</a></li>
+            <li><a href="PRODUCT.html">Ultrafiltration (UF) System</a></li>
+            <li><a href="PRODUCT.html">Water Treatment Plant (WTP)</a></li>
+            <li><a href="PRODUCT.html">Demineralization (DM) Plant</a></li>
+            <li><a href="PRODUCT.html">Reverse Osmosis (RO) Plant</a></li>
+            <li><a href="PRODUCT.html">Water Softener</a></li>
+          </ul>
+        </li>
+
+        <li class="sub-dropdown">
+          <a href="PRODUCT.html">Wastewater Treatment ▸</a>
+          <ul class="sub-dropdown-menu">
+            <li><a href="PRODUCT.html">Effluent Treatment Plant (ETP)</a></li>
+            <li><a href="PRODUCT.html">Sewage Treatment Plant (STP)</a></li>
+            <li><a href="PRODUCT.html">DAF Unit</a></li>
+            <li><a href="PRODUCT.html">Primary & Secondary Clarifier</a></li>
+            <li><a href="PRODUCT.html">Wet Fume Scrubber</a></li>
+            <li><a href="PRODUCT.html">MEE</a></li>
+          </ul>
+        </li>
+
+        <li><a href="PRODUCT.html">Chemicals</a></li>
+        <li><a href="environmental.html">Environmental</a></li>
+      </ul>
+    </li>
+
+    <!-- SERVICES DROPDOWN -->
+    <li class="dropdown">
+      <a href="Services.html" class="has-dropdown">
+        SERVICES <span class="arrow">▼</span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="Services.html">AMC (WTP, STP, ETP, MEE, RO, UF)</a></li>
+        <li><a href="Services.html">EPR Registration</a></li>
+        <li><a href="Services.html">NOC from CGWA</a></li>
+      </ul>
+    </li>
+
+    <li><a href="Our_Work.html">OUR WORK</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- JavaScript -->
+  <script>
+    const navbar = document.getElementById('navbar');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const overlay = document.getElementById('overlay');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('show');
+    });
+
+    overlay.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      overlay.classList.remove('show');
+      closeAllMenus();
+    });
+
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const menu = toggle.nextElementSibling;
+          menu.classList.toggle('show');
+          closeOthers(menu, '.dropdown-menu');
+        }
+      });
+    });
+
+    document.querySelectorAll('.sub-dropdown > a').forEach(sub => {
+      sub.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const subMenu = sub.nextElementSibling;
+          subMenu.classList.toggle('show');
+          closeOthers(subMenu, '.sub-dropdown-menu');
+        }
+      });
+    });
+
+    function closeOthers(current, selector) {
+      document.querySelectorAll(selector).forEach(menu => {
+        if (menu !== current) menu.classList.remove('show');
+      });
+    }
+
+    function closeAllMenus() {
+      document.querySelectorAll('.dropdown-menu, .sub-dropdown-menu').forEach(menu => {
+        menu.classList.remove('show');
+      });
+    }
+
+    document.querySelectorAll('.nav-links > li > a:not(.dropdown-toggle)').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navLinks.classList.remove('active');
+          overlay.classList.remove('show');
+          closeAllMenus();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ============ PRODUCTS SECTION ============ -->
+<section id="products" style="padding:120px 8vw; background:linear-gradient(135deg,#f9f9f9 0%,#f0faff 100%); font-family:'Poppins', sans-serif; color:#333;">
+
+  <!-- Main Section Title -->
+  <h2 style="font-size:2.8rem; margin-bottom:80px; font-weight:700; color:#F24D29; margin-left: 333px;position:relative; display:inline-block;">
+    Our Products & Solutions
+    <span style="display:block; width:100px; height:5px; background:#6CC04A; margin:14px auto 0; border-radius:3px;"></span>
+  </h2>
+
+  <!-- ================= WATER TREATMENT SYSTEMS ================= -->
+  <h3 style="font-size:2rem; margin-bottom:30px; color:#007ACC; border-left:6px solid #6CC04A; padding-left:12px; font-weight:600;">
+    Water Treatment Systems
+  </h3>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <h3>Ozone System</h3>
+      <p>The Ozone system reduces organic matter, COD/BOD load, disinfects odour & colour, and oxidizes pollutants effectively.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Ultrafiltration (UF)</h3>
+      <p>Separates bacteria, viruses, and colloids with a compact design, stable output, and minimal chemical use.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Water Treatment Plant (WTP)</h3>
+      <p>Multi-stage treatment including coagulation, sedimentation, filtration, and disinfection for safe drinking water.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Demineralization (DM) Plant</h3>
+      <p>Removes dissolved minerals and impurities, ensuring high efficiency and reliability for industrial needs.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Reverse Osmosis (RO) Plant</h3>
+      <p>Removes up to 99% of contaminants with high-performance membranes, compact design, and smart monitoring.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Water Softener</h3>
+      <p>Removes hardness-causing minerals via ion exchange resin for longer equipment life and efficient operation.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+  </div>
+
+  <!-- ================= WASTEWATER TREATMENT ================= -->
+  <h3 style="font-size:2rem; margin:60px 0 30px; color:#007ACC; border-left:6px solid #6CC04A; padding-left:12px; font-weight:600;">
+    Wastewater Treatment
+  </h3>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <h3>Effluent Treatment Plant (ETP)</h3>
+      <p>MBBR, SBR, MBR, and FAB technologies for industrial wastewater treatment and regulatory compliance.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Sewage Treatment Plant (STP)</h3>
+      <p>ASP, MBBR, MBR, Electro-Coagulation, and SBR tech for compact, efficient sewage treatment.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Dissolved Air Flotation (DAF)</h3>
+      <p>Clarifies wastewater by floating suspended matter with micro-bubbles. Used in dairy, oil, textile industries.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Primary & Secondary Clarifier</h3>
+      <p>Removes suspended solids using gravity settling with mechanical scrapers for sludge & scum.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Wet Fume Scrubber</h3>
+      <p>Neutralizes corrosive gases, absorbs particulates, and handles high-temperature streams efficiently.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+
+    <div class="product-card">
+      <h3>Multi Effect Evaporator (MEE)</h3>
+      <p>Reduces energy consumption while maximizing evaporation efficiency in industrial applications.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+  </div>
+
+  <!-- ================= CHEMICALS ================= -->
+  <h3 style="font-size:2rem; margin:60px 0 30px; color:#007ACC; border-left:6px solid #6CC04A; padding-left:12px; font-weight:600;">
+    Chemicals
+  </h3>
+  <div class="product-grid">
+    <div class="product-card">
+      <h3>Chemicals</h3>
+      <p>We supply antiscalants, membrane cleaners, bio-cultures, odor removers, and ETP/STP treatment chemicals.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+  </div>
+
+  <!-- ================= ENVIRONMENTAL ================= -->
+  <h3 style="font-size:2rem; margin:60px 0 30px; color:#007ACC; border-left:6px solid #6CC04A; padding-left:12px; font-weight:600;">
+    Environmental Monitoring
+  </h3>
+  <div class="product-grid">
+    <div class="product-card">
+      <h3>Environmental Monitoring</h3>
+      <p>Ambient air & noise monitoring, stack emission analysis, ventilation surveys, and ETP/STP sample testing.</p>
+      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+    </div>
+  </div>
+
+</section>
+
+<!-- Document Viewer -->
+<div id="docViewer" style="display:none; padding:40px; background:#fff; border-radius:15px; margin:40px auto; max-width:1200px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+  <button onclick="closeDoc()" style="background:#F24D29; color:#fff; border:none; padding:10px 18px; border-radius:6px; cursor:pointer; margin-bottom:15px; font-weight:600;">
+    ✕ Close
+  </button>
+  <iframe id="docFrame" src="" style="width:100%; height:700px; border:none; border-radius:10px;"></iframe>
+</div>
+
+<!-- Styles -->
+<style>
+  .product-grid {
+    display:grid; 
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); 
+    gap:40px;
+  }
+  .product-card {
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+  }
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow:0 10px 28px rgba(0,0,0,0.15);
+  }
+  .product-card h3 {
+    color:#0BA34E;
+    margin-bottom:12px;
+    font-size:20px;
+    font-weight:600;
+  }
+  .product-card button {
+    margin-top:15px;
+    padding:10px 20px;
+    background:linear-gradient(90deg,#6CC04A,#8DC63F);
+    border:none;
+    color:#fff;
+    font-weight:600;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+    transition:0.3s;
+  }
+  .product-card button:hover {
+      background:linear-gradient(90deg,#07d67a,#0BA34E);
+    transform:scale(1.08);
+  }
+</style>
+
+<!-- Script -->
+<script>
+  function openDoc(file) {
+    document.getElementById('docViewer').style.display = 'block';
+    document.getElementById('docFrame').src = file;
+    window.scrollTo({ top: document.getElementById('docViewer').offsetTop, behavior: 'smooth' });
+  }
+  function closeDoc() {
+    document.getElementById('docViewer').style.display = 'none';
+    document.getElementById('docFrame').src = "";
+  }
+</script>
+
+
+
+
+
+
+
+<!-- //////////////////////////////// OUR CLIENT////////////////////////////// -->
+<!-- WhatsApp Floating Button -->
+<div class="whatsapp-float">
+   <a href="https://wa.me/9766878070" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
+  </a>
+</div>
+
+<!-- CSS -->
+<style>
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .whatsapp-float img {
+    width: 35px;
+    height: 35px;
+  }
+</style>
+
+
+
+
+
+<!-- ============ FOOTER ============ -->
+<footer id="footer" style="background: linear-gradient(135deg, #e8fdf3, #f7fff9, #d6fdea); color:#333; font-family:'Poppins', sans-serif; position:relative; overflow:hidden;">
+
+  <!-- Decorative Overlay -->
+  <div style="position:absolute; inset:0; background:radial-gradient(circle at top left, rgba(7,214,122,0.12), transparent 60%), radial-gradient(circle at bottom right, rgba(11,163,78,0.12), transparent 60%); z-index:0;"></div>
+
+  <!-- Top Section -->
+  <div style="max-width:1400px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:50px; padding:60px 20px 40px; position:relative; z-index:1;">
+
+    <!-- Logo + About -->
+    <div>
+      <img src="images/LOGO_02.png" alt="Aquagreen Logo" style="height:120px; margin-bottom:20px;">
+      <p style="line-height:1.8; font-size:16px; color:#444;">
+        Aquagreen Tech Solutions delivers sustainable innovations in water & wastewater treatment, ensuring a greener and cleaner future for industries and communities.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Quick Links</h3>
+      <ul style="list-style:none; padding:0; margin:0; display:grid; gap:8px;">
+        <li><a href="index.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Home</a></li>
+        <li><a href="About.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">About Us</a></li>
+        <li><a href="PRODUCT.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Products</a></li>
+        <li><a href="Services.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Services</a></li>
+        <li><a href="Our_Work.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Our Work</a></li>
+        <li><a href="contact.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Contact</a></li>
+      </ul>
+    </div>
+
+
+    <!-- Contact -->
+    <div>
+      <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Contact Us</h3>
+      <p style="line-height:1.8; font-size:16px; color:#444;">
+        Office No. 171, Jay Ganesh Vision B Wing, Akurdi, Pune 411035<br>
+        Registered Address: A201, Renuka Gulmohar 2, B/H City One Mall, Morwadi, Pimpri Pune-411018<br><br>
+        <strong>Phone:</strong> 9766878070 / 7276368070<br>
+        <strong>Email:</strong> <a href="mailto:aquagreentechs@gmail.com" style="color:#0BA34E; text-decoration:none;">aquagreentechs@gmail.com</a>
+      </p>
+    </div>
+
+    <!-- Socials -->
+    <div>
+      <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Follow Us</h3>
+      <div class="socials" style="display:flex; gap:18px; font-size:28px;">
+        <a href="#" style="color:#444; transition:0.3s;"><i class="ri-facebook-circle-fill"></i></a>
+        <a href="#" style="color:#444; transition:0.3s;"><i class="ri-twitter-x-fill"></i></a>
+        <a href="#" style="color:#444; transition:0.3s;"><i class="ri-linkedin-box-fill"></i></a>
+        <a href="#" style="color:#444; transition:0.3s;"><i class="ri-instagram-fill"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div style="text-align:center; padding:20px 20px; font-size:15px; color:#fff; background:linear-gradient(90deg,#6CC04A,#00CFFF,#3A8E3D); position:relative; z-index:1;">
+    © <script>document.write(new Date().getFullYear());</script> Aquagreen Tech Solutions. All Rights Reserved.<br>
+    <span style="font-size:14px; color:#f1f1f1;">Developed By <strong>DW INNOVATION PVT. LTD.</strong></span>
+  </div>
+
+  <style>
+    #footer a:hover {
+      color:#ff7b00 !important;
+      padding-left:4px;
+      transition:0.3s;
+    }
+    #footer .socials a:hover {
+      color:#07d67a !important;
+      transform:scale(1.25) rotate(5deg);
+      transition:0.3s;
+    }
+  </style>
+
+</footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+  <script>
+    // Hero Section Entrance Animation
+    function loadingAnimation() {
+      let tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      tl.from("nav", { y: -100, opacity: 0, filter: "blur(10px)", duration: 1.2, ease: "expo.out" })
+        .from("#page1 h1 span", { opacity: 0, y: 80, rotationX: 90, stagger: 0.05, duration: 1.2, ease: "back.out(1.8)" }, "-=0.6")
+        .from("#page1 p", { y: 60, opacity: 0, scale: 0.95, duration: 1 }, "-=0.8");
+    }
+   
+    function heroParallax() {
+      gsap.to("#page1 h1", { scrollTrigger: { trigger: "#page1", scroller: "#main", start: "top top", end: "bottom top", scrub: true }, y: 120, opacity: 0.6, ease: "none" });
+      gsap.to("#page1 p", { scrollTrigger: { trigger: "#page1", scroller: "#main", start: "top center", end: "bottom top", scrub: true }, y: 80, opacity: 0.4, ease: "none" });
+    }
+    
+
+    // Run animations
+    loadingAnimation(); glowPulse(); floatParticles(); heroParallax();
+  </script>
+
+
+
+<!-- GSAP Animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate headings
+  gsap.from("#about-us h2, #about-us h3", {
+    scrollTrigger: { trigger: "#about-us", start: "top 80%" },
+    y: 60, opacity: 0, duration: 1, stagger: 0.3, ease: "power3.out"
+  });
+
+  // Animate paragraphs + lists
+  gsap.from("#about-us p, #about-us ul li", {
+    scrollTrigger: { trigger: "#about-us", start: "top 85%" },
+    y: 40, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out"
+  });
+
+  // Image animation
+  gsap.from("#about-us img", {
+    scrollTrigger: { trigger: "#about-us", start: "top 75%" },
+    scale: 0.8, opacity: 0, duration: 1.2, ease: "back.out(1.7)"
+  });
+
+  // Floating pulse effect
+  gsap.to("#about-us img", {
+    y: -15,
+    repeat: -1,
+    yoyo: true,
+    duration: 3,
+    ease: "sine.inOut"
+  });
+
+</script>
+
+
+
+</body>
+</html>
