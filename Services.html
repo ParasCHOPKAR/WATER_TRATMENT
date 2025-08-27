@@ -23,7 +23,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);
+  background:linear-gradient(135deg,#f9f9f9 0%,#f0faff 100%);
     }
 
     .navbar {
@@ -276,29 +276,21 @@
         <li class="sub-dropdown">
           <a href="PRODUCT.html">Water Treatment Systems ▸</a>
           <ul class="sub-dropdown-menu">
-            <li><a href="PRODUCT.html">Ozone System</a></li>
-            <li><a href="PRODUCT.html">Ultrafiltration (UF) System</a></li>
-            <li><a href="PRODUCT.html">Water Treatment Plant (WTP)</a></li>
-            <li><a href="PRODUCT.html">Demineralization (DM) Plant</a></li>
-            <li><a href="PRODUCT.html">Reverse Osmosis (RO) Plant</a></li>
-            <li><a href="PRODUCT.html">Water Softener</a></li>
+            <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+            <li><a href="UF.html">Ultrafiltration (UF) System</a></li>
           </ul>
         </li>
 
         <li class="sub-dropdown">
           <a href="PRODUCT.html">Wastewater Treatment ▸</a>
           <ul class="sub-dropdown-menu">
-            <li><a href="PRODUCT.html">Effluent Treatment Plant (ETP)</a></li>
-            <li><a href="PRODUCT.html">Sewage Treatment Plant (STP)</a></li>
-            <li><a href="PRODUCT.html">DAF Unit</a></li>
-            <li><a href="PRODUCT.html">Primary & Secondary Clarifier</a></li>
-            <li><a href="PRODUCT.html">Wet Fume Scrubber</a></li>
-            <li><a href="PRODUCT.html">MEE</a></li>
+            <li><a href="DAF.html">DAF Unit</a></li>
+            <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+            <li><a href="Wet.html">Wet Fume Scrubber</a></li>
           </ul>
         </li>
 
-        <li><a href="PRODUCT.html">Chemicals</a></li>
-        <li><a href="environmental.html">Environmental</a></li>
+        <li><a href="CHEmical.html">Chemicals</a></li>
       </ul>
     </li>
 
@@ -308,9 +300,28 @@
         SERVICES <span class="arrow">▼</span>
       </a>
       <ul class="dropdown-menu">
-        <li><a href="Services.html">AMC (WTP, STP, ETP, MEE, RO, UF)</a></li>
-        <li><a href="Services.html">EPR Registration</a></li>
-        <li><a href="Services.html">NOC from CGWA</a></li>
+
+        <!-- AMC SUBDROPDOWN -->
+     <li class="sub-dropdown">
+          <a href="Services.html">AMC ▸</a>
+          <ul class="sub-dropdown-menu">
+             <li><a href="CSTP.html">CSTP</a></li>
+              <li><a href="CETP.html">CETP</a></li>
+            <li><a href="STP.html">STP</a></li>
+            <li><a href="ETP.html">ETP</a></li>
+            <li><a href="MEE.html">MEE</a></li>
+            <li><a href="RO.html">RO</a></li>
+            <li><a href="UF.html">UF</a></li>
+            <li><a href="MPCB.html">MPCB</a></li>
+            <li><a href="DM.html">DM</a></li>
+            <li><a href="ZLD.html">ZLD</a></li>
+              <li><a href="Softnres.html">Softeners</a></li>
+          </ul>
+        </li>
+
+        <li><a href="EPR.html">EPR Registration</a></li>
+        <li><a href="CGWA.html">NOC from CGWA</a></li>
+        <li><a href="Services.html">Environmental</a></li>
       </ul>
     </li>
 
@@ -318,6 +329,7 @@
     <li><a href="contact.html">CONTACT</a></li>
   </ul>
 </nav>
+
 
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
@@ -410,7 +422,9 @@
 
 
 <!-- ============ SERVICES SECTION ============ -->
-<section id="services" style="padding:120px 8vw; background:#f9f9f9; font-family:'Poppins', sans-serif; color:#333;">
+<!-- ============ SERVICES SECTION ============ -->
+<section id="services" style="margin-top:60px; padding:140px 8vw; background:#f9f9f9; font-family:'Poppins', sans-serif; color:#333;">
+
 
   <!-- Main Section Title -->
   <h2 style="font-size:2.5rem; text-align:center; margin-bottom:80px;
@@ -425,20 +439,21 @@
     <div class="product-grid">
 
       <div class="product-card">
-        <h3>Annual Maintenance of WTP, STP, ETP, MEE, RO & UF</h3>
+        <h3>CSTP (Common Sewage Treatment Plants)</h3>
         <p>
-          We provide AMC services for water and wastewater treatment facilities including WTP, STP, ETP, MEE, RO, and UF.
+          Advanced sewage treatment solutions designed for residential, commercial, and industrial needs.  
+          Ensures proper treatment, recycling.
         </p>
-        <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+        <a href="CSTP.html" target="_blank"><button>View More</button></a>
       </div>
 
       <div class="product-card">
-        <h3>Water Treatment Plants (WTP)</h3>
+        <h3>CETP (Common Effluent Treatment Plants)</h3>
         <p>
-          Pre-treatment, filtration, and disinfection for safe drinking water.  
-          Regular inspection and cleaning of equipment to maintain efficiency.
+          Centralized effluent treatment for multiple industries.  
+          Helps achieve regulatory compliance and minimizes environmental impact.
         </p>
-        <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+        <a href="CETP.html" target="_blank"><button>View More</button></a>
       </div>
 
       <div class="product-card">
@@ -447,7 +462,7 @@
           Primary & biological treatment to remove pollutants.  
           Prevents water pollution with proper operation and maintenance.
         </p>
-        <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+        <a href="STP.html" target="_blank"><button>View More</button></a>
       </div>
 
       <div class="product-card">
@@ -456,7 +471,7 @@
           Chemical & biological treatment neutralizes pollutants.  
           Regular monitoring ensures compliance with regulations.
         </p>
-        <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+        <a href="ETP.html" target="_blank"><button>View More</button></a>
       </div>
 
       <div class="product-card">
@@ -465,18 +480,76 @@
           Concentrates wastewater and recovers valuable resources.  
           Scale management and safety measures are essential.
         </p>
-        <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+        <a href="MEE.html" target="_blank"><button>View More</button></a>
       </div>
 
       <div class="product-card">
-        <h3>Reverse Osmosis (RO) & Ultrafiltration (UF)</h3>
+        <h3>Reverse Osmosis (RO)</h3>
         <p>
           Membrane cleaning and pressure monitoring to maintain efficiency.  
           Sanitization prevents biofouling and microbial growth.
         </p>
-        <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+        <a href="RO.html" target="_blank"><button>View More</button></a>
       </div>
 
+      <div class="product-card">
+        <h3>ZLD (Zero Liquid Discharge Systems)</h3>
+        <p>
+          Advanced treatment system ensuring minimal liquid waste discharge.  
+          Combines RO, MEE, and crystallizers for sustainable water recovery.
+        </p>
+        <a href="ZLD.html" target="_blank"><button>View More</button></a>
+      </div>
+
+      <div class="product-card">
+        <h3>Softeners</h3>
+        <p>
+          Removes hardness-causing calcium and magnesium ions from water.  
+          Ensures scale-free equipment and improves efficiency in industrial applications.
+        </p>
+        <a href="Softnres.html" target="_blank"><button>View More</button></a>
+      </div>
+
+      <div class="product-card">
+        <h3>DM (Demineralization Plants)</h3>
+        <p>
+          Produces high-purity water by removing dissolved salts and minerals.  
+          Uses ion-exchange technology for reliable and consistent output.
+        </p>
+        <a href="DM.html" target="_blank"><button>View More</button></a>
+      </div>
+
+      <div class="product-card">
+        <h3>MPCB Consent</h3>
+        <p>
+          Assistance in obtaining consent from Maharashtra Pollution Control Board (MPCB)  
+          for establishing and operating industries in compliance with environmental norms.
+        </p>
+        <a href="MPCB.html" target="_blank"><button>View More</button></a>
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <!-- ================= ENVIRONMENTAL ================= -->
+  <div class="service-category">
+    <h3 class="category-title">Environmental Services</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <h3>Environmental Monitoring</h3>
+        <p>Ambient air & noise monitoring, stack emission analysis, ventilation surveys, and ETP/STP sample testing.</p>
+        <a href="Env_Monitoring.html" target="_blank"><button>View More</button></a>
+      </div>
+            <div class="product-card">
+        <h3>Environmental Management and Statutory Compliances</h3>
+        <p>
+          Comprehensive solutions for environmental management, ensuring adherence to  
+          statutory requirements such as air, water, and waste management regulations.
+        </p>
+        <a href="ENv_Managment.html" target="_blank"><button>View More</button></a>
+      </div>
     </div>
   </div>
 
@@ -484,7 +557,6 @@
   <div class="service-category">
     <h3 class="category-title">Extended Producer Responsibility (EPR)</h3>
     <div class="product-grid">
-
       <div class="product-card">
         <h3>EPR Registration</h3>
         <p>
@@ -493,9 +565,8 @@
           <br>> E-Waste  
           <br>> Battery Waste  
         </p>
-        <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+        <a href="EPR.html" target="_blank"><button>View More</button></a>
       </div>
-
     </div>
   </div>
 
@@ -503,7 +574,6 @@
   <div class="service-category">
     <h3 class="category-title">Central Ground Water Authority (CGWA)</h3>
     <div class="product-grid">
-
       <div class="product-card">
         <h3>NOC from CGWA</h3>
         <p>
@@ -511,13 +581,13 @@
           <br>> Industries with existing/proposed Borewell or Dugwell  
           <br>> Authorized Water Suppliers / Tankers  
         </p>
-        <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+        <a href="CGWA.html" target="_blank"><button>View More</button></a>
       </div>
-
     </div>
   </div>
 
 </section>
+
 
 <!-- Document Viewer -->
 <div id="docViewer" style="display:none; padding:40px; background:#fff; border-radius:15px; margin:40px auto; max-width:1200px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">

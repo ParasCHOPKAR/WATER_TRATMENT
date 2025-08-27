@@ -24,7 +24,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);
+background:linear-gradient(135deg,#f9f9f9 0%,#f0faff 100%);
     }
 
     .navbar {
@@ -277,29 +277,21 @@
         <li class="sub-dropdown">
           <a href="PRODUCT.html">Water Treatment Systems ▸</a>
           <ul class="sub-dropdown-menu">
-            <li><a href="PRODUCT.html">Ozone System</a></li>
-            <li><a href="PRODUCT.html">Ultrafiltration (UF) System</a></li>
-            <li><a href="PRODUCT.html">Water Treatment Plant (WTP)</a></li>
-            <li><a href="PRODUCT.html">Demineralization (DM) Plant</a></li>
-            <li><a href="PRODUCT.html">Reverse Osmosis (RO) Plant</a></li>
-            <li><a href="PRODUCT.html">Water Softener</a></li>
+            <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+            <li><a href="UF.html">Ultrafiltration (UF) System</a></li>
           </ul>
         </li>
 
         <li class="sub-dropdown">
           <a href="PRODUCT.html">Wastewater Treatment ▸</a>
           <ul class="sub-dropdown-menu">
-            <li><a href="PRODUCT.html">Effluent Treatment Plant (ETP)</a></li>
-            <li><a href="PRODUCT.html">Sewage Treatment Plant (STP)</a></li>
-            <li><a href="PRODUCT.html">DAF Unit</a></li>
-            <li><a href="PRODUCT.html">Primary & Secondary Clarifier</a></li>
-            <li><a href="PRODUCT.html">Wet Fume Scrubber</a></li>
-            <li><a href="PRODUCT.html">MEE</a></li>
+            <li><a href="DAF.html">DAF Unit</a></li>
+            <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+            <li><a href="Wet.html">Wet Fume Scrubber</a></li>
           </ul>
         </li>
 
-        <li><a href="PRODUCT.html">Chemicals</a></li>
-        <li><a href="environmental.html">Environmental</a></li>
+        <li><a href="CHEmical.html">Chemicals</a></li>
       </ul>
     </li>
 
@@ -309,9 +301,28 @@
         SERVICES <span class="arrow">▼</span>
       </a>
       <ul class="dropdown-menu">
-        <li><a href="Services.html">AMC (WTP, STP, ETP, MEE, RO, UF)</a></li>
-        <li><a href="Services.html">EPR Registration</a></li>
-        <li><a href="Services.html">NOC from CGWA</a></li>
+
+        <!-- AMC SUBDROPDOWN -->
+     <li class="sub-dropdown">
+          <a href="Services.html">AMC ▸</a>
+          <ul class="sub-dropdown-menu">
+             <li><a href="CSTP.html">CSTP</a></li>
+              <li><a href="CETP.html">CETP</a></li>
+            <li><a href="STP.html">STP</a></li>
+            <li><a href="ETP.html">ETP</a></li>
+            <li><a href="MEE.html">MEE</a></li>
+            <li><a href="RO.html">RO</a></li>
+            <li><a href="UF.html">UF</a></li>
+            <li><a href="MPCB.html">MPCB</a></li>
+            <li><a href="DM.html">DM</a></li>
+            <li><a href="ZLD.html">ZLD</a></li>
+              <li><a href="Softnres.html">Softeners</a></li>
+          </ul>
+        </li>
+
+        <li><a href="EPR.html">EPR Registration</a></li>
+        <li><a href="CGWA.html">NOC from CGWA</a></li>
+        <li><a href="Services.html">Environmental</a></li>
       </ul>
     </li>
 
@@ -412,13 +423,16 @@
 
 
 <!-- ============ PRODUCTS SECTION ============ -->
-<section id="products" style="padding:120px 8vw; background:linear-gradient(135deg,#f9f9f9 0%,#f0faff 100%); font-family:'Poppins', sans-serif; color:#333;">
+<!-- ============ PRODUCTS SECTION ============ -->
+<section id="products" 
+style="margin-top:60px; padding:140px 8vw; background:linear-gradient(135deg,#f9f9f9 0%,#f0faff 100%); font-family:'Poppins', sans-serif; color:#333;">
+
 
   <!-- Main Section Title -->
-  <h2 style="font-size:2.8rem; margin-bottom:80px; font-weight:700; color:#F24D29; margin-left: 333px;position:relative; display:inline-block;">
-    Our Products & Solutions
-    <span style="display:block; width:100px; height:5px; background:#6CC04A; margin:14px auto 0; border-radius:3px;"></span>
-  </h2>
+<h2 style="font-size:2.2rem; font-weight:700; color:#F24D29; text-align:center; margin:0 auto 60px auto; position:relative; display:block; max-width:100%; word-wrap:break-word;">
+  Our Products & Solutions
+  <span style="display:block; width:100px; height:5px; background:#6CC04A; margin:14px auto 0; border-radius:3px;"></span>
+</h2>
 
   <!-- ================= WATER TREATMENT SYSTEMS ================= -->
   <h3 style="font-size:2rem; margin-bottom:30px; color:#007ACC; border-left:6px solid #6CC04A; padding-left:12px; font-weight:600;">
@@ -429,80 +443,50 @@
     <div class="product-card">
       <h3>Ozone System</h3>
       <p>The Ozone system reduces organic matter, COD/BOD load, disinfects odour & colour, and oxidizes pollutants effectively.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+      <a href="Ozonw_SyS.html" target="_blank">
+        <button>View More</button>
+      </a>
     </div>
 
     <div class="product-card">
       <h3>Ultrafiltration (UF)</h3>
       <p>Separates bacteria, viruses, and colloids with a compact design, stable output, and minimal chemical use.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+      <a href="UF.html" target="_blank">
+        <button>View More</button>
+      </a>
     </div>
 
-    <div class="product-card">
-      <h3>Water Treatment Plant (WTP)</h3>
-      <p>Multi-stage treatment including coagulation, sedimentation, filtration, and disinfection for safe drinking water.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
-    </div>
-
-    <div class="product-card">
-      <h3>Demineralization (DM) Plant</h3>
-      <p>Removes dissolved minerals and impurities, ensuring high efficiency and reliability for industrial needs.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
-    </div>
-
-    <div class="product-card">
-      <h3>Reverse Osmosis (RO) Plant</h3>
-      <p>Removes up to 99% of contaminants with high-performance membranes, compact design, and smart monitoring.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
-    </div>
-
-    <div class="product-card">
-      <h3>Water Softener</h3>
-      <p>Removes hardness-causing minerals via ion exchange resin for longer equipment life and efficient operation.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
-    </div>
   </div>
 
   <!-- ================= WASTEWATER TREATMENT ================= -->
   <h3 style="font-size:2rem; margin:60px 0 30px; color:#007ACC; border-left:6px solid #6CC04A; padding-left:12px; font-weight:600;">
     Wastewater Treatment
   </h3>
+  
   <div class="product-grid">
 
-    <div class="product-card">
-      <h3>Effluent Treatment Plant (ETP)</h3>
-      <p>MBBR, SBR, MBR, and FAB technologies for industrial wastewater treatment and regulatory compliance.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
-    </div>
+     <div class="product-card">
+<h3>Dissolved Air Flotation Unit</h3>
+<p>Efficiently removes suspended solids, oils, and grease through air bubble flotation and skimming.</p>
 
-    <div class="product-card">
-      <h3>Sewage Treatment Plant (STP)</h3>
-      <p>ASP, MBBR, MBR, Electro-Coagulation, and SBR tech for compact, efficient sewage treatment.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+      <a href="DAF.html" target="_blank">
+        <button>View More</button>
+      </a>
     </div>
-
-    <div class="product-card">
-      <h3>Dissolved Air Flotation (DAF)</h3>
-      <p>Clarifies wastewater by floating suspended matter with micro-bubbles. Used in dairy, oil, textile industries.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
-    </div>
-
     <div class="product-card">
       <h3>Primary & Secondary Clarifier</h3>
       <p>Removes suspended solids using gravity settling with mechanical scrapers for sludge & scum.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+      <a href="Clasifier.html" target="_blank">
+        <button>View More</button>
+      </a>
     </div>
 
     <div class="product-card">
       <h3>Wet Fume Scrubber</h3>
       <p>Neutralizes corrosive gases, absorbs particulates, and handles high-temperature streams efficiently.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
-    </div>
-
-    <div class="product-card">
-      <h3>Multi Effect Evaporator (MEE)</h3>
-      <p>Reduces energy consumption while maximizing evaporation efficiency in industrial applications.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+      <a href="Wet.html" target="_blank">
+        <button>View More</button>
+      </a>
     </div>
   </div>
 
@@ -514,31 +498,15 @@
     <div class="product-card">
       <h3>Chemicals</h3>
       <p>We supply antiscalants, membrane cleaners, bio-cultures, odor removers, and ETP/STP treatment chemicals.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
-    </div>
-  </div>
-
-  <!-- ================= ENVIRONMENTAL ================= -->
-  <h3 style="font-size:2rem; margin:60px 0 30px; color:#007ACC; border-left:6px solid #6CC04A; padding-left:12px; font-weight:600;">
-    Environmental Monitoring
-  </h3>
-  <div class="product-grid">
-    <div class="product-card">
-      <h3>Environmental Monitoring</h3>
-      <p>Ambient air & noise monitoring, stack emission analysis, ventilation surveys, and ETP/STP sample testing.</p>
-      <button onclick="openDoc('PDF/CATLOG.pdf')">View More</button>
+      <a href="CHEmical.html" target="_blank">
+        <button>View More</button>
+      </a>
     </div>
   </div>
 
 </section>
 
 <!-- Document Viewer -->
-<div id="docViewer" style="display:none; padding:40px; background:#fff; border-radius:15px; margin:40px auto; max-width:1200px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
-  <button onclick="closeDoc()" style="background:#F24D29; color:#fff; border:none; padding:10px 18px; border-radius:6px; cursor:pointer; margin-bottom:15px; font-weight:600;">
-    ✕ Close
-  </button>
-  <iframe id="docFrame" src="" style="width:100%; height:700px; border:none; border-radius:10px;"></iframe>
-</div>
 
 <!-- Styles -->
 <style>
