@@ -9,11 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-
   <style>
-    
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 
     * {
       margin: 0;
@@ -23,9 +20,10 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-  background:linear-gradient(135deg,#f9f9f9 0%,#f0faff 100%);
+background:#f9f9f9;
     }
 
+    /* ================= NAVBAR ================= */
     .navbar {
       position: fixed;
       top: 0;
@@ -39,22 +37,19 @@
       z-index: 1000;
     }
 
-.navbar.scrolled {
- background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
+    .navbar.scrolled {
+      background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 3px solid rgba(0, 207, 255, 0.6);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+      transition: all 0.5s ease-in-out;
+    }
 
-  backdrop-filter: blur(10px);
-  border-bottom: 3px solid rgba(0, 207, 255, 0.6);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
-  transition: all 0.5s ease-in-out;
-}
-
-
-
-.nav-links li,
-.dropdown-menu li,
-.sub-dropdown-menu li {
-  list-style: none;
-}
+    .nav-links li,
+    .dropdown-menu li,
+    .sub-dropdown-menu li {
+      list-style: none;
+    }
 
     .logo img {
       height: 100px;
@@ -79,41 +74,39 @@
       position: relative;
     }
 
-.nav-links > li > a {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #444;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  position: relative;
-  padding: 6px 0;
-  transition: color 0.3s ease;
-}
-
-.nav-links > li > a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, #00CFFF, #6CC04A);
-  transition: width 0.3s ease-in-out;
-}
-.nav-links > li > a:hover {
-  color: #ff7b00; /* highlight color */
-}
-
-.nav-links > li > a:hover::after {
-  width: 100%;
-}
-
-    .nav-links > li > a:hover {
-      color:  #ff7b00;
+    .nav-links > li > a {
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #444;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.3s ease;
     }
 
+    .nav-links > li > a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00CFFF, #6CC04A);
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-links > li > a:hover {
+      color: #ff7b00;
+    }
+
+    .nav-links > li > a:hover::after {
+      width: 100%;
+    }
+
+    /* Dropdowns */
     .dropdown-menu,
     .sub-dropdown-menu {
       display: none;
@@ -153,15 +146,20 @@
       left: 100%;
     }
 
-    .dropdown-arrow {
+    .arrow {
       font-size: 12px;
+      transition: transform 0.3s ease;
     }
 
-    /* ----------- MOBILE VIEW ----------- */
+    .arrow.rotate {
+      transform: rotate(180deg);
+    }
+
+    /* ================= MOBILE VIEW ================= */
     @media (max-width: 768px) {
       .navbar {
         padding: 20px;
-        background: rgba(0, 0, 0, 0.95); /* <-- Mobile-only navbar background */
+        background: rgba(0, 0, 0, 0.95);
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       }
 
@@ -199,10 +197,6 @@
 
       .overlay.show {
         display: block;
-      }
-
-      .nav-links li {
-        width: 100%;
       }
 
       .nav-links > li > a {
@@ -247,104 +241,108 @@
         cursor: pointer;
       }
     }
+
+    /* Hide mobile-only links on desktop */
+.mobile-only { display: none; }
+
+/* Show only inside mobile sidebar */
+@media (max-width: 768px) {
+  .mobile-only { 
+    display: block; 
+  }
+  .mobile-only a {
+    color: #ffcc00;
+    font-weight: bold;
+    padding: 10px 15px;
+  }
+}
+
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <!-- ✅ Final Responsive Navbar -->
-<nav class="navbar" id="navbar">
-  <!-- Logo -->
-  <a href="index.html" class="logo">
-    <img src="images/LOGO_02.png" alt="Aquagreen Logo">
-  </a>
+  <nav class="navbar" id="navbar">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="images/LOGO_02.png" alt="Aquagreen Logo">
+    </a>
 
-  <!-- Mobile Toggle -->
-  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+    <!-- Mobile Toggle -->
+    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
 
-  <!-- Navigation -->
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">HOME</a></li>
-    <li><a href="About.html">ABOUT US</a></li>
+    <!-- Navigation -->
+<ul class="nav-links" id="navLinks">
+  <li><a href="index.html">HOME</a></li>
+  <li><a href="About.html">ABOUT US</a></li>
 
-    <!-- PRODUCTS DROPDOWN -->
-    <li class="dropdown">
-      <a href="PRODUCT.html" class="has-dropdown">
-        PRODUCTS <span class="arrow">▼</span>
-      </a>
-      <ul class="dropdown-menu">
-        <li class="sub-dropdown">
-          <a href="PRODUCT.html">Water Treatment Systems ▸</a>
-          <ul class="sub-dropdown-menu">
-            <li><a href="Ozonw_SyS.html">Ozone System</a></li>
-            <li><a href="UF.html">Ultrafiltration (UF) System</a></li>
-          </ul>
-        </li>
+  <!-- PRODUCTS DROPDOWN -->
+  <li class="dropdown">
+    <a href="PRODUCT.html" class="dropdown-toggle">
+      PRODUCTS <span class="arrow">▼</span>
+    </a>
+    <ul class="dropdown-menu">
+      <!-- Mobile-only "All Products" link -->
+      <li class="mobile-only"><a href="PRODUCT.html"><strong>All Products</strong></a></li>
 
-        <li class="sub-dropdown">
-          <a href="PRODUCT.html">Wastewater Treatment ▸</a>
-          <ul class="sub-dropdown-menu">
-            <li><a href="DAF.html">DAF Unit</a></li>
-            <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
-            <li><a href="Wet.html">Wet Fume Scrubber</a></li>
-          </ul>
-        </li>
+      <li class="sub-dropdown">
+        <a href="PRODUCT.html">Water Treatment Systems ▸</a>
+        <ul class="sub-dropdown-menu">
+          <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+        </ul>
+      </li>
+      <li class="sub-dropdown">
+        <a href="PRODUCT.html">Wastewater Treatment ▸</a>
+        <ul class="sub-dropdown-menu">
+          <li><a href="DAF.html">DAF Unit</a></li>
+          <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+          <li><a href="Wet.html">Wet Fume Scrubber</a></li>
+        </ul>
+      </li>
+      <li><a href="CHEmical.html">Chemicals</a></li>
+    </ul>
+  </li>
 
-        <li><a href="CHEmical.html">Chemicals</a></li>
-      </ul>
-    </li>
+  <!-- SERVICES DROPDOWN -->
+  <li class="dropdown">
+    <a href="Services.html" class="dropdown-toggle">
+      SERVICES <span class="arrow">▼</span>
+    </a>
+    <ul class="dropdown-menu">
+      <!-- Mobile-only "All Services" link -->
+      <li class="mobile-only"><a href="Services.html"><strong>All Services</strong></a></li>
 
-    <!-- SERVICES DROPDOWN -->
-    <li class="dropdown">
-      <a href="Services.html" class="has-dropdown">
-        SERVICES <span class="arrow">▼</span>
-      </a>
-      <ul class="dropdown-menu">
+      <li class="sub-dropdown">
+        <a href="AMC.html">AMC </a>
 
-        <!-- AMC SUBDROPDOWN -->
-     <li class="sub-dropdown">
-          <a href="Services.html">AMC ▸</a>
-          <ul class="sub-dropdown-menu">
-             <li><a href="CSTP.html">CSTP</a></li>
-              <li><a href="CETP.html">CETP</a></li>
-            <li><a href="STP.html">STP</a></li>
-            <li><a href="ETP.html">ETP</a></li>
-            <li><a href="MEE.html">MEE</a></li>
-            <li><a href="RO.html">RO</a></li>
-            <li><a href="UF.html">UF</a></li>
-            <li><a href="MPCB.html">MPCB</a></li>
-            <li><a href="DM.html">DM</a></li>
-            <li><a href="ZLD.html">ZLD</a></li>
-              <li><a href="Softnres.html">Softeners</a></li>
-          </ul>
-        </li>
-
+      </li>
         <li><a href="EPR.html">EPR Registration</a></li>
-        <li><a href="CGWA.html">NOC from CGWA</a></li>
-        <li><a href="Services.html">Environmental</a></li>
-      </ul>
-    </li>
+      <li><a href="CGWA.html">NOC from CGWA</a></li>
+      <li><a href="Env_Monitoring.html">Environmental</a></li>
+    </ul>
+  </li>
 
-    <li><a href="Our_Work.html">OUR WORK</a></li>
-    <li><a href="contact.html">CONTACT</a></li>
-  </ul>
-</nav>
+  <li><a href="Our_Work.html">OUR WORK</a></li>
+  <li><a href="contact.html">CONTACT</a></li>
+</ul>
 
-
+  </nav>
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
 
-  <!-- JavaScript -->
+  <!-- ================= JAVASCRIPT ================= -->
   <script>
     const navbar = document.getElementById('navbar');
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     const overlay = document.getElementById('overlay');
 
+    // Navbar scroll effect
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
+    // Mobile menu toggle
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       overlay.classList.toggle('show');
@@ -356,17 +354,21 @@
       closeAllMenus();
     });
 
+    // Dropdown toggle
     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
       toggle.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
           e.preventDefault();
           const menu = toggle.nextElementSibling;
+          const arrow = toggle.querySelector('.arrow');
           menu.classList.toggle('show');
+          arrow.classList.toggle('rotate');
           closeOthers(menu, '.dropdown-menu');
         }
       });
     });
 
+    // Sub-dropdown toggle
     document.querySelectorAll('.sub-dropdown > a').forEach(sub => {
       sub.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
@@ -382,14 +384,23 @@
       document.querySelectorAll(selector).forEach(menu => {
         if (menu !== current) menu.classList.remove('show');
       });
+      document.querySelectorAll('.arrow').forEach(arrow => {
+        if (!arrow.closest(selector).classList.contains('show')) {
+          arrow.classList.remove('rotate');
+        }
+      });
     }
 
     function closeAllMenus() {
       document.querySelectorAll('.dropdown-menu, .sub-dropdown-menu').forEach(menu => {
         menu.classList.remove('show');
       });
+      document.querySelectorAll('.arrow').forEach(arrow => {
+        arrow.classList.remove('rotate');
+      });
     }
 
+    // Close sidebar after clicking a link
     document.querySelectorAll('.nav-links > li > a:not(.dropdown-toggle)').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
@@ -426,109 +437,44 @@
 <section id="services" style="margin-top:60px; padding:140px 8vw; background:#f9f9f9; font-family:'Poppins', sans-serif; color:#333;">
 
 
-  <!-- Main Section Title -->
-  <h2 style="font-size:2.5rem; text-align:center; margin-bottom:80px;
-             background:linear-gradient(#F24D29);
-             -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+<!-- Main Section Title -->
+<div style="text-align:center; margin-bottom:80px;">
+  <h2 style="font-family:'Raleway', sans-serif; 
+             font-size:3.2rem; 
+             font-weight:400; 
+             color:#F24D29; 
+             text-shadow:3px 3px 10px rgba(0,0,0,0.0); 
+             position:relative; 
+             display:inline-block; 
+             letter-spacing:1px;">
     Our Services
+    <span style="position:absolute; 
+                 bottom:-12px; 
+                 left:50%; 
+                 transform:translateX(-50%); 
+                 width:90%; 
+                 height:5px; 
+                 background:linear-gradient(90deg,#6CC04A,#B6FF40); 
+                 border-radius:4px; 
+                 box-shadow:0 4px 10px rgba(0,0,0,0.5);"></span>
   </h2>
+</div>
 
   <!-- ================= CATEGORY TEMPLATE ================= -->
   <div class="service-category">
     <h3 class="category-title">Comprehensive & Non-Comprehensive AMC</h3>
     <div class="product-grid">
 
-      <div class="product-card">
-        <h3>CSTP (Common Sewage Treatment Plants)</h3>
-        <p>
-          Advanced sewage treatment solutions designed for residential, commercial, and industrial needs.  
-          Ensures proper treatment, recycling.
-        </p>
-        <a href="CSTP.html" target="_blank"><button>View More</button></a>
-      </div>
-
-      <div class="product-card">
-        <h3>CETP (Common Effluent Treatment Plants)</h3>
-        <p>
-          Centralized effluent treatment for multiple industries.  
-          Helps achieve regulatory compliance and minimizes environmental impact.
-        </p>
-        <a href="CETP.html" target="_blank"><button>View More</button></a>
-      </div>
-
-      <div class="product-card">
-        <h3>Sewage Treatment Plants (STP)</h3>
-        <p>
-          Primary & biological treatment to remove pollutants.  
-          Prevents water pollution with proper operation and maintenance.
-        </p>
-        <a href="STP.html" target="_blank"><button>View More</button></a>
-      </div>
-
-      <div class="product-card">
-        <h3>Effluent Treatment Plants (ETP)</h3>
-        <p>
-          Chemical & biological treatment neutralizes pollutants.  
-          Regular monitoring ensures compliance with regulations.
-        </p>
-        <a href="ETP.html" target="_blank"><button>View More</button></a>
-      </div>
-
-      <div class="product-card">
-        <h3>Multiple Effect Evaporators (MEE)</h3>
-        <p>
-          Concentrates wastewater and recovers valuable resources.  
-          Scale management and safety measures are essential.
-        </p>
-        <a href="MEE.html" target="_blank"><button>View More</button></a>
-      </div>
-
-      <div class="product-card">
-        <h3>Reverse Osmosis (RO)</h3>
-        <p>
-          Membrane cleaning and pressure monitoring to maintain efficiency.  
-          Sanitization prevents biofouling and microbial growth.
-        </p>
-        <a href="RO.html" target="_blank"><button>View More</button></a>
-      </div>
-
-      <div class="product-card">
-        <h3>ZLD (Zero Liquid Discharge Systems)</h3>
-        <p>
-          Advanced treatment system ensuring minimal liquid waste discharge.  
-          Combines RO, MEE, and crystallizers for sustainable water recovery.
-        </p>
-        <a href="ZLD.html" target="_blank"><button>View More</button></a>
-      </div>
-
-      <div class="product-card">
-        <h3>Softeners</h3>
-        <p>
-          Removes hardness-causing calcium and magnesium ions from water.  
-          Ensures scale-free equipment and improves efficiency in industrial applications.
-        </p>
-        <a href="Softnres.html" target="_blank"><button>View More</button></a>
-      </div>
-
-      <div class="product-card">
-        <h3>DM (Demineralization Plants)</h3>
-        <p>
-          Produces high-purity water by removing dissolved salts and minerals.  
-          Uses ion-exchange technology for reliable and consistent output.
-        </p>
-        <a href="DM.html" target="_blank"><button>View More</button></a>
-      </div>
-
-      <div class="product-card">
-        <h3>MPCB Consent</h3>
-        <p>
-          Assistance in obtaining consent from Maharashtra Pollution Control Board (MPCB)  
-          for establishing and operating industries in compliance with environmental norms.
-        </p>
-        <a href="MPCB.html" target="_blank"><button>View More</button></a>
-      </div>
-
-
+<div class="product-card">
+  <h3>AMC Services</h3>
+  <p>
+    Water and wastewater treatment facilities, including CSTP, CETP, STP, ETP, MEE, RO, UF, MPCB, DM, ZLD, and Softeners, 
+    play a vital role in ensuring clean water for consumption and protecting the environment. 
+    Proper operation and maintenance are essential for their efficient functioning. 
+    We at Aquagreen Tech Solutions provide all types of operation and maintenance services for the above.
+  </p>
+  <a href="AMC.html" target="_blank"><button>View More</button></a>
+</div>
 
     </div>
   </div>

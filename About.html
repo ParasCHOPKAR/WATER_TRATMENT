@@ -33,11 +33,8 @@ color:#333; position:relative; overflow:hidden;"> -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-
   <style>
-    
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 
     * {
       margin: 0;
@@ -47,9 +44,10 @@ color:#333; position:relative; overflow:hidden;"> -->
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: #f9f9f9;
+ background:linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);
     }
 
+    /* ================= NAVBAR ================= */
     .navbar {
       position: fixed;
       top: 0;
@@ -63,22 +61,19 @@ color:#333; position:relative; overflow:hidden;"> -->
       z-index: 1000;
     }
 
-.navbar.scrolled {
- background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
+    .navbar.scrolled {
+      background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 3px solid rgba(0, 207, 255, 0.6);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+      transition: all 0.5s ease-in-out;
+    }
 
-  backdrop-filter: blur(10px);
-  border-bottom: 3px solid rgba(0, 207, 255, 0.6);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
-  transition: all 0.5s ease-in-out;
-}
-
-
-
-.nav-links li,
-.dropdown-menu li,
-.sub-dropdown-menu li {
-  list-style: none;
-}
+    .nav-links li,
+    .dropdown-menu li,
+    .sub-dropdown-menu li {
+      list-style: none;
+    }
 
     .logo img {
       height: 100px;
@@ -103,41 +98,39 @@ color:#333; position:relative; overflow:hidden;"> -->
       position: relative;
     }
 
-.nav-links > li > a {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  position: relative;
-  padding: 6px 0;
-  transition: color 0.3s ease;
-}
-
-.nav-links > li > a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, #00CFFF, #6CC04A);
-  transition: width 0.3s ease-in-out;
-}
-.nav-links > li > a:hover {
-  color: #ff7b00; /* highlight color */
-}
-
-.nav-links > li > a:hover::after {
-  width: 100%;
-}
-
-    .nav-links > li > a:hover {
-      color:  #ff7b00;
+    .nav-links > li > a {
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.3s ease;
     }
 
+    .nav-links > li > a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00CFFF, #6CC04A);
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-links > li > a:hover {
+      color: #ff7b00;
+    }
+
+    .nav-links > li > a:hover::after {
+      width: 100%;
+    }
+
+    /* Dropdowns */
     .dropdown-menu,
     .sub-dropdown-menu {
       display: none;
@@ -177,15 +170,20 @@ color:#333; position:relative; overflow:hidden;"> -->
       left: 100%;
     }
 
-    .dropdown-arrow {
+    .arrow {
       font-size: 12px;
+      transition: transform 0.3s ease;
     }
 
-    /* ----------- MOBILE VIEW ----------- */
+    .arrow.rotate {
+      transform: rotate(180deg);
+    }
+
+    /* ================= MOBILE VIEW ================= */
     @media (max-width: 768px) {
       .navbar {
         padding: 20px;
-        background: rgba(0, 0, 0, 0.95); /* <-- Mobile-only navbar background */
+        background: rgba(0, 0, 0, 0.95);
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       }
 
@@ -223,10 +221,6 @@ color:#333; position:relative; overflow:hidden;"> -->
 
       .overlay.show {
         display: block;
-      }
-
-      .nav-links li {
-        width: 100%;
       }
 
       .nav-links > li > a {
@@ -271,103 +265,108 @@ color:#333; position:relative; overflow:hidden;"> -->
         cursor: pointer;
       }
     }
+
+    /* Hide mobile-only links on desktop */
+.mobile-only { display: none; }
+
+/* Show only inside mobile sidebar */
+@media (max-width: 768px) {
+  .mobile-only { 
+    display: block; 
+  }
+  .mobile-only a {
+    color: #ffcc00;
+    font-weight: bold;
+    padding: 10px 15px;
+  }
+}
+
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <!-- ✅ Final Responsive Navbar -->
-<nav class="navbar" id="navbar">
-  <!-- Logo -->
-  <a href="index.html" class="logo">
-    <img src="images/LOGO_02.png" alt="Aquagreen Logo">
-  </a>
+  <nav class="navbar" id="navbar">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="images/LOGO_02.png" alt="Aquagreen Logo">
+    </a>
 
-  <!-- Mobile Toggle -->
-  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+    <!-- Mobile Toggle -->
+    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
 
-  <!-- Navigation -->
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">HOME</a></li>
-    <li><a href="About.html">ABOUT US</a></li>
+    <!-- Navigation -->
+<ul class="nav-links" id="navLinks">
+  <li><a href="index.html">HOME</a></li>
+  <li><a href="About.html">ABOUT US</a></li>
 
-    <!-- PRODUCTS DROPDOWN -->
-    <li class="dropdown">
-      <a href="PRODUCT.html" class="has-dropdown">
-        PRODUCTS <span class="arrow">▼</span>
-      </a>
-      <ul class="dropdown-menu">
-        <li class="sub-dropdown">
-          <a href="PRODUCT.html">Water Treatment Systems ▸</a>
-          <ul class="sub-dropdown-menu">
-            <li><a href="Ozonw_SyS.html">Ozone System</a></li>
-            <li><a href="UF.html">Ultrafiltration (UF) System</a></li>
-          </ul>
-        </li>
+  <!-- PRODUCTS DROPDOWN -->
+  <li class="dropdown">
+    <a href="PRODUCT.html" class="dropdown-toggle">
+      PRODUCTS <span class="arrow">▼</span>
+    </a>
+    <ul class="dropdown-menu">
+      <!-- Mobile-only "All Products" link -->
+      <li class="mobile-only"><a href="PRODUCT.html"><strong>All Products</strong></a></li>
 
-        <li class="sub-dropdown">
-          <a href="PRODUCT.html">Wastewater Treatment ▸</a>
-          <ul class="sub-dropdown-menu">
-            <li><a href="DAF.html">DAF Unit</a></li>
-            <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
-            <li><a href="Wet.html">Wet Fume Scrubber</a></li>
-          </ul>
-        </li>
+      <li class="sub-dropdown">
+        <a href="PRODUCT.html">Water Treatment Systems ▸</a>
+        <ul class="sub-dropdown-menu">
+          <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+        </ul>
+      </li>
+      <li class="sub-dropdown">
+        <a href="PRODUCT.html">Wastewater Treatment ▸</a>
+        <ul class="sub-dropdown-menu">
+          <li><a href="DAF.html">DAF Unit</a></li>
+          <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+          <li><a href="Wet.html">Wet Fume Scrubber</a></li>
+        </ul>
+      </li>
+      <li><a href="CHEmical.html">Chemicals</a></li>
+    </ul>
+  </li>
 
-        <li><a href="CHEmical.html">Chemicals</a></li>
-      </ul>
-    </li>
+  <!-- SERVICES DROPDOWN -->
+  <li class="dropdown">
+    <a href="Services.html" class="dropdown-toggle">
+      SERVICES <span class="arrow">▼</span>
+    </a>
+    <ul class="dropdown-menu">
+      <!-- Mobile-only "All Services" link -->
+      <li class="mobile-only"><a href="Services.html"><strong>All Services</strong></a></li>
 
-    <!-- SERVICES DROPDOWN -->
-    <li class="dropdown">
-      <a href="Services.html" class="has-dropdown">
-        SERVICES <span class="arrow">▼</span>
-      </a>
-      <ul class="dropdown-menu">
+      <li class="sub-dropdown">
+        <a href="AMC.html">AMC </a>
 
-        <!-- AMC SUBDROPDOWN -->
-     <li class="sub-dropdown">
-          <a href="Services.html">AMC ▸</a>
-          <ul class="sub-dropdown-menu">
-             <li><a href="CSTP.html">CSTP</a></li>
-              <li><a href="CETP.html">CETP</a></li>
-            <li><a href="STP.html">STP</a></li>
-            <li><a href="ETP.html">ETP</a></li>
-            <li><a href="MEE.html">MEE</a></li>
-            <li><a href="RO.html">RO</a></li>
-            <li><a href="UF.html">UF</a></li>
-            <li><a href="MPCB.html">MPCB</a></li>
-            <li><a href="DM.html">DM</a></li>
-            <li><a href="ZLD.html">ZLD</a></li>
-              <li><a href="Softnres.html">Softeners</a></li>
-          </ul>
-        </li>
-
+      </li>
         <li><a href="EPR.html">EPR Registration</a></li>
-        <li><a href="CGWA.html">NOC from CGWA</a></li>
-        <li><a href="Services.html">Environmental</a></li>
-      </ul>
-    </li>
+      <li><a href="CGWA.html">NOC from CGWA</a></li>
+      <li><a href="Env_Monitoring.html">Environmental</a></li>
+    </ul>
+  </li>
 
-    <li><a href="Our_Work.html">OUR WORK</a></li>
-    <li><a href="contact.html">CONTACT</a></li>
-  </ul>
-</nav>
+  <li><a href="Our_Work.html">OUR WORK</a></li>
+  <li><a href="contact.html">CONTACT</a></li>
+</ul>
 
+  </nav>
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
 
-  <!-- JavaScript -->
+  <!-- ================= JAVASCRIPT ================= -->
   <script>
     const navbar = document.getElementById('navbar');
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     const overlay = document.getElementById('overlay');
 
+    // Navbar scroll effect
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
+    // Mobile menu toggle
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       overlay.classList.toggle('show');
@@ -379,17 +378,21 @@ color:#333; position:relative; overflow:hidden;"> -->
       closeAllMenus();
     });
 
+    // Dropdown toggle
     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
       toggle.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
           e.preventDefault();
           const menu = toggle.nextElementSibling;
+          const arrow = toggle.querySelector('.arrow');
           menu.classList.toggle('show');
+          arrow.classList.toggle('rotate');
           closeOthers(menu, '.dropdown-menu');
         }
       });
     });
 
+    // Sub-dropdown toggle
     document.querySelectorAll('.sub-dropdown > a').forEach(sub => {
       sub.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
@@ -405,14 +408,23 @@ color:#333; position:relative; overflow:hidden;"> -->
       document.querySelectorAll(selector).forEach(menu => {
         if (menu !== current) menu.classList.remove('show');
       });
+      document.querySelectorAll('.arrow').forEach(arrow => {
+        if (!arrow.closest(selector).classList.contains('show')) {
+          arrow.classList.remove('rotate');
+        }
+      });
     }
 
     function closeAllMenus() {
       document.querySelectorAll('.dropdown-menu, .sub-dropdown-menu').forEach(menu => {
         menu.classList.remove('show');
       });
+      document.querySelectorAll('.arrow').forEach(arrow => {
+        arrow.classList.remove('rotate');
+      });
     }
 
+    // Close sidebar after clicking a link
     document.querySelectorAll('.nav-links > li > a:not(.dropdown-toggle)').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
@@ -426,8 +438,6 @@ color:#333; position:relative; overflow:hidden;"> -->
 
 </body>
 </html>
-
-
 
 
 <section id="about-hero" style="position: relative; width: 100%; height: 70vh; font-family: 'Poppins', sans-serif; overflow: hidden;">
@@ -506,10 +516,27 @@ color:#333; position:relative; overflow:hidden;"> -->
   <div style="max-width:1200px; margin:auto; text-align:center;">
 
     <!-- Section Title -->
-    <h2 style="font-size:3rem; font-weight:700; color:#F24D29; margin-bottom:20px; display:inline-block; position:relative;">
-      About Us
-      <div style="width:120px; height:5px; background:#6CC04A; margin:12px auto 0; border-radius:4px;"></div>
-    </h2>
+<h2 style="text-align:center; 
+           font-family: 'Raleway', sans-serif;
+           font-size:3.2rem; 
+           font-weight:400; 
+           color:#F24D29; 
+           margin-bottom:70px; 
+           letter-spacing:1px;
+           position:relative;
+           text-shadow:2px 2px 8px rgba(0,0,0,0.4);">
+  About Us
+  <span style="position:absolute; 
+               bottom:-12px; 
+               left:50%; 
+               transform:translateX(-50%); 
+               width:90%; 
+               height:5px; 
+               background:linear-gradient(90deg,#6CC04A,#B6FF40); 
+               border-radius:4px; 
+               box-shadow:0 4px 10px rgba(0,0,0,0);"></span>
+</h2>
+
 
     <!-- Paragraph -->
     <p style="font-size:1.1rem; line-height:1.9; max-width:950px; margin:25px auto 50px;">
@@ -561,103 +588,55 @@ function closeGallery() {
 }
 </script>
 
-
-<!-- Services -->
-<h3 style="font-size:2.5rem; color:#F24D29; margin-bottom:30px; font-weight:700; text-align:center;">
-  Services We Offer
-  <div style="width:110px; height:4px; background:#6CC04A; margin:14px auto 0; border-radius:4px;"></div>
-</h3>
-
-<div class="services-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-bottom:70px;">
-
-  <!-- Card 1 -->
-  <a href="#water-treatment" class="service-card">
-    <h4>Water Treatment</h4>
-    <p>Advanced solutions for residential, commercial, and industrial applications ensuring safe & potable water.</p>
-  </a>
-
-  <!-- Card 2 -->
-  <a href="#waste-water" class="service-card">
-    <h4>Waste Water Treatment</h4>
-    <p>Transforming waste water into valuable resources while ensuring compliance with environmental regulations.</p>
-  </a>
-
-  <!-- Card 3 -->
-  <a href="#energy-management" class="service-card">
-    <h4>Energy Management</h4>
-    <p>Optimizing energy use with smart practices to cut costs & carbon footprint.</p>
-  </a>
-
-  <!-- Card 4 -->
-  <a href="#water-audits" class="service-card">
-    <h4>Water Audits</h4>
-    <p>Comprehensive audits to identify water conservation opportunities & reduce wastage.</p>
-  </a>
-
-  <!-- Card 5 -->
-  <a href="#industrial-fabrication" class="service-card">
-    <h4>Industrial Fabrication</h4>
-    <p>Custom fabrication solutions enhancing productivity and maintaining top-quality standards.</p>
-  </a>
-
-  <!-- Card 6 -->
-  <a href="#chemicals" class="service-card">
-    <h4>Water Treatment Chemicals</h4>
-    <p>Eco-friendly chemicals that purify water without harming ecosystems.</p>
-  </a>
-
+<!-- Modal Popup -->
+<div id="galleryModal" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+            background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center; 
+            padding:20px; box-sizing:border-box; overflow-y:auto;">
+  
+  <span onclick="closeGallery()" 
+        style="position:absolute; top:15px; right:25px; font-size:40px; color:#fff; cursor:pointer;">&times;</span>
+  
+  <div class="gallery-container">
+    <img src="images/CERTIFICATE_01.png" alt="Certificate 1">
+    <img src="images/CERTIFICATE_02.png" alt="Certificate 2">
+    <img src="images/CERTIFICATE_03.png" alt="Certificate 3">
+  </div>
 </div>
 
-<!-- Services CSS -->
 <style>
-  .service-card {
-    display: block;
-    background: #fff;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    text-decoration: none;
-    color: #333;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-  }
+/* Modal gallery images */
+.gallery-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+  margin: auto;
+}
 
-  .service-card h4 {
-    font-size: 1.5rem;
-    margin-bottom: 12px;
-    color: #F24D29;
-    font-weight: 600;
-  }
+.gallery-container img {
+  max-width: 30%;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
 
-  .service-card p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #555;
-  }
+.gallery-container img:hover {
+  transform: scale(1.05);
+}
 
-  /* Hover Effects */
-  .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.9);
-    border: 2px solid #6CC04A;
+/* Mobile view fixes */
+@media (max-width: 768px) {
+  .gallery-container {
+    flex-direction: column;
+    align-items: center;
   }
-
-  .service-card:hover h4 {
-    color: #6CC04A;
+  .gallery-container img {
+    max-width: 90%;   /* take almost full width */
+    margin-bottom: 15px;
   }
-
-  /* Responsive Fix */
-  @media (max-width: 768px) {
-    .service-card {
-      padding: 20px;
-    }
-    .service-card h4 {
-      font-size: 1.3rem;
-    }
-    .service-card p {
-      font-size: 0.95rem;
-    }
-  }
+}
 </style>
 
   </div>
@@ -756,13 +735,21 @@ function closeGallery() {
   }
   
 </style>
+
+
+
+
+
 <section id="certificates" 
 style="position:relative; 
-     background: linear-gradient(135deg, #e6f2ff 0%, #f9f9f9 100%), 
-                    url('https://www.transparenttextures.com/patterns/cubes.png'); 
+       background: linear-gradient(135deg, #e6f2ff 0%, #f9f9f9 100%), 
+                  url('https://www.transparenttextures.com/patterns/cubes.png'); 
        background-repeat: repeat;
        background-size: auto;
-       color:#000; font-family:'Poppins', sans-serif; padding:100px 20px; text-align:center;">
+       color:#000; 
+       font-family:'Poppins', sans-serif; 
+       padding:100px 20px; 
+       text-align:center;">
 
   <!-- Background Image (Watermark) -->
   <img src="images/BACKGROUND___0044-removebg-preview.png" 
@@ -773,8 +760,15 @@ style="position:relative;
   <div style="max-width:1200px;margin:auto; position:relative; z-index:2;">
 
     <!-- Section Title -->
-    <h2 style="font-size:2.5rem; font-weight:700; background:linear-gradient(90deg,#07d67a,#2ba56a); 
-               -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:50px;">
+    <h2 style="text-align:center; 
+               font-family: 'Raleway', sans-serif;
+               font-size:3.2rem; 
+               font-weight:400; 
+               color:#F24D29;  
+               margin-bottom:70px; 
+               letter-spacing:1px;
+               position:relative;
+               text-shadow:2px 2px 8px rgba(0,0,0,0.4);">
       Our Certificates
     </h2>
 
@@ -782,24 +776,21 @@ style="position:relative;
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:30px;">
 
       <!-- Certificate 1 -->
-      <div class="certificate-card" onclick="openModal('images/CERTIFICATE_01.png')"
-           style="background:#fff; border-radius:16px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.08);">
-          <img src="images/CERTIFICATE_01.png" alt="ISO 9001:2015 Certificate" style="width:100%; height:200px; object-fit:cover; display:block;">
-          <p style="padding:15px; color:#333; font-size:1rem;">ISO 9001:2015 – Quality Management System Certification</p>
+      <div class="certificate-card" onclick="openModal('images/CERTIFICATE_01.png')">
+          <img src="images/CERTIFICATE_01.png" alt="ISO 9001:2015 Certificate">
+          <p>ISO 9001:2015 – Quality Management System Certification</p>
       </div>
 
       <!-- Certificate 2 -->
-      <div class="certificate-card" onclick="openModal('images/CERTIFICATE_02.png')"
-           style="background:#fff; border-radius:16px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.08);">
-          <img src="images/CERTIFICATE_02.png" alt="ISO 45001:2018 Certificate" style="width:100%; height:200px; object-fit:cover; display:block;">
-          <p style="padding:15px; color:#333; font-size:1rem;">ISO 45001:2018 – Occupational Health & Safety Management System Certification</p>
+      <div class="certificate-card" onclick="openModal('images/CERTIFICATE_02.png')">
+          <img src="images/CERTIFICATE_02.png" alt="ISO 45001:2018 Certificate">
+          <p>ISO 45001:2018 – Occupational Health & Safety Management System Certification</p>
       </div>
 
       <!-- Certificate 3 -->
-      <div class="certificate-card" onclick="openModal('images/CERTIFICATE_03.png')"
-           style="background:#fff; border-radius:16px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.08);">
-          <img src="images/CERTIFICATE_03.png" alt="Udyam Registration Certificate" style="width:100%; height:200px; object-fit:cover; display:block;">
-          <p style="padding:15px; color:#333; font-size:1rem;">Udyam Registration Certificate – Ministry of MSME (Government of India)</p>
+      <div class="certificate-card" onclick="openModal('images/CERTIFICATE_03.png')">
+          <img src="images/CERTIFICATE_03.png" alt="Udyam Registration Certificate">
+          <p>Udyam Registration Certificate – Ministry of MSME (Government of India)</p>
       </div>
 
     </div>
@@ -811,7 +802,67 @@ style="position:relative;
     <img id="modalImg" src="" style="max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 0 20px rgba(0,0,0,0.5);">
   </div>
 
+  <!-- Styles -->
+  <style>
+  .certificate-card {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+
+  .certificate-card img {
+    width: 100%;
+    height: 540px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  /* Hover zoom effect */
+  .certificate-card:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Hidden title initially */
+  .certificate-card p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    background: rgba(0,0,0,0.65);
+    color: #fff;
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Show on hover */
+  .certificate-card:hover p {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  </style>
+
+  <!-- Script -->
+  <script>
+  function openModal(imgSrc) {
+    document.getElementById("certModal").style.display = "flex";
+    document.getElementById("modalImg").src = imgSrc;
+  }
+  function closeModal() {
+    document.getElementById("certModal").style.display = "none";
+  }
+  </script>
+
 </section>
+
 
 <script>
 function openModal(src){

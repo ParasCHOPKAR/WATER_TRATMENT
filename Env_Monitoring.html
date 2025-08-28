@@ -1,6 +1,3 @@
-<!-- background: linear-gradient(135deg, #f9f9f9, #fff); -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-
   <style>
-    
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 
     * {
       margin: 0;
@@ -24,9 +18,10 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);
+ background:linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);
     }
 
+    /* ================= NAVBAR ================= */
     .navbar {
       position: fixed;
       top: 0;
@@ -40,22 +35,19 @@
       z-index: 1000;
     }
 
-.navbar.scrolled {
- background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
+    .navbar.scrolled {
+      background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 3px solid rgba(0, 207, 255, 0.6);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+      transition: all 0.5s ease-in-out;
+    }
 
-  backdrop-filter: blur(10px);
-  border-bottom: 3px solid rgba(0, 207, 255, 0.6);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
-  transition: all 0.5s ease-in-out;
-}
-
-
-
-.nav-links li,
-.dropdown-menu li,
-.sub-dropdown-menu li {
-  list-style: none;
-}
+    .nav-links li,
+    .dropdown-menu li,
+    .sub-dropdown-menu li {
+      list-style: none;
+    }
 
     .logo img {
       height: 100px;
@@ -80,41 +72,39 @@
       position: relative;
     }
 
-.nav-links > li > a {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #444;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  position: relative;
-  padding: 6px 0;
-  transition: color 0.3s ease;
-}
-
-.nav-links > li > a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, #00CFFF, #6CC04A);
-  transition: width 0.3s ease-in-out;
-}
-.nav-links > li > a:hover {
-  color: #ff7b00; /* highlight color */
-}
-
-.nav-links > li > a:hover::after {
-  width: 100%;
-}
-
-    .nav-links > li > a:hover {
-      color:  #ff7b00;
+    .nav-links > li > a {
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #444;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.3s ease;
     }
 
+    .nav-links > li > a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00CFFF, #6CC04A);
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-links > li > a:hover {
+      color: #ff7b00;
+    }
+
+    .nav-links > li > a:hover::after {
+      width: 100%;
+    }
+
+    /* Dropdowns */
     .dropdown-menu,
     .sub-dropdown-menu {
       display: none;
@@ -154,15 +144,20 @@
       left: 100%;
     }
 
-    .dropdown-arrow {
+    .arrow {
       font-size: 12px;
+      transition: transform 0.3s ease;
     }
 
-    /* ----------- MOBILE VIEW ----------- */
+    .arrow.rotate {
+      transform: rotate(180deg);
+    }
+
+    /* ================= MOBILE VIEW ================= */
     @media (max-width: 768px) {
       .navbar {
         padding: 20px;
-        background: rgba(0, 0, 0, 0.95); /* <-- Mobile-only navbar background */
+        background: rgba(0, 0, 0, 0.95);
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       }
 
@@ -200,10 +195,6 @@
 
       .overlay.show {
         display: block;
-      }
-
-      .nav-links li {
-        width: 100%;
       }
 
       .nav-links > li > a {
@@ -248,103 +239,108 @@
         cursor: pointer;
       }
     }
+
+    /* Hide mobile-only links on desktop */
+.mobile-only { display: none; }
+
+/* Show only inside mobile sidebar */
+@media (max-width: 768px) {
+  .mobile-only { 
+    display: block; 
+  }
+  .mobile-only a {
+    color: #ffcc00;
+    font-weight: bold;
+    padding: 10px 15px;
+  }
+}
+
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <!-- ✅ Final Responsive Navbar -->
-<nav class="navbar" id="navbar">
-  <!-- Logo -->
-  <a href="index.html" class="logo">
-    <img src="images/LOGO_02.png" alt="Aquagreen Logo">
-  </a>
+  <nav class="navbar" id="navbar">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="images/LOGO_02.png" alt="Aquagreen Logo">
+    </a>
 
-  <!-- Mobile Toggle -->
-  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+    <!-- Mobile Toggle -->
+    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
 
-  <!-- Navigation -->
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">HOME</a></li>
-    <li><a href="About.html">ABOUT US</a></li>
+    <!-- Navigation -->
+<ul class="nav-links" id="navLinks">
+  <li><a href="index.html">HOME</a></li>
+  <li><a href="About.html">ABOUT US</a></li>
 
-    <!-- PRODUCTS DROPDOWN -->
-    <li class="dropdown">
-      <a href="PRODUCT.html" class="has-dropdown">
-        PRODUCTS <span class="arrow">▼</span>
-      </a>
-      <ul class="dropdown-menu">
-        <li class="sub-dropdown">
-          <a href="PRODUCT.html">Water Treatment Systems ▸</a>
-          <ul class="sub-dropdown-menu">
-            <li><a href="Ozonw_SyS.html">Ozone System</a></li>
-            <li><a href="UF.html">Ultrafiltration (UF) System</a></li>
-          </ul>
-        </li>
+  <!-- PRODUCTS DROPDOWN -->
+  <li class="dropdown">
+    <a href="PRODUCT.html" class="dropdown-toggle">
+      PRODUCTS <span class="arrow">▼</span>
+    </a>
+    <ul class="dropdown-menu">
+      <!-- Mobile-only "All Products" link -->
+      <li class="mobile-only"><a href="PRODUCT.html"><strong>All Products</strong></a></li>
 
-        <li class="sub-dropdown">
-          <a href="PRODUCT.html">Wastewater Treatment ▸</a>
-          <ul class="sub-dropdown-menu">
-            <li><a href="DAF.html">DAF Unit</a></li>
-            <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
-            <li><a href="Wet.html">Wet Fume Scrubber</a></li>
-          </ul>
-        </li>
+      <li class="sub-dropdown">
+        <a href="PRODUCT.html">Water Treatment Systems ▸</a>
+        <ul class="sub-dropdown-menu">
+          <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+        </ul>
+      </li>
+      <li class="sub-dropdown">
+        <a href="PRODUCT.html">Wastewater Treatment ▸</a>
+        <ul class="sub-dropdown-menu">
+          <li><a href="DAF.html">DAF Unit</a></li>
+          <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+          <li><a href="Wet.html">Wet Fume Scrubber</a></li>
+        </ul>
+      </li>
+      <li><a href="CHEmical.html">Chemicals</a></li>
+    </ul>
+  </li>
 
-        <li><a href="CHEmical.html">Chemicals</a></li>
-      </ul>
-    </li>
+  <!-- SERVICES DROPDOWN -->
+  <li class="dropdown">
+    <a href="Services.html" class="dropdown-toggle">
+      SERVICES <span class="arrow">▼</span>
+    </a>
+    <ul class="dropdown-menu">
+      <!-- Mobile-only "All Services" link -->
+      <li class="mobile-only"><a href="Services.html"><strong>All Services</strong></a></li>
 
-    <!-- SERVICES DROPDOWN -->
-    <li class="dropdown">
-      <a href="Services.html" class="has-dropdown">
-        SERVICES <span class="arrow">▼</span>
-      </a>
-      <ul class="dropdown-menu">
+      <li class="sub-dropdown">
+        <a href="AMC.html">AMC </a>
 
-        <!-- AMC SUBDROPDOWN -->
-     <li class="sub-dropdown">
-          <a href="Services.html">AMC ▸</a>
-          <ul class="sub-dropdown-menu">
-             <li><a href="CSTP.html">CSTP</a></li>
-              <li><a href="CETP.html">CETP</a></li>
-            <li><a href="STP.html">STP</a></li>
-            <li><a href="ETP.html">ETP</a></li>
-            <li><a href="MEE.html">MEE</a></li>
-            <li><a href="RO.html">RO</a></li>
-            <li><a href="UF.html">UF</a></li>
-            <li><a href="MPCB.html">MPCB</a></li>
-            <li><a href="DM.html">DM</a></li>
-            <li><a href="ZLD.html">ZLD</a></li>
-              <li><a href="Softnres.html">Softeners</a></li>
-          </ul>
-        </li>
+      </li>
+      <li><a href="EPR.html">EPR Registration</a></li>
+      <li><a href="CGWA.html">NOC from CGWA</a></li>
+      <li><a href="Env_Monitoring.html">Environmental</a></li>
+    </ul>
+  </li>
 
-        <li><a href="EPR.html">EPR Registration</a></li>
-        <li><a href="CGWA.html">NOC from CGWA</a></li>
-        <li><a href="Services.html">Environmental</a></li>
-      </ul>
-    </li>
+  <li><a href="Our_Work.html">OUR WORK</a></li>
+  <li><a href="contact.html">CONTACT</a></li>
+</ul>
 
-    <li><a href="Our_Work.html">OUR WORK</a></li>
-    <li><a href="contact.html">CONTACT</a></li>
-  </ul>
-</nav>
-
+  </nav>
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
 
-  <!-- JavaScript -->
+  <!-- ================= JAVASCRIPT ================= -->
   <script>
     const navbar = document.getElementById('navbar');
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     const overlay = document.getElementById('overlay');
 
+    // Navbar scroll effect
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
+    // Mobile menu toggle
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       overlay.classList.toggle('show');
@@ -356,17 +352,21 @@
       closeAllMenus();
     });
 
+    // Dropdown toggle
     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
       toggle.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
           e.preventDefault();
           const menu = toggle.nextElementSibling;
+          const arrow = toggle.querySelector('.arrow');
           menu.classList.toggle('show');
+          arrow.classList.toggle('rotate');
           closeOthers(menu, '.dropdown-menu');
         }
       });
     });
 
+    // Sub-dropdown toggle
     document.querySelectorAll('.sub-dropdown > a').forEach(sub => {
       sub.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
@@ -382,14 +382,23 @@
       document.querySelectorAll(selector).forEach(menu => {
         if (menu !== current) menu.classList.remove('show');
       });
+      document.querySelectorAll('.arrow').forEach(arrow => {
+        if (!arrow.closest(selector).classList.contains('show')) {
+          arrow.classList.remove('rotate');
+        }
+      });
     }
 
     function closeAllMenus() {
       document.querySelectorAll('.dropdown-menu, .sub-dropdown-menu').forEach(menu => {
         menu.classList.remove('show');
       });
+      document.querySelectorAll('.arrow').forEach(arrow => {
+        arrow.classList.remove('rotate');
+      });
     }
 
+    // Close sidebar after clicking a link
     document.querySelectorAll('.nav-links > li > a:not(.dropdown-toggle)').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
@@ -404,73 +413,114 @@
 </body>
 </html>
 
-
-
-
-
 <!-- CSTP Section -->
 <!-- Environmental Monitoring Section -->
-<section id="environmental-monitoring" style="padding:100px 20px; background:linear-gradient(135deg, #f5fbff 0%, #ffffff 100%); font-family:'Poppins', sans-serif; overflow:hidden; position:relative;">
+<!-- 🌿 ENVIRONMENTAL MANAGEMENT & STATUTORY COMPLIANCES -->
 
-  <!-- Decorative Shapes -->
-  <div style="position:absolute; top:-80px; right:-80px; width:220px; height:220px; background:rgba(108,192,74,0.12); border-radius:50%; z-index:0;"></div>
-  <div style="position:absolute; bottom:-100px; left:-100px; width:250px; height:250px; background:rgba(242,77,41,0.1); border-radius:50%; z-index:0;"></div>
 
-  <!-- Section Heading -->
-  <div style="max-width:1200px; margin:auto; text-align:center; margin-bottom:60px; position:relative; z-index:1;">
-    <h2 style="font-size:3rem; font-weight:700; color:#1C2A5B; position:relative; display:inline-block;" data-aos="fade-down">
+<!-- 🌍 ENVIRONMENTAL MONITORING -->
+<section id="environmental-monitoring" style="margin-top:1px; padding:140px 20px; background:linear-gradient(135deg, #ffffff 0%, #f9feff 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
+
+  <div style="max-width:1200px; margin:auto;">
+
+    <!-- Main Title -->
+    <h2 style="font-size:2.5rem; font-weight:700; color:#0077b6; margin:20px auto 60px; border-left:6px solid #00b4d8; padding-left:15px; display:inline-block; line-height:1.3;"
+        data-aos="fade-down" data-aos-duration="1000">
       Environmental Monitoring <span style="font-size:1.2rem; font-weight:400; color:#007ACC;">(Air, Water & Noise)</span>
-      <span style="position:absolute; bottom:-12px; left:50%; transform:translateX(-50%); width:260px; height:5px; background:linear-gradient(90deg,#6CC04A,#F24D29); border-radius:3px;"></span>
     </h2>
-  </div>
 
-  <!-- Content Wrapper -->
-  <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:50px; position:relative; z-index:1;">
-    
-    <!-- Left Content -->
-    <div style="flex:1; min-width:320px; text-align:left;" data-aos="fade-right">
-
-      <p style="font-size:1.15rem; line-height:1.9; color:#333; margin-bottom:20px;">
-        <strong style="color:#1C2A5B;">Ambient Air Monitoring:</strong> Precise monitoring of air quality parameters such as PM<sub>2.5</sub>, PM<sub>10</sub>, SO<sub>2</sub>, NOx, and CO levels to ensure compliance with national air quality standards.
-      </p>
-
-      <p style="font-size:1.15rem; line-height:1.9; color:#444; margin-bottom:20px;">
-        <strong style="color:#1C2A5B;">Ambient Noise Monitoring:</strong> Measurement of noise levels in and around industrial, commercial, and residential zones to meet CPCB noise standards.
-      </p>
-
-      <p style="font-size:1.15rem; line-height:1.9; color:#444; margin-bottom:20px;">
-        <strong style="color:#1C2A5B;">Ventilation Survey:</strong> Assessment of air circulation, temperature, humidity, and airflow in workplaces to maintain safe and healthy working environments.
-      </p>
-
-      <p style="font-size:1.15rem; line-height:1.9; color:#444; margin-bottom:20px;">
-        <strong style="color:#1C2A5B;">Stack Emission Analysis:</strong> Monitoring of flue gas emissions (SO<sub>2</sub>, NOx, CO, Particulate Matter, VOCs) from chimneys and stacks to comply with statutory regulations.
-      </p>
-
-      <p style="font-size:1.15rem; line-height:1.9; color:#444; margin-bottom:20px;">
-        <strong style="color:#1C2A5B;">DG Noise Monitoring:</strong> Evaluation of noise levels generated by DG sets to ensure compliance with prescribed CPCB noise norms.
-      </p>
-
-      <p style="font-size:1.15rem; line-height:1.9; color:#444; margin-bottom:20px;">
-        <strong style="color:#1C2A5B;">ETP/STP Sample Analysis:</strong> Comprehensive testing of treated water quality from Effluent Treatment Plants (ETP) and Sewage Treatment Plants (STP) to meet discharge standards.
-      </p>
-
-      <p style="font-size:1.15rem; line-height:1.9; color:#444;">
-        <strong style="color:#1C2A5B;">Additional Monitoring:</strong> Groundwater quality checks, workplace monitoring for hazardous gases, indoor air quality surveys, and compliance reporting for regulatory submissions.
-      </p>
-
+    <!-- Block 1 -->
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px; margin-bottom:100px;">
+      <div style="flex:1; min-width:300px;" data-aos="fade-right">
+        <h3 style="font-size:1.6rem; font-weight:600; color:#0077b6; margin-bottom:15px;">Air & Noise Monitoring</h3>
+        <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;">
+          <li>✅ Ambient Air Monitoring (PM2.5, PM10, SO₂, NOx, CO)</li>
+          <li>✅ Ambient Noise Monitoring (Industrial, Residential, Commercial)</li>
+          <li>✅ DG Noise Monitoring (CPCB Norms)</li>
+        </ul>
+      </div>
+      <div style="flex:1; min-width:300px; text-align:center;" data-aos="zoom-in">
+        <img src="images/Environmental_Monitoring.webp" alt="Air Monitoring"
+             style="width:100%; max-width:450px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.1);" />
+      </div>
     </div>
 
-    <!-- Right Image -->
-    <div style="flex:1; min-width:320px; text-align:center;" data-aos="fade-left">
-      <img src="images/MOnitoring.webp" 
-           alt="Environmental Monitoring Services" 
-           style="max-width:100%; border-radius:20px; box-shadow:0 12px 30px rgba(0,0,0,0.18); transition:transform 0.5s ease, box-shadow 0.5s ease; cursor:pointer;"
-           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 18px 40px rgba(0,0,0,0.25)';"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.18)';">
+    <!-- Block 2 -->
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px; margin-bottom:100px; flex-direction:row-reverse;">
+      <div style="flex:1; min-width:300px;" data-aos="fade-left">
+        <h3 style="font-size:1.6rem; font-weight:600; color:#0077b6; margin-bottom:15px;">Water & Emission Analysis</h3>
+        <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;">
+          <li>✅ ETP / STP Sample Analysis</li>
+          <li>✅ Stack Emission Analysis (SO₂, NOx, CO, VOCs, Particulates)</li>
+          <li>✅ Ventilation Surveys (Airflow, Humidity, Temperature)</li>
+          <li>✅ Groundwater Quality & Indoor Air Quality</li>
+        </ul>
+      </div>
+      <div style="flex:1; min-width:300px; text-align:center;" data-aos="zoom-in">
+        <img src="images/Environmental_Monitoring _001.webp" alt="Water and Emission Analysis"
+             style="width:100%; max-width:450px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.1);" />
+      </div>
     </div>
 
   </div>
 </section>
+<section id="environmental-compliances" style="margin-top:1px; padding:140px 20px; background:linear-gradient(135deg, #f9feff 0%, #f9f9f9 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
+
+  <div style="max-width:1200px; margin:auto;">
+
+    <!-- Main Title -->
+    <h2 style="font-size:2.5rem; font-weight:700; color:#0077b6; margin:20px auto 60px; border-left:6px solid #00b4d8; padding-left:15px; display:inline-block; line-height:1.3;"
+        data-aos="fade-down" data-aos-duration="1000">
+      Environmental Management & Statutory Compliances
+    </h2>
+
+    <!-- Intro -->
+    <p style="font-size:1.05rem; color:#555; line-height:1.8; margin-bottom:60px; text-align:justify; max-width:1000px;" data-aos="fade-up" data-aos-delay="200">
+      We assist industries in meeting statutory compliance requirements under environmental laws. From environmental audits to hazardous waste returns, 
+      our experts ensure that your organization remains compliant with CPCB, SPCB, and MOEF guidelines.
+    </p>
+
+    <!-- Block 1 -->
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px; margin-bottom:100px;">
+      <div style="flex:1; min-width:300px;" data-aos="fade-right">
+        <h3 style="font-size:1.6rem; font-weight:600; color:#0077b6; margin-bottom:15px;">Audits & Assessments</h3>
+        <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;">
+          <li>✅ Environmental Audit</li>
+          <li>✅ Hazardous Waste Audit</li>
+          <li>✅ Water Audit</li>
+        </ul>
+      </div>
+      <div style="flex:1; min-width:300px; text-align:center;" data-aos="zoom-in">
+        <img src="images/Enviromental_Managment.png" alt="Environmental Compliances"
+             style="width:100%; max-width:450px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.1);" />
+      </div>
+    </div>
+
+    <!-- Block 2 -->
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px; margin-bottom:100px; flex-direction:row-reverse;">
+      <div style="flex:1; min-width:300px;" data-aos="fade-left">
+        <h3 style="font-size:1.6rem; font-weight:600; color:#0077b6; margin-bottom:15px;">Compliance Documentation</h3>
+        <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;">
+          <li>✅ Six Monthly Compliance Reports</li>
+          <li>✅ Environment Statement Report (Form V)</li>
+          <li>✅ Annual Hazardous Waste Returns (Form 4)</li>
+          <li>✅ Hazardous Waste Manifest (Form 10)</li>
+          <li>✅ Annual E-Waste Returns (Form 3)</li>
+          <li>✅ Biomedical Waste Returns (Form 4)</li>
+          <li>✅ Battery Waste Returns</li>
+        </ul>
+      </div>
+      <div style="flex:1; min-width:300px; text-align:center;" data-aos="zoom-in">
+        <img src="images/Enviromental_Managment__01.jpg" alt="Environmental Reports"
+             style="width:100%; max-width:450px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.1);" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
 
 <!-- AOS Library -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">

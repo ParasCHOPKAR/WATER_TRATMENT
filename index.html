@@ -7,6 +7,11 @@ Title ("About Us") → Orange-Red #F24D29
 Underline under title → Leaf Green #6CC04A
 
 Company name in paragraph → Bright Lime Green #8DC63F
+    <section id="loader" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:#e0f7fa; display:flex; justify-content:center; align-items:center; z-index:9999; overflow:hidden; font-family:'Poppins', sans-serif; flex-direction:column; text-align:center; padding:20px;">
+
+
+
+
 
 “Reduce • Recycle • Reuse” → Medium Blue #007ACC
 
@@ -22,8 +27,10 @@ Card 3 (Commitment) → Deep Green #3A8E3D -->
 <section id="about-us" style="width:100%; padding:100px 20px; font-family:'Poppins', sans-serif; 
 background: linear-gradient(135deg, #e6f2ff 0%, #f9f9f9 100%), url('https://www.transparenttextures.com/patterns/cubes.png');
 background-size: cover;
-color:#333; position:relative; overflow:hidden;"> -->
 
+
+
+color:#333; position:relative; overflow:hidden;"> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +40,258 @@ color:#333; position:relative; overflow:hidden;"> -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <section id="loader" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:#e0f7fa; display:flex; justify-content:center; align-items:center; z-index:9999; overflow:hidden; font-family:'Poppins', sans-serif; flex-direction:column; text-align:center; padding:20px;">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+ background:linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 0px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+      z-index: 1000;
+    }
+
+    .navbar.scrolled {
+      background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 3px solid rgba(0, 207, 255, 0.6);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+      transition: all 0.5s ease-in-out;
+    }
+
+    .nav-links li,
+    .dropdown-menu li,
+    .sub-dropdown-menu li {
+      list-style: none;
+    }
+
+    .logo img {
+      height: 100px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links > li > a {
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links > li > a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00CFFF, #6CC04A);
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-links > li > a:hover {
+      color: #ff7b00;
+    }
+
+    .nav-links > li > a:hover::after {
+      width: 100%;
+    }
+
+    /* Dropdowns */
+    .dropdown-menu,
+    .sub-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      background: #fff;
+      min-width: 200px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    .dropdown-menu a,
+    .sub-dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a:hover,
+    .sub-dropdown-menu a:hover {
+      background: #ff7b00;
+      color: white;
+    }
+
+    .nav-links li:hover > .dropdown-menu {
+      display: flex;
+    }
+
+    .sub-dropdown:hover > .sub-dropdown-menu {
+      display: flex;
+      top: 0;
+      left: 100%;
+    }
+
+    .arrow {
+      font-size: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .arrow.rotate {
+      transform: rotate(180deg);
+    }
+
+    /* ================= MOBILE VIEW ================= */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.95);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        height: 100vh;
+        width: 280px;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 80px 20px;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+      }
+
+      .overlay.show {
+        display: block;
+      }
+
+      .nav-links > li > a {
+        color: white;
+        padding: 12px 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .dropdown-menu,
+      .sub-dropdown-menu {
+        position: static;
+        display: none;
+        background: #222;
+        box-shadow: none;
+        width: 100%;
+      }
+
+      .dropdown-menu a,
+      .sub-dropdown-menu a {
+        color: white;
+        padding-left: 30px;
+      }
+
+      .sub-dropdown-menu {
+        padding-left: 10px;
+      }
+
+      .dropdown-menu.show,
+      .sub-dropdown-menu.show {
+        display: flex !important;
+        flex-direction: column;
+      }
+
+      .nav-links li:hover > .dropdown-menu,
+      .sub-dropdown:hover > .sub-dropdown-menu {
+        display: none;
+      }
+
+      .nav-links .dropdown-toggle {
+        cursor: pointer;
+      }
+    }
+
+    /* Hide mobile-only links on desktop */
+.mobile-only { display: none; }
+
+/* Show only inside mobile sidebar */
+@media (max-width: 768px) {
+  .mobile-only { 
+    display: block; 
+  }
+  .mobile-only a {
+    color: #ffcc00;
+    font-weight: bold;
+    padding: 10px 15px;
+  }
+}
+
+  </style>
+</head>
+<body>
+    <section id="loader" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:#e0f7fa; display:flex; justify-content:center; align-items:center; z-index:9999; overflow:hidden; font-family:'Poppins', sans-serif; flex-direction:column; text-align:center; padding:20px;">
 
 
 <!-- Background Watermark Logo -->
@@ -98,340 +356,89 @@ color:#333; position:relative; overflow:hidden;"> -->
   </script>
 
 </section>
-  <style>
-    
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f9f9f9;
-    }
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 0px 80px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: transparent;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
-      z-index: 1000;
-    }
-
-.navbar.scrolled {
- background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
-
-  backdrop-filter: blur(10px);
-  border-bottom: 3px solid rgba(0, 207, 255, 0.6);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
-  transition: all 0.5s ease-in-out;
-}
-
-
-
-.nav-links li,
-.dropdown-menu li,
-.sub-dropdown-menu li {
-  list-style: none;
-}
-
-    .logo img {
-      height: 100px;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      color: white;
-      cursor: pointer;
-      z-index: 1001;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      list-style: none;
-    }
-
-    .nav-links li {
-      position: relative;
-    }
-
-.nav-links > li > a {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  position: relative;
-  padding: 6px 0;
-  transition: color 0.3s ease;
-}
-
-.nav-links > li > a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, #00CFFF, #6CC04A);
-  transition: width 0.3s ease-in-out;
-}
-.nav-links > li > a:hover {
-  color: #ff7b00; /* highlight color */
-}
-
-.nav-links > li > a:hover::after {
-  width: 100%;
-}
-
-    .nav-links > li > a:hover {
-      color:  #ff7b00;
-    }
-
-    .dropdown-menu,
-    .sub-dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      background: #fff;
-      min-width: 200px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-      flex-direction: column;
-      z-index: 1000;
-    }
-
-    .dropdown-menu a,
-    .sub-dropdown-menu a {
-      display: block;
-      padding: 10px 15px;
-      color: #333;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .dropdown-menu a:hover,
-    .sub-dropdown-menu a:hover {
-      background: #ff7b00;
-      color: white;
-    }
-
-    .nav-links li:hover > .dropdown-menu {
-      display: flex;
-    }
-
-    .sub-dropdown:hover > .sub-dropdown-menu {
-      display: flex;
-      top: 0;
-      left: 100%;
-    }
-
-    .dropdown-arrow {
-      font-size: 12px;
-    }
-
-    /* ----------- MOBILE VIEW ----------- */
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.95); /* <-- Mobile-only navbar background */
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        position: fixed;
-        top: 0;
-        left: -280px;
-        height: 100vh;
-        width: 280px;
-        background: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        padding: 80px 20px;
-        transition: left 0.3s ease;
-        overflow-y: auto;
-      }
-
-      .nav-links.active {
-        left: 0;
-      }
-
-      .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        display: none;
-      }
-
-      .overlay.show {
-        display: block;
-      }
-
-      .nav-links li {
-        width: 100%;
-      }
-
-      .nav-links > li > a {
-        color: white;
-        padding: 12px 20px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .dropdown-menu,
-      .sub-dropdown-menu {
-        position: static;
-        display: none;
-        background: #222;
-        box-shadow: none;
-        width: 100%;
-      }
-
-      .dropdown-menu a,
-      .sub-dropdown-menu a {
-        color: white;
-        padding-left: 30px;
-      }
-
-      .sub-dropdown-menu {
-        padding-left: 10px;
-      }
-
-      .dropdown-menu.show,
-      .sub-dropdown-menu.show {
-        display: flex !important;
-        flex-direction: column;
-      }
-
-      .nav-links li:hover > .dropdown-menu,
-      .sub-dropdown:hover > .sub-dropdown-menu {
-        display: none;
-      }
-
-      .nav-links .dropdown-toggle {
-        cursor: pointer;
-      }
-    }
-  </style>
-</head>
-<body>
 
   <!-- Navbar -->
-  <!-- ✅ Final Responsive Navbar -->
-<nav class="navbar" id="navbar">
-  <!-- Logo -->
-  <a href="index.html" class="logo">
-    <img src="images/LOGO_02.png" alt="Aquagreen Logo">
-  </a>
+  <nav class="navbar" id="navbar">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="images/LOGO_02.png" alt="Aquagreen Logo">
+    </a>
 
-  <!-- Mobile Toggle -->
-  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+    <!-- Mobile Toggle -->
+    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
 
-  <!-- Navigation -->
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">HOME</a></li>
-    <li><a href="About.html">ABOUT US</a></li>
+    <!-- Navigation -->
+<ul class="nav-links" id="navLinks">
+  <li><a href="index.html">HOME</a></li>
+  <li><a href="About.html">ABOUT US</a></li>
 
-    <!-- PRODUCTS DROPDOWN -->
-    <li class="dropdown">
-      <a href="PRODUCT.html" class="has-dropdown">
-        PRODUCTS <span class="arrow">▼</span>
-      </a>
-      <ul class="dropdown-menu">
-        <li class="sub-dropdown">
-          <a href="PRODUCT.html">Water Treatment Systems ▸</a>
-          <ul class="sub-dropdown-menu">
-            <li><a href="Ozonw_SyS.html">Ozone System</a></li>
-            <li><a href="UF.html">Ultrafiltration (UF) System</a></li>
-          </ul>
-        </li>
+  <!-- PRODUCTS DROPDOWN -->
+  <li class="dropdown">
+    <a href="PRODUCT.html" class="dropdown-toggle">
+      PRODUCTS <span class="arrow">▼</span>
+    </a>
+    <ul class="dropdown-menu">
+      <!-- Mobile-only "All Products" link -->
+      <li class="mobile-only"><a href="PRODUCT.html"><strong>All Products</strong></a></li>
 
-        <li class="sub-dropdown">
-          <a href="PRODUCT.html">Wastewater Treatment ▸</a>
-          <ul class="sub-dropdown-menu">
-            <li><a href="DAF.html">DAF Unit</a></li>
-            <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
-            <li><a href="Wet.html">Wet Fume Scrubber</a></li>
-          </ul>
-        </li>
+      <li class="sub-dropdown">
+        <a href="PRODUCT.html">Water Treatment Systems ▸</a>
+        <ul class="sub-dropdown-menu">
+          <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+        </ul>
+      </li>
+      <li class="sub-dropdown">
+        <a href="PRODUCT.html">Wastewater Treatment ▸</a>
+        <ul class="sub-dropdown-menu">
+          <li><a href="DAF.html">DAF Unit</a></li>
+          <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+          <li><a href="Wet.html">Wet Fume Scrubber</a></li>
+        </ul>
+      </li>
+      <li><a href="CHEmical.html">Chemicals</a></li>
+    </ul>
+  </li>
 
-        <li><a href="CHEmical.html">Chemicals</a></li>
-      </ul>
-    </li>
+  <!-- SERVICES DROPDOWN -->
+  <li class="dropdown">
+    <a href="Services.html" class="dropdown-toggle">
+      SERVICES <span class="arrow">▼</span>
+    </a>
+    <ul class="dropdown-menu">
+      <!-- Mobile-only "All Services" link -->
+      <li class="mobile-only"><a href="Services.html"><strong>All Services</strong></a></li>
 
-    <!-- SERVICES DROPDOWN -->
-    <li class="dropdown">
-      <a href="Services.html" class="has-dropdown">
-        SERVICES <span class="arrow">▼</span>
-      </a>
-      <ul class="dropdown-menu">
+      <li class="sub-dropdown">
+        <a href="AMC.html">AMC </a>
 
-        <!-- AMC SUBDROPDOWN -->
-     <li class="sub-dropdown">
-          <a href="Services.html">AMC ▸</a>
-          <ul class="sub-dropdown-menu">
-             <li><a href="CSTP.html">CSTP</a></li>
-              <li><a href="CETP.html">CETP</a></li>
-            <li><a href="STP.html">STP</a></li>
-            <li><a href="ETP.html">ETP</a></li>
-            <li><a href="MEE.html">MEE</a></li>
-            <li><a href="RO.html">RO</a></li>
-            <li><a href="UF.html">UF</a></li>
-            <li><a href="MPCB.html">MPCB</a></li>
-            <li><a href="DM.html">DM</a></li>
-            <li><a href="ZLD.html">ZLD</a></li>
-              <li><a href="Softnres.html">Softeners</a></li>
-          </ul>
-        </li>
-
+      </li>
         <li><a href="EPR.html">EPR Registration</a></li>
-        <li><a href="CGWA.html">NOC from CGWA</a></li>
-        <li><a href="Services.html">Environmental</a></li>
-      </ul>
-    </li>
+      <li><a href="CGWA.html">NOC from CGWA</a></li>
+      <li><a href="Env_Monitoring.html">Environmental</a></li>
+    </ul>
+  </li>
 
-    <li><a href="Our_Work.html">OUR WORK</a></li>
-    <li><a href="contact.html">CONTACT</a></li>
-  </ul>
-</nav>
+  <li><a href="Our_Work.html">OUR WORK</a></li>
+  <li><a href="contact.html">CONTACT</a></li>
+</ul>
 
+  </nav>
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
 
-  <!-- JavaScript -->
+  <!-- ================= JAVASCRIPT ================= -->
   <script>
     const navbar = document.getElementById('navbar');
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     const overlay = document.getElementById('overlay');
 
+    // Navbar scroll effect
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
+    // Mobile menu toggle
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       overlay.classList.toggle('show');
@@ -443,17 +450,21 @@ color:#333; position:relative; overflow:hidden;"> -->
       closeAllMenus();
     });
 
+    // Dropdown toggle
     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
       toggle.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
           e.preventDefault();
           const menu = toggle.nextElementSibling;
+          const arrow = toggle.querySelector('.arrow');
           menu.classList.toggle('show');
+          arrow.classList.toggle('rotate');
           closeOthers(menu, '.dropdown-menu');
         }
       });
     });
 
+    // Sub-dropdown toggle
     document.querySelectorAll('.sub-dropdown > a').forEach(sub => {
       sub.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
@@ -469,14 +480,23 @@ color:#333; position:relative; overflow:hidden;"> -->
       document.querySelectorAll(selector).forEach(menu => {
         if (menu !== current) menu.classList.remove('show');
       });
+      document.querySelectorAll('.arrow').forEach(arrow => {
+        if (!arrow.closest(selector).classList.contains('show')) {
+          arrow.classList.remove('rotate');
+        }
+      });
     }
 
     function closeAllMenus() {
       document.querySelectorAll('.dropdown-menu, .sub-dropdown-menu').forEach(menu => {
         menu.classList.remove('show');
       });
+      document.querySelectorAll('.arrow').forEach(arrow => {
+        arrow.classList.remove('rotate');
+      });
     }
 
+    // Close sidebar after clicking a link
     document.querySelectorAll('.nav-links > li > a:not(.dropdown-toggle)').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
@@ -664,6 +684,7 @@ color:#333; position:relative; overflow:hidden;"> -->
 
 
 
+
   <!-- ================== PAGE 2 : ABOUT US ================== -->
 <!-- ================== PAGE 2 : ABOUT US ================== -->
 <!-- ================== PAGE 2 : ABOUT US ================== -->
@@ -674,25 +695,51 @@ color:#333; position:relative; overflow:hidden;"> -->
 <section id="about-us" style="width:100%; padding:100px 20px; font-family:'Poppins', sans-serif; 
 background: linear-gradient(135deg, #e6f2ff 0%, #f9f9f9 100%), url('https://www.transparenttextures.com/patterns/cubes.png');
 background-size: cover;
-color:#333; position:relative; overflow:hidden;">
+color:#333; position:relative; overflow:hidden; text-align:center;">
+
+  <!-- Google Fonts -->
+   
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
 
 
   <!-- Title -->
-  <div style="text-align:center; max-width:900px; margin:0 auto 60px;">
-    <h2 style="font-size:2.8rem; font-weight:700; color:#F24D29; position:relative; display:inline-block;">
-      About Us
-      <span style="position:absolute; bottom:-8px; left:50%; transform:translateX(-50%); width:60%; height:4px; background:#6CC04A; border-radius:2px;"></span>
-    </h2>
-<p style="font-size:1.1rem; line-height:1.8; color:#555; margin-top:25px;">
-  <b style="color:#8DC63F;">Aquagreen Tech Solutions (AGTS)</b> creates sustainable, innovative, and eco-friendly solutions in 
-  <b>water treatment, wastewater treatment, energy management, water audits, industrial fabrication</b>, and <b>treatment chemicals</b>.
-  <br><br>
- Guided by <b style="color:#007ACC;">Towards Sustainability Future</b>, we protect natural resources for future generations.
+  <div style="max-width:900px; margin:0 auto; text-align:center;">
+<h2 style="font-family: 'Raleway', sans-serif;
+           font-size:3.2rem; 
+           font-weight:400; 
+           color:#F24D29; 
+           text-shadow: 3px 3px 10px rgba(0,0,0,0.4); /* shadow only on text */
+           position:relative; 
+           display:inline-block; 
+           letter-spacing:1px;">
+  About Us
+  <span style="position:absolute; 
+               bottom:-12px; 
+               left:50%; 
+               transform:translateX(-50%); 
+               width:70%; 
+               height:5px; 
+               background:linear-gradient(90deg,#6CC04A,#B6FF40); 
+               border-radius:4px;"></span> <!-- removed box-shadow -->
+</h2>
 
-  <i style="color:#1C2A5B; display:block; margin-top:10px;">...because we care for you!</i>
-</p>
-
+    <!-- Description -->
+    <p style="font-size:1.1rem; 
+              line-height:1.8; 
+              color:#555; 
+              margin-top:30px; 
+              max-width:750px; 
+              margin-left:auto; 
+              margin-right:auto;">
+      <b style="color:#8DC63F;">Aquagreen Tech Solutions (AGTS)</b> creates sustainable, innovative, and eco-friendly solutions in 
+      <b>water treatment, wastewater treatment, energy management, water audits, industrial fabrication</b>, and <b>treatment chemicals</b>.
+      <br><br>
+      Guided by <b style="color:#007ACC;">Towards Sustainability Future</b>, we protect natural resources for future generations.
+      <i style="color:#1C2A5B; display:block; margin-top:10px;">...because we care for you!</i>
+    </p>
   </div>
+
 
   <!-- Content Grid -->
   <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:40px; align-items:stretch;">
@@ -768,6 +815,22 @@ color:#333; position:relative; overflow:hidden;">
 
   </div>
 </section>
+<style>
+  /* Certificates responsive on mobile */
+  @media (max-width: 768px) {
+    #certificateModal img {
+      width: 90% !important;   /* take most of screen width */
+      max-width: 220px;        /* limit max size */
+    }
+  }
+
+  @media (max-width: 480px) {
+    #certificateModal img {
+      width: 95% !important;
+      max-width: 180px;        /* even smaller for very small devices */
+    }
+  }
+</style>
 
 
 <style>
@@ -798,7 +861,6 @@ color:#333; position:relative; overflow:hidden;">
     list-style-position: inside;
   }
 </style>
-
 
 
 <!-- 3D Water Banner Section -->
@@ -938,14 +1000,25 @@ background-size: cover; background-attachment: fixed; color:#333;">
 
   <!-- Heading Centered -->
   <div style="text-align:center; margin-bottom: 60px;">
-    <h2 style="font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 700; line-height: 1.3; display:inline-block; padding: 0 20px;
-         background: linear-gradient(90deg, #0BA34E, #07d67a);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      position:relative;">
-      <span style="position:absolute; left:0; right:0; bottom:-10px; height:4px; border-radius:4px;
-        background: linear-gradient(90deg, #ff7b00, #07d67a, #00bcd4); box-shadow:0 0 10px rgba(0,0,0,0.15);"></span>
-      Our Valuable Clients
-    </h2>
+<h2 style="font-family: 'Raleway', sans-serif;
+           font-size:3.2rem; 
+           font-weight:400; 
+           color:#0BA34E; 
+           text-shadow: 3px 3px 10px rgba(0,0,0,0.2); /* shadow only on text */
+           position:relative; 
+           display:inline-block; 
+           letter-spacing:1px;">
+  Our Valuable Clients
+  <span style="position:absolute; 
+               bottom:-12px; 
+               left:50%; 
+               transform:translateX(-50%); 
+               width:90%; 
+               height:5px; 
+               background:linear-gradient(90deg, #ff7b00, #07d67a, #00bcd4); 
+               border-radius:4px;"></span>
+</h2>
+
   </div>
 
   <!-- Slider Full Width -->
@@ -1158,7 +1231,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <section class="services-section">
-  <h2>Our Products & Services</h2>
+<div style="text-align:center; margin:50px 0;">
+  <h2 style="font-family: 'Raleway', sans-serif;
+             font-size:3.2rem; 
+             font-weight:400; 
+             color:#F24D29; 
+             text-shadow: 3px 3px 10px rgba(0,0,0,0.0); 
+             position:relative; 
+             display:inline-block; 
+             letter-spacing:1px;">
+    Our Products & Services
+    <span style="position:absolute; 
+                 bottom:-12px; 
+                 left:50%; 
+                 transform:translateX(-50%); 
+                 width:90%; 
+                 height:5px; 
+                 background:linear-gradient(90deg,#6CC04A,#B6FF40); 
+                 border-radius:4px; 
+                 box-shadow:0 4px 10px rgba(0,0,0,0.5);"></span>
+  </h2>
+</div>
+
 
   <div class="services-slider-wrapper">
     <button class="services-scroll-btn left" onclick="scrollServices(-1)">&#10094;</button>
@@ -1170,70 +1264,42 @@ document.addEventListener("DOMContentLoaded", () => {
     <button class="services-scroll-btn right" onclick="scrollServices(1)">&#10095;</button>
   </div>
 
-  <style>
-    /* === SERVICES SECTION ONLY === */
+<style>
+/* === SERVICES SECTION ONLY === */
 .services-section {
   padding: 60px 20px;
-  background: linear-gradient(135deg, #8DC63F, #00AEEF); /* Green → Blue */
+  background: linear-gradient(135deg, #8DC63F, #00AEEF);
   font-family: 'Poppins', sans-serif;
-  color: #fff; /* Text color updated for contrast */
+  color: #fff;
 }
 
-
-.services-section h2 {
-  text-align: center;
-  font-size: 2.8rem;
-  margin-bottom: 50px;
-  color: rgb(242, 77, 41);
-  font-weight: 700;
+.services-slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
 }
 
+.services-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 25px;
+  padding: 10px 0;
+  flex: 1;
+}
 
-    .services-slider-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+.services-container::-webkit-scrollbar { display: none; }
 
-    .services-scroll-btn {
-      font-size: 2rem;
-      background: #fff;
-      border: none;
-      cursor: pointer;
-      padding: 12px 16px;
-      border-radius: 50%;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-      flex-shrink: 0;
-      transition: all 0.3s ease;
-    }
-
-    .services-scroll-btn:hover {
-      background: #e0e0e0;
-      transform: scale(1.1);
-    }
-
-    .services-container {
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      gap: 25px;
-      padding: 10px 0;
-      flex: 1;
-    }
-
-    .services-container::-webkit-scrollbar {
-      display: none;
-    }
-
-    .services-card-wrapper {
-      min-width: 300px;
-      max-width: 330px;
-      flex-shrink: 0;
-      position: relative;
-    }
+.services-card-wrapper {
+  min-width: 300px;
+  max-width: 330px;
+  flex-shrink: 0;
+  position: relative;
+}
 
 .services-card {
-  height: 420px; /* increased card height */
+  height: 420px;
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
@@ -1244,38 +1310,17 @@ document.addEventListener("DOMContentLoaded", () => {
   flex-direction: column;
 }
 
-
-    .services-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
-    }
 .services-card img {
   width: 100%;
-  height: 180px; /* increased image height */
+  height: 180px;
   object-fit: cover;
   border-bottom: 2px solid #e0e0e0;
   transition: transform 0.4s ease;
 }
 
-    .services-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .services-card-content {
-      padding: 20px;
-      flex-grow: 1;
-    }
-
-    .services-card-content h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .services-card-content p {
-      font-size: 0.9rem;
-      color: #555;
-    }
+.services-card-content { padding: 20px; flex-grow: 1; }
+.services-card-content h3 { font-size: 1.2rem; margin-bottom: 10px; color: #333; }
+.services-card-content p { font-size: 0.9rem; color: #555; }
 
 .services-view-button {
   position: absolute;
@@ -1293,22 +1338,28 @@ document.addEventListener("DOMContentLoaded", () => {
   opacity: 0;
   transition: opacity 0.3s ease, bottom 0.3s ease;
 }
+.services-card-wrapper:hover .services-view-button {
+  opacity: 1;
+  bottom: 0;
+}
 
-
-    .services-card-wrapper:hover .services-view-button {
-      opacity: 1;
-      bottom: 0;
-    }
-
-@media (max-width: 600px) {
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 768px) {
+  .services-container {
+    gap: 0; /* no gap so cards align edge-to-edge */
+  }
+  .services-card-wrapper {
+    min-width: 100%;  /* full width */
+    max-width: 100%;  /* force single card per view */
+  }
   .services-card {
-    height: 380px; /* slightly taller on small screens too */
+    height: auto; /* let height adapt */
   }
   .services-card img {
-    height: 160px;
+    height: 200px;
   }
 }
-  </style>
+</style>
 
   <script>
 const services = [
@@ -1319,7 +1370,7 @@ const services = [
     description: "The Ozone system reduces organic matter, COD/BOD load, disinfects odour & colour. It generates ozone using UV or corona discharge and oxidizes pollutants effectively."
   },
   {
-    title: "Ultrafiltration (UF) System",
+    title: "Ultrafiltration (UF)",
     image: "images/02.jpg",
     link: "Orafol.html",
     description: "Low-maintenance membrane process that removes bacteria, viruses & colloidal matter. Produces consistent water quality with 90–100% pathogen removal."
@@ -1340,7 +1391,7 @@ const services = [
     title: "Reverse Osmosis (RO) Plant",
     image: "images/05.jpg",
     link: "Stretching.html",
-    description: "Durable & low maintenance, Smart monitoring & alerts, Energy-efficient operation, Removes 99% contaminants."
+    description: "Durable & low maintenance, Smart monitoring & alerts, Energy-efficient operation."
   },
   {
     title: "Water Softener",
@@ -1352,7 +1403,7 @@ const services = [
     title: "Effluent Treatment Plant (ETP)",
     image: "images/07.jpg",
     link: "MAchine_Stre.html",
-    description: "Employs MBBR, MBR, SBR & FAB technologies for industrial effluent purification, ensuring compliance with environmental standards."
+    description: " MBR, SBR & FAB technologies for industrial effluent purification, ensuring compliance with environmental standards."
   },
   {
     title: "Multi Effect Evaporator (MEE)",
@@ -1422,54 +1473,57 @@ const services = [
   }
 ];
 
-    const slider = document.getElementById('servicesSlider');
-    services.forEach(service => {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'services-card-wrapper';
+const slider = document.getElementById('servicesSlider');
+services.forEach(service => {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'services-card-wrapper';
 
-      const card = document.createElement('div');
-      card.className = 'services-card';
-      card.innerHTML = `
-        <img src="${service.image}" alt="${service.title}" />
-        <div class="services-card-content">
-          <h3>${service.title}</h3>
-          <p>${service.description}</p>
-        </div>
-      `;
+  const card = document.createElement('div');
+  card.className = 'services-card';
+  card.innerHTML = `
+    <img src="${service.image}" alt="${service.title}" />
+    <div class="services-card-content">
+      <h3>${service.title}</h3>
+      <p>${service.description}</p>
+    </div>
+  `;
 
-      const viewBtn = document.createElement('a');
-      viewBtn.href = "PRODUCT.html";
-      viewBtn.className = 'services-view-button';
-      viewBtn.textContent = 'View';
+  const viewBtn = document.createElement('a');
+  viewBtn.href = "PRODUCT.html";
+  viewBtn.className = 'services-view-button';
+  viewBtn.textContent = 'View';
 
-      wrapper.appendChild(card);
-      wrapper.appendChild(viewBtn);
-      slider.appendChild(wrapper);
-    });
+  wrapper.appendChild(card);
+  wrapper.appendChild(viewBtn);
+  slider.appendChild(wrapper);
+});
 
-    function scrollServices(direction) {
-      const scrollAmount = 340;
-      slider.scrollLeft += direction * scrollAmount;
+function getScrollAmount() {
+  return window.innerWidth <= 768 ? slider.clientWidth : 340;
+}
+
+function scrollServices(direction) {
+  slider.scrollLeft += direction * getScrollAmount();
+}
+
+let autoScroll = setInterval(() => {
+  if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+    slider.scrollLeft = 0;
+  } else {
+    slider.scrollLeft += getScrollAmount();
+  }
+}, 2500);
+
+slider.addEventListener("mouseenter", () => clearInterval(autoScroll));
+slider.addEventListener("mouseleave", () => {
+  autoScroll = setInterval(() => {
+    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+      slider.scrollLeft = 0;
+    } else {
+      slider.scrollLeft += getScrollAmount();
     }
-
-    let autoScroll = setInterval(() => {
-      if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-        slider.scrollLeft = 0;
-      } else {
-        slider.scrollLeft += 340;
-      }
-    }, 2000);
-
-    slider.addEventListener("mouseenter", () => clearInterval(autoScroll));
-    slider.addEventListener("mouseleave", () => {
-      autoScroll = setInterval(() => {
-        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-          slider.scrollLeft = 0;
-        } else {
-          slider.scrollLeft += 340;
-        }
-      }, 2000);
-    });
+  }, 2500);
+});
   </script>
 </section>
 
@@ -1516,11 +1570,26 @@ font-family: 'NEW', sans-serif;
   <div style="max-width:1300px; margin:auto; position:relative; z-index:2;">
     
     <!-- Section Title -->
-    <h2 style="text-align:center; font-size:3rem; font-weight:700; 
-       color: rgb(242, 77, 41);
-       margin-bottom:70px; letter-spacing:1px;">
-      What Our Clients Say
-    </h2>
+<h2 style="text-align:center; 
+           font-family: 'Raleway', sans-serif;
+           font-size:3.2rem; 
+           font-weight:400; 
+           color:#F24D29; 
+           margin-bottom:70px; 
+           letter-spacing:1px;
+           position:relative;
+           text-shadow:2px 2px 8px rgba(0,0,0,0.4);">
+  What Our Clients Say
+  <span style="position:absolute; 
+               bottom:-12px; 
+               left:50%; 
+               transform:translateX(-50%); 
+               width:90%; 
+               height:5px; 
+               background:linear-gradient(90deg,#6CC04A,#B6FF40); 
+               border-radius:4px; 
+               box-shadow:0 4px 10px rgba(0,0,0,0.1);"></span>
+</h2>
 
     <!-- Swiper -->
     <div class="swiper testimonial-swiper" style="padding-bottom:70px;">
@@ -1772,12 +1841,29 @@ font-family: 'NEW', sans-serif;
   <div style="max-width:1200px; margin:auto;"> -->
 
     <!-- Title -->
-    <h2 style="text-align:center; font-size:2.5rem; font-weight:700;  
-      background: linear-gradient(135deg, rgb(242, 77, 41), #d93b1d);
-       -webkit-background-clip:text; -webkit-text-fill-color:transparent; 
-       margin-bottom:50px;">
-      We Successfully Achieved...!
-    </h2>
+<h2 style="text-align:center; 
+           font-family: 'Raleway', sans-serif;
+           font-size:3.2rem; 
+           font-weight:400; 
+           margin-bottom:70px; 
+           letter-spacing:1px;
+           background: linear-gradient(135deg, rgb(242, 77, 41), #d93b1d);
+           -webkit-background-clip:text; 
+           -webkit-text-fill-color:transparent;
+           text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+           position:relative;">
+  We Successfully Achieved...!
+  <span style="position:absolute; 
+               bottom:-12px; 
+               left:50%; 
+               transform:translateX(-50%); 
+               width:90%; 
+               height:5px; 
+               background:linear-gradient(90deg,#6CC04A,#B6FF40); 
+               border-radius:4px; 
+               box-shadow:0 4px 10px rgba(0,0,0,0.1);"></span>
+</h2>
+
 
     <!-- Timeline -->
     <div class="timeline">
