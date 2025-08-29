@@ -260,71 +260,82 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <!-- Logo -->
-    <a href="index.html" class="logo">
-      <img src="images/LOGO_02.png" alt="Aquagreen Logo">
-    </a>
+<nav class="navbar" id="navbar">
+  <!-- Logo -->
+  <a href="index.html" class="logo">
+    <img src="images/LOGO_02.png" alt="Aquagreen Logo">
+  </a>
 
-    <!-- Mobile Toggle -->
-    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+  <!-- Mobile Toggle -->
+  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
 
-    <!-- Navigation -->
-<ul class="nav-links" id="navLinks">
-  <li><a href="index.html">HOME</a></li>
-  <li><a href="About.html">ABOUT US</a></li>
+  <!-- Navigation -->
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="About.html">ABOUT US</a></li>
 
-  <!-- PRODUCTS DROPDOWN -->
-  <li class="dropdown">
-    <a href="PRODUCT.html" class="dropdown-toggle">
-      PRODUCTS <span class="arrow">▼</span>
-    </a>
-    <ul class="dropdown-menu">
-      <!-- Mobile-only "All Products" link -->
-      <li class="mobile-only"><a href="PRODUCT.html"><strong>All Products</strong></a></li>
+   <!-- PRODUCTS DROPDOWN -->
+<li class="dropdown">
+  <a href="PRODUCT.html" class="dropdown-toggle">
+    PRODUCTS <span class="arrow">▼</span>
+  </a>
+  <ul class="dropdown-menu">
+    <!-- Mobile-only "All Products" link -->
+    <li class="mobile-only"><a href="PRODUCT.html"><strong>All Products</strong></a></li>
+        <li class="sub-dropdown">
+      <a href="#">More ▸</a>
+      <ul class="sub-dropdown-menu">
+        <li><a href="CSTP.html">CSTP</a></li>
+        <li><a href="CETP.html">CETP</a></li>
+        <li><a href="STP.html">STP</a></li>
+        <li><a href="ETP.html">ETP</a></li>
+        <li><a href="MEE.html">MEE</a></li>
+        <li><a href="RO.html">RO</a></li>
+        <li><a href="ZLD.html">ZLD</a></li>
+        <li><a href="Softener.html">Softeners</a></li>
+        <li><a href="DM.html">DM</a></li>
+        <li><a href="MPCB.html">MPCB</a></li>
+      </ul>
+    </li>
 
-      <li class="sub-dropdown">
-        <a href="PRODUCT.html">Water Treatment Systems ▸</a>
-        <ul class="sub-dropdown-menu">
-          <li><a href="Ozonw_SyS.html">Ozone System</a></li>
-        </ul>
-      </li>
-      <li class="sub-dropdown">
-        <a href="PRODUCT.html">Wastewater Treatment ▸</a>
-        <ul class="sub-dropdown-menu">
-          <li><a href="DAF.html">DAF Unit</a></li>
-          <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
-          <li><a href="Wet.html">Wet Fume Scrubber</a></li>
-        </ul>
-      </li>
-      <li><a href="CHEmical.html">Chemicals</a></li>
-    </ul>
-  </li>
+    <!-- Direct Products -->
+    <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+    <li><a href="UF.html">Ultrafiltration (UF)</a></li>
+    <li><a href="DAF.html">Dissolved Air Flotation Unit</a></li>
+    <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+    <li><a href="Wet.html">Wet Fume Scrubber</a></li>
+    <li><a href="OCEMS.html">OCEMS</a></li>
 
-  <!-- SERVICES DROPDOWN -->
-  <li class="dropdown">
-    <a href="Services.html" class="dropdown-toggle">
-      SERVICES <span class="arrow">▼</span>
-    </a>
-    <ul class="dropdown-menu">
-      <!-- Mobile-only "All Services" link -->
-      <li class="mobile-only"><a href="Services.html"><strong>All Services</strong></a></li>
+    <!-- More -->
 
-      <li class="sub-dropdown">
-        <a href="AMC.html">AMC </a>
+  </ul>
+</li>
 
-      </li>
+
+    <!-- SERVICES DROPDOWN -->
+    <li class="dropdown">
+      <a href="Services.html" class="dropdown-toggle">
+        SERVICES <span class="arrow">▼</span>
+      </a>
+      <ul class="dropdown-menu">
+        <!-- Mobile-only "All Services" link -->
+        <li class="mobile-only"><a href="Services.html"><strong>All Services</strong></a></li>
+
+        <li class="sub-dropdown"><a href="AMC.html">AMC</a></li>
         <li><a href="EPR.html">EPR Registration</a></li>
-      <li><a href="CGWA.html">NOC from CGWA</a></li>
-      <li><a href="Env_Monitoring.html">Environmental</a></li>
-    </ul>
-  </li>
+        <li><a href="CGWA.html">NOC from CGWA</a></li>
+        <li><a href="Env_Monitoring.html">Environmental Monitoring</a></li>
+        <li><a href="ENv_Managment.html">Environmental Management</a></li>
+        <li><a href="CHEmical.html">Chemicals</a></li>
+      </ul>
+    </li>
 
-  <li><a href="Our_Work.html">OUR WORK</a></li>
-  <li><a href="contact.html">CONTACT</a></li>
-</ul>
-
-  </nav>
+    <li><a href="Our_Work.html">OUR WORK</a></li>
+    <li><a href="Gallery.html">GALLERY</a></li>
+    <li><a href="Career.html">CAREER</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
 
@@ -433,11 +444,7 @@ style="position:relative;
 </h1>
 
 <p style="font-size:1.2rem; font-weight:400; line-height:1.7; max-width:900px; margin:auto; color:#e6f9ff;">
-  Water and wastewater treatment facilities, including 
-  <b style="color:#F24D29;">CSTP, CETP, STP, ETP, MEE, RO, UF, MPCB, DM, ZLD, and Softeners</b>, 
-  play a vital role in ensuring clean water for consumption and protecting the environment. 
-  Proper operation and maintenance are essential for their efficient functioning. 
-  We at <b style="color:#FFD700;">Aquagreen Tech Solutions</b> provide all types of operation and maintenance services for the above.
+We offer highly qualified and skilled teams for Annual Maintenance Contracts (AMC) — both comprehensive and non-comprehensive — tailored for water and wastewater treatment systems. Our expertise covers a broad spectrum of operations, ensuring efficiency, compliance, and sustainability.
 </p>
 
   </div>
@@ -446,487 +453,84 @@ style="position:relative;
 
 </section>
 
-<section id="cstp" style="padding:100px 20px; margin-top:0; 
-background: linear-gradient(135deg, #e6f9ff 0%, #f9f9f9 100%);  
-font-family:'Poppins', sans-serif; overflow:hidden;">
+<!-- AMC Services Section -->
+<section id="amc-services" style="padding:100px 20px; background:linear-gradient(135deg,#f5fbff 0%, #ffffff 100%); font-family:'Poppins',sans-serif; overflow:hidden;">
 
-  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
+  <div style="max-width:1200px; margin:auto; display:flex; flex-direction:column; gap:100px;">
 
-    <!-- Left Image -->
-    <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-right" data-aos-duration="1000">
-      <img src="images/CSTP.avif" 
-           alt="Common Sewage Treatment Plant" 
-           style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); transition:transform 0.5s ease, box-shadow 0.5s ease; cursor:pointer;"
-           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.25)';"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';">
+    <!-- Partial O&M Services -->
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
+      <!-- Left Image -->
+      <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-right">
+        <img src="images/Partial_O&M.jpeg" alt="Partial O&M Services" 
+             style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15);">
+      </div>
+      <!-- Right Text -->
+      <div style="flex:1; min-width:300px;" data-aos="fade-left">
+        <h2 style="font-size:2rem; font-weight:700; color:#0077b6; border-left:6px solid #00b4d8; padding-left:15px; margin-bottom:15px;">Partial O&M Services</h2>
+        <p style="font-size:1.1rem; color:#333; line-height:1.7;">Customized service schedules available (e.g., visits once every 2 or 3 days) for flexible plant support.</p>
+      </div>
     </div>
 
-    <!-- Right Content -->
-    <div style="flex:1; min-width:300px;" data-aos="fade-left" data-aos-duration="1000">
-      <h2 style="font-size:2.5rem; font-weight:700; color:#0077b6; margin:20px auto; border-left:6px solid #00b4d8; padding-left:15px; display:inline-block; text-align:center; line-height:1.3;" data-aos="fade-down" data-aos-delay="200">
-        Common Sewage Treatment Plant <br>
-        (CSTP)
-      </h2>
-
-      <p style="font-size:1.1rem; color:#333; margin-bottom:20px; line-height:1.6;" data-aos="fade-up" data-aos-delay="300">
-        A <strong style="color:#0077b6;">Common Sewage Treatment Plant (CSTP)</strong> is a centralized facility designed to 
-        <strong>collect, treat, and recycle sewage</strong> from multiple sources such as residential areas, commercial complexes, and industrial clusters.
-      </p>
-
-      <p style="font-size:1.1rem; color:#444; margin-bottom:20px; line-height:1.6;" data-aos="fade-up" data-aos-delay="400">
-        CSTPs use a combination of <em>primary, secondary, and tertiary treatment processes</em> to remove suspended solids, organic matter, and pathogens, ensuring that the treated water is safe for reuse or discharge into the environment.
-      </p>
-
-      <!-- Highlight Box -->
-      <p style="font-size:1rem; line-height:1.7; color:#555; background:#f0fbff; padding:15px 20px; border-left:4px solid #00b4d8; border-radius:8px; margin-bottom:25px;" data-aos="zoom-in" data-aos-delay="500">
-        💡 <strong>Key Benefits:</strong> Centralized sewage management • Reduced pollution • Water reuse potential • Cost-effective for communities
-      </p>
-
-      <!-- Applications -->
-      <h3 style="font-size:1.3rem; font-weight:600; color:#0077b6; margin-bottom:15px;" data-aos="fade-up" data-aos-delay="600">Applications of CSTP:</h3>
-      <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;" data-aos="fade-up" data-aos-delay="700">
-        <li>✔ Residential townships & housing societies</li>
-        <li>✔ Commercial complexes & business parks</li>
-        <li>✔ Industrial estates & clusters</li>
-        <li>✔ Municipal sewage management</li>
-        <li>✔ Smart cities & urban infrastructure projects</li>
-      </ul>
+    <!-- Process Optimization -->
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px; flex-direction:row-reverse;">
+      <!-- Right Image -->
+      <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-left">
+        <img src="images/process_OP.png" alt="Process Optimization" 
+             style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15);">
+      </div>
+      <!-- Left Text -->
+      <div style="flex:1; min-width:300px;" data-aos="fade-right">
+        <h2 style="font-size:2rem; font-weight:700; color:#0077b6; border-left:6px solid #00b4d8; padding-left:15px; margin-bottom:15px;">Process Optimization</h2>
+        <p style="font-size:1.1rem; color:#333; line-height:1.7;">Expertise in reducing chemical consumption without compromising treatment quality — leading to cost savings and improved plant performance.</p>
+      </div>
     </div>
 
-  </div>
-</section>
-
-
-
-
-<!-- CETP Section -->
-<section id="cetp" style="margin-top:1px; padding:140px 20px; background:linear-gradient(135deg, #e6f9ff 0%, #f9f9f9 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
-
-  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-
-    <!-- Left Content -->
-    <div style="flex:1; min-width:300px;" data-aos="fade-right" data-aos-duration="1000">
-<h2 style="font-size:2.5rem; font-weight:700; color:#0077b6; margin:20px auto; border-left:6px solid #00b4d8; padding-left:15px; display:inline-block; text-align:center; line-height:1.3;" 
-    data-aos="fade-down" data-aos-delay="200">
-  Common Effluent Treatment Plant <br>
-  (CETP)
-</h2>
-
-      <p style="font-size:1rem; color:#555; line-height:1.8; margin-bottom:20px; text-align:justify;" data-aos="fade-up" data-aos-delay="400">
-        CETPs are designed to treat effluents collected from multiple industries in an industrial estate. 
-        They play a crucial role in reducing environmental pollution and ensuring compliance with statutory norms. 
-        By combining the wastewater treatment from small and medium-scale industries, CETPs make treatment economical, 
-        efficient, and sustainable.
-      </p>
-      <ul style="list-style:none; padding:0; margin:0;" data-aos="fade-up" data-aos-delay="500">
-        <li style="margin-bottom:12px; font-size:1rem; color:#444;">✅ Cost-effective solution for small & medium industries</li>
-        <li style="margin-bottom:12px; font-size:1rem; color:#444;">✅ Centralized treatment of effluents</li>
-        <li style="margin-bottom:12px; font-size:1rem; color:#444;">✅ Reduces pollution load on natural water bodies</li>
-        <li style="margin-bottom:12px; font-size:1rem; color:#444;">✅ Ensures compliance with SPCB & CPCB standards</li>
-      </ul>
+    <!-- Wastewater Recycling & ZLD -->
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
+      <!-- Left Image -->
+      <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-right">
+        <img src="images/WASTE_WATER_REcycle.png" alt="Wastewater Recycling & ZLD" 
+             style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15);">
+      </div>
+      <!-- Right Text -->
+      <div style="flex:1; min-width:300px;" data-aos="fade-left">
+        <h2 style="font-size:2rem; font-weight:700; color:#0077b6; border-left:6px solid #00b4d8; padding-left:15px; margin-bottom:15px;">Wastewater Recycling & ZLD</h2>
+        <p style="font-size:1.1rem; color:#333; line-height:1.7;">Implementing best practices and technologies to maximize recycling and help industries achieve Zero Liquid Discharge (ZLD) goals.</p>
+      </div>
     </div>
 
-    <!-- Right Image -->
-    <div style="flex:1; min-width:300px; text-align:center;" data-aos="zoom-in" data-aos-duration="1200">
-      <img src="images/CETP.webp" alt="CETP Plant" style="width:100%; max-width:500px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.1);" />
+    <!-- Technical Support -->
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px; flex-direction:row-reverse;">
+      <!-- Right Image -->
+      <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-left">
+        <img src="images/CALL.jpg" alt="Technical Support" 
+             style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15);">
+      </div>
+      <!-- Left Text -->
+      <div style="flex:1; min-width:300px;" data-aos="fade-right">
+        <h2 style="font-size:2rem; font-weight:700; color:#0077b6; border-left:6px solid #00b4d8; padding-left:15px; margin-bottom:15px;">Technical Support on Demand</h2>
+        <p style="font-size:1.1rem; color:#333; line-height:1.7;">On-call expert visits for technical troubleshooting, audits, and performance improvement of ETP/STP systems.</p>
+      </div>
+    </div>
+
+    <!-- Online Monitoring Kits -->
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
+      <!-- Left Image -->
+      <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-right">
+        <img src="images/AMC_MONITOROING.webp" alt="Online Monitoring Kits" 
+             style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15);">
+      </div>
+      <!-- Right Text -->
+      <div style="flex:1; min-width:300px;" data-aos="fade-left">
+        <h2 style="font-size:2rem; font-weight:700; color:#0077b6; border-left:6px solid #00b4d8; padding-left:15px; margin-bottom:15px;">Supply of Online Monitoring Kits</h2>
+        <p style="font-size:1.1rem; color:#333; line-height:1.7;">Provision and installation of online monitoring systems for real-time data tracking and compliance of ETP and STP units.</p>
+      </div>
     </div>
 
   </div>
 </section>
 
-
-<!-- STP Section -->
-<section id="stp" style="padding:100px 20px; background:linear-gradient(135deg, #e6f9ff 0%, #f9f9f9 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
-  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-
-    <!-- Left Image -->
-    <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-right" data-aos-duration="1000">
-      <img src="images/STP__001.jpg" 
-           alt="Sewage Treatment Plant" 
-           style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); transition:transform 0.5s ease, box-shadow 0.5s ease; cursor:pointer;"
-           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.25)';"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';">
-    </div>
-
-    <!-- Right Content -->
-    <div style="flex:1; min-width:300px;" data-aos="fade-left" data-aos-duration="1000">
-      <h2 style="font-size:2.5rem; font-weight:700; color:#007ACC; margin:20px auto; border-left:6px solid #F24D29; padding-left:15px; display:inline-block; text-align:center; line-height:1.3;" data-aos="fade-down" data-aos-delay="200">
-        Sewage Treatment Plant <br>(STP)
-      </h2>
-
-      <p style="font-size:1.1rem; color:#333; margin-bottom:20px; line-height:1.6;" data-aos="fade-up" data-aos-delay="300">
-        Techniques We Offer:
-      </p>
-
-      <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;" data-aos="fade-up" data-aos-delay="400">
-        <li>✔ Activated Sludge Process</li>
-        <li>✔ Moving Bio Bed Reactor (MBBR)</li>
-        <li>✔ Membrane Bio Reactor (MBR)</li>
-        <li>✔ Electro Coagulation System</li>
-        <li>✔ Sequential Bio Reactor (SBR)</li>
-        <li>✔ Rotating Bio Reactor (RBC)</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-
-<!-- ETP Section -->
-<!-- ETP Section -->
-<!-- ETP Section -->
-<section id="etp" style="padding:100px 20px; background:linear-gradient(135deg, #f2f9ff 0%, #ffffff 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
-  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-
-    <!-- Left Content -->
-    <div style="flex:1; min-width:300px;" data-aos="fade-right" data-aos-duration="1000">
-      <h2 style="font-size:2.5rem; font-weight:700; color:#007ACC; margin:20px auto; border-left:6px solid #F24D29; padding-left:15px; display:inline-block; text-align:center; line-height:1.3;" data-aos="fade-down" data-aos-delay="200">
-        Effluent Treatment Plant <br>(ETP)
-      </h2>
-
-      <p style="font-size:1.1rem; color:#333; margin-bottom:20px; line-height:1.6;" data-aos="fade-up" data-aos-delay="300">
-        Technologies We Offer:
-      </p>
-
-      <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;">
-        <li data-aos="fade-up" data-aos-delay="400">✔ <strong>MBBR:</strong> Moving Bed Biofilm Reactor (MBBR) Technology: Our Effluent Treatment Plant incorporates MBBR technology, an innovative biological treatment process that uses suspended biofilm carriers to enhance the microbial activity</li>
-        <li data-aos="fade-up" data-aos-delay="500">✔ <strong>SBR:</strong> Sequential Batch Reactor (SBR) Technology: With the Sequential Batch Reactor (SBR) technology integrated into our Effluent Treatment Plant, you benefit from a batch-operated system that provides excellent treatment efficiency</li>
-        <li data-aos="fade-up" data-aos-delay="600">✔ <strong>MBR:</strong> Membrane Bioreactor (MBR) Technology: Our Effluent Treatment Plant features advanced Membrane Bioreactor (MBR) technology, which combines the biological treatment process with membrane filtration.</li>
-        <li data-aos="fade-up" data-aos-delay="700">✔ <strong>FAB:</strong> Fixed Activated Sludge (FAB) Technology: The Effluent Treatment Plant also employs the Fixed Activated Sludge (FAB) technology, which facilitates the growth of microorganisms on a specially designed fixed media.</li>
-      </ul>
-    </div>
-
-    <!-- Right Image -->
-    <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-left" data-aos-duration="1000">
-      <img src="images/ETP__001.jpg" 
-           alt="Effluent Treatment Plant" 
-           style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); transition:transform 0.5s ease, box-shadow 0.5s ease; cursor:pointer;"
-           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.25)';"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';">
-    </div>
-
-  </div>
-</section>
-
-
-
-<!-- MEE Section -->
-<!-- MEE Section -->
-<!-- MEE Section -->
-<!-- MEE Section -->
-<section id="mee" style="padding:100px 20px;background:linear-gradient(135deg, #f2f9ff 0%, #ffffff 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
-  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-    
-    <!-- Left Image -->
-    <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-right" data-aos-duration="1000">
-      <img src="images/MEE.jpg" 
-           alt="Multi Effect Evaporator" 
-           style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); transition:transform 0.5s ease, box-shadow 0.5s ease; cursor:pointer;"
-           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.25)';"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';">
-    </div>
-
-    <!-- Right Content -->
-    <div style="flex:1; min-width:300px;" data-aos="fade-left" data-aos-duration="1000">
-      <h2 style="font-size:2.5rem; font-weight:700; color:#007ACC; margin:20px auto; border-left:6px solid #F24D29; padding-left:15px; white-space:nowrap; display:inline-block; text-align:center;" data-aos="fade-down" data-aos-delay="200">
-        Multi Effect Evaporator (MEE)
-      </h2>
-      
-      <p style="font-size:1.1rem; color:#333; margin-bottom:20px; line-height:1.6;" data-aos="fade-up" data-aos-delay="300">
-        Key Features:
-      </p>
-
-      <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;">
-        
-        <li data-aos="fade-up" data-aos-delay="400">
-          ✔ <strong>Energy-efficient Cascading Evaporation:</strong><br>
-          The MEE employs a multi-effect configuration, utilizing the latent heat from one evaporator effect to power the subsequent stage. 
-          This cascading process drastically reduces steam consumption, making it an eco-friendly and cost-effective solution for industries.
-        </li>
-        
-        <li data-aos="fade-up" data-aos-delay="500">
-          ✔ <strong>Superior Evaporation Rates:</strong><br>
-          Advanced heat transfer technology ensures faster evaporation while maintaining product integrity. 
-          By maximizing evaporation surface area, our system delivers higher productivity, shorter processing times, and reduced operational costs.
-        </li>
-        
-        <li data-aos="fade-up" data-aos-delay="600">
-          ✔ <strong>Robust Construction:</strong><br>
-          Built from high-quality, corrosion-resistant materials, the MEE is designed to withstand harsh industrial conditions. 
-          Its sturdy construction ensures long service life, minimizing downtime and maintenance requirements.
-        </li>
-        
-        <li data-aos="fade-up" data-aos-delay="700">
-          ✔ <strong>Flexible Customization:</strong><br>
-          Every industry has unique process needs. Our MEE units can be customized for varying feed compositions, product characteristics, 
-          and specific industrial applications, ensuring seamless integration into existing processes.
-        </li>
-        
-        <li data-aos="fade-up" data-aos-delay="800">
-          ✔ <strong>Automated Operation:</strong><br>
-          Equipped with PLC-based controls and a user-friendly interface, the MEE enables easy monitoring and precise operation. 
-          Automated systems ensure consistent results, improved safety, and reduced human intervention.
-        </li>
-      
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-
-
-<!-- RO Plant Section -->
-<!-- RO Plant Section -->
-<section id="ro-plant" style="padding:100px 20px; background:linear-gradient(135deg, #f5fbff 0%, #ffffff 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
-  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-
-    <!-- Left Content -->
-    <div style="flex:1; min-width:300px;" data-aos="fade-right" data-aos-duration="1000">
-      <h2 style="font-size:2.5rem; font-weight:700; color:#007ACC; margin:20px auto; border-left:6px solid #F24D29; padding-left:15px; display:inline-block; text-align:center; line-height:1.3;" data-aos="fade-down" data-aos-delay="200">
-        Reverse Osmosis <br>
-        (RO Plant)
-      </h2>
-
-      <p style="font-size:1.1rem; color:#333; margin-bottom:20px; line-height:1.6;" data-aos="fade-up" data-aos-delay="300">
-        Key Features:
-      </p>
-
-      <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;">
-        <li data-aos="fade-up" data-aos-delay="400">
-          ✔ <strong>Advanced Filtration Technology:</strong> Our RO Plant employs advanced reverse osmosis technology, which effectively removes impurities such as bacteria, viruses, dissolved solids, heavy metals, and harmful chemicals, ensuring you and your loved ones enjoy the highest standard of purified water.
-        </li>
-        <li data-aos="fade-up" data-aos-delay="500">
-          ✔ <strong>High-Performance Membrane:</strong> Equipped with a high-quality RO membrane, this plant guarantees an efficient filtration process, eliminating up to 99% of contaminants. This results in refreshing water that surpasses regulatory standards for drinking water quality.
-        </li>
-        <li data-aos="fade-up" data-aos-delay="600">
-          ✔ <strong>Energy-Efficient Operation:</strong> We understand the importance of environmental sustainability. Our RO Plant is engineered to be energy efficient, consuming minimal power while delivering maximum purification. Rest assured that your commitment to pure water goes hand in hand with reducing your carbon footprint.
-        </li>
-        <li data-aos="fade-up" data-aos-delay="700">
-          ✔ <strong>Compact and Space-Saving Design:</strong> Space constraints? No problem. Our RO Plant boasts a sleek and compact design, making it the perfect fit for both residential and commercial settings. Say hello to premium water purification without compromising on valuable space.
-        </li>
-        <li data-aos="fade-up" data-aos-delay="800">
-          ✔ <strong>Smart Monitoring System:</strong> Embracing the digital age, our RO Plant features a smart monitoring system that keeps you informed about filter life, water quality, and system maintenance requirements. Stay in control with real-time alerts and status updates through the user-friendly interface.
-        </li>
-        <li data-aos="fade-up" data-aos-delay="900">
-          ✔ <strong>User-Friendly Operation:</strong> Simplicity is key. Operating our RO Plant is a breeze, thanks to its user-friendly controls and easy-to-follow instructions. Even the installation process is hassle-free, ensuring you have access to pure water without any delays.
-        </li>
-        <li data-aos="fade-up" data-aos-delay="950">
-          ✔ <strong>Low Maintenance:</strong> Say goodbye to constant maintenance headaches. Our RO Plant is engineered to require minimal upkeep, saving you time and money in the long run. Regular maintenance routines are streamlined for your convenience.
-        </li>
-        <li data-aos="fade-up" data-aos-delay="1000">
-          ✔ <strong>Long-lasting Durability:</strong> Crafted from premium materials, our RO Plant is built to withstand the test of time. Rest assured that your investment in our product will yield years of reliable performance and purified water that you can trust.
-        </li>
-      </ul>
-    </div>
-
-    <!-- Right Image -->
-    <div style="flex:1; min-width:200px; text-align:center;" data-aos="fade-left" data-aos-duration="1000">
-      <img src="images/RO__011.jpg" 
-           alt="RO Plant" 
-           style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); transition:transform 0.5s ease, box-shadow 0.5s ease; cursor:pointer;"
-           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.25)';"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';">
-    </div>
-
-  </div>
-</section>
-
-
-
-<section id="softener" style="padding:100px 20px; background:linear-gradient(135deg, #f5fbff 0%, #ffffff 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
-
-  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-    
-    <!-- Left Image -->
-    <div style="flex:1; min-width:300px;" data-aos="fade-right" data-aos-duration="1000">
-      <img src="images/SOFTNER__001.jpg" 
-           alt="Water Softener Plant" 
-           style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); transition:transform 0.5s ease, box-shadow 0.5s ease; cursor:pointer;"
-           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.25)';"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';">
-    </div>
-
-    <!-- Right Content -->
-    <div style="flex:1; min-width:300px;" data-aos="fade-left" data-aos-duration="1000">
-      <h2 style="font-size:2.5rem; font-weight:700; color:#007ACC; margin:20px auto; border-left:6px solid #F24D29; padding-left:15px; display:inline-block; text-align:center;" data-aos="fade-down" data-aos-delay="200">
-        Water Softener Plant
-      </h2>
-
-      <!-- New Detailed Paragraph -->
-      <p style="font-size:1.1rem; color:#333; margin-bottom:20px; line-height:1.6;" data-aos="fade-up" data-aos-delay="300">
-        The water softener plant consists of several key components, including resin tanks, brine tanks, control valves, and regeneration systems. 
-        The resin tanks hold the ion exchange resin and are responsible for the actual water softening process. 
-        The brine tank stores a concentrated solution of salt or potassium that is used for the regeneration of the resin. 
-        Control valves regulate the flow of water and brine, ensuring efficient operation of the plant. 
-        Regeneration systems help rejuvenate the resin bed by flushing it with the brine solution to remove the accumulated mineral deposits.
-      </p>
-
-      <!-- Bullet Points -->
-      <p style="font-size:1.1rem; color:#333; margin-bottom:10px; line-height:1.6;" data-aos="fade-up" data-aos-delay="350">Key Components:</p>
-      <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;">
-        <li data-aos="fade-up" data-aos-delay="400">✔ <strong>Resin Tanks:</strong> Perform ion-exchange to remove hardness minerals.</li>
-        <li data-aos="fade-up" data-aos-delay="500">✔ <strong>Brine Tank:</strong> Stores salt/potassium solution for regeneration.</li>
-        <li data-aos="fade-up" data-aos-delay="600">✔ <strong>Control Valves:</strong> Ensure smooth and efficient operation.</li>
-        <li data-aos="fade-up" data-aos-delay="700">✔ <strong>Regeneration System:</strong> Extends system life with automated flushing.</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- MPCB Consent Section -->
-<section id="mpcb-consent" style="padding:100px 20px; background:linear-gradient(135deg, #f5fbff 0%, #ffffff 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
-  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-
-    <!-- Left Content -->
-    <div style="flex:1; min-width:300px;" data-aos="fade-right" data-aos-duration="1000">
-      <h2 style="font-size:2.5rem; font-weight:700; color:#007ACC; margin:20px auto; border-left:6px solid #F24D29; padding-left:15px; display:inline-block; text-align:center; line-height:1.3;" data-aos="fade-down" data-aos-delay="200">
-        MPCB Consent <br>
-        (SPCB & CPCB Approvals)
-      </h2>
-
-      <p style="font-size:1.1rem; color:#333; margin-bottom:20px; line-height:1.6;" data-aos="fade-up" data-aos-delay="300">
-        Our Services:
-      </p>
-
-      <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;">
-        <li data-aos="fade-up" data-aos-delay="400">✔ <strong>Consent to Establish / Operate:</strong> Support for new and existing industries.</li>
-        <li data-aos="fade-up" data-aos-delay="500">✔ <strong>Amendments:</strong> Assistance with updating existing consents.</li>
-        <li data-aos="fade-up" data-aos-delay="600">✔ <strong>White Category Applications:</strong> Filing for low-pollution industries.</li>
-        <li data-aos="fade-up" data-aos-delay="700">✔ <strong>Category Change:</strong> Guidance on SPCB industry category updates.</li>
-        <li data-aos="fade-up" data-aos-delay="800">✔ <strong>Combined Consent:</strong> Approvals with biomedical waste authorization.</li>
-        <li data-aos="fade-up" data-aos-delay="900">✔ <strong>E-Waste Authorization:</strong> Filing for e-waste management compliance.</li>
-        <li data-aos="fade-up" data-aos-delay="1000">✔ <strong>Battery Import Registration:</strong> CPCB registration assistance.</li>
-      </ul>
-    </div>
-
-    <!-- Right Image -->
-    <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-left" data-aos-duration="1000">
-      <img src="images/MPCB_01.jpeg" 
-           alt="MPCB Consent Consultancy" 
-           style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); transition:transform 0.5s ease, box-shadow 0.5s ease; cursor:pointer;"
-           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.25)';"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';">
-    </div>
-
-  </div>
-</section>
-
-
-
-<section id="dm-plant" style="padding:100px 20px; background:linear-gradient(135deg, #f5fbff 0%, #ffffff 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
-  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-
-    <!-- Left Content -->
-    <div style="flex:1; min-width:300px;" data-aos="fade-right">
-      <h2 style="font-size:2.5rem; font-weight:700; color:#1C2A5B; margin:20px auto; border-left:6px solid #6CC04A; padding-left:15px; display:inline-block; text-align:center; line-height:1.3;">
-        DM Plant <br>
-        <span style="font-size:1.2rem; font-weight:400; color:#007ACC;">(De-Mineralization Plant)</span>
-      </h2>
-
-      <ul style="list-style:none; padding:0; margin:20px 0 0; font-size:1rem; line-height:1.8; color:#444;">
-        <li>✔ <strong style="color:#1C2A5B;">Cutting-Edge Technology:</strong> Latest innovations ensure maximum efficiency in removing impurities.</li>
-        <li>✔ <strong style="color:#1C2A5B;">Reliable Purity:</strong> Delivers high-quality demineralized water for industrial & human use.</li>
-        <li>✔ <strong style="color:#1C2A5B;">Stringent Standards:</strong> Fully compliant with industry benchmarks and quality-tested.</li>
-        <li>✔ <strong style="color:#1C2A5B;">Complete Support:</strong> Backed by expert service & maintenance for long-term operation.</li>
-      </ul>
-    </div>
-
-    <!-- Right Image -->
-    <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-left">
-      <img src="images/DM__01.jpg" 
-           alt="DM Plant" 
-           style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); transition:transform 0.5s ease, box-shadow 0.5s ease; cursor:pointer;"
-           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.25)';"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';">
-    </div>
-
-  </div>
-</section>
-
-
-<section id="zld" style="padding:100px 20px;background:linear-gradient(135deg, #f5fbff 0%, #ffffff 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
-  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-
-    <!-- Left Content -->
-    <div style="flex:1; min-width:300px;" data-aos="fade-right">
-      <h2 style="font-size:2.5rem; font-weight:700; color :#1C2A5B; margin:20px auto; border-left:6px solid #6CC04A; padding-left:15px; display:inline-block; text-align:center; line-height:1.3;">
-        Zero Liquid Discharge <br>
-        (ZLD) Systems
-      </h2>
-
-      <ul style="list-style:none; padding:0; margin:20px 0 0; font-size:1rem; line-height:1.8; color:#444;">
-        <li>✔ <strong style="color:#007ACC;">Complete Waste Elimination:</strong> Ensures zero liquid waste discharge, eco-friendly and compliant.</li>
-        <li>✔ <strong style="color:#007ACC;">High Recovery:</strong> Recovers 95–99% of wastewater as reusable water.</li>
-        <li>✔ <strong style="color:#007ACC;">Sustainable:</strong> Reduces fresh water usage, converting residues into disposable salts.</li>
-        <li>✔ <strong style="color:#007ACC;">Cost-Effective:</strong> Long-term savings for industries with strict wastewater norms.</li>
-      </ul>
-
-      <!-- Applications -->
-      <h3 style="font-size:1.3rem; font-weight:600; color:#1C2A5B; margin:25px 0 15px;">Industries Using ZLD:</h3>
-      <ul style="list-style:none; padding:0; margin:0; font-size:1.1rem; line-height:1.8; color:#444;">
-        <li>✅ Power Plants</li>
-        <li>✅ Textile & Dyeing Units</li>
-        <li>✅ Pharmaceutical Industry</li>
-        <li>✅ Oil & Gas Refineries</li>
-        <li>✅ Chemical & Fertilizer Plants</li>
-      </ul>
-    </div>
-
-    <!-- Right Image -->
-    <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-left">
-      <img src="images/ZLD.png" 
-           alt="Zero Liquid Discharge Systems" 
-           style="width:100%; max-width:420px; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); transition:transform 0.5s ease, box-shadow 0.5s ease; cursor:pointer;"
-           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.25)';"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';">
-    </div>
-
-  </div>
-</section>
-
-<!-- Ultrafiltration System Section -->
-<section id="uf" style="padding:100px 20px; background:linear-gradient(135deg, #f5fbff 0%, #ffffff 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
-
-  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-    
-    <!-- Left Image -->
-    <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-right" data-aos-duration="1000">
-      <img src="images/UF__01.jpg" 
-           alt="Ultrafiltration System" 
-           style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); transition:transform 0.5s ease, box-shadow 0.5s ease; cursor:pointer;"
-           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.25)';"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';">
-    </div>
-
-    <!-- Right Content -->
-    <div style="flex:1; min-width:300px;" data-aos="fade-left" data-aos-duration="1000">
-      <h2 style="font-size:2.5rem; font-weight:700; color:#0077b6; margin:20px auto; border-left:6px solid #00b4d8; padding-left:15px; display:inline-block; text-align:center; line-height:1.3;" data-aos="fade-down" data-aos-delay="200">
-        Ultrafiltration System <br>
-        (UF Plant)
-      </h2>
-
-      <p style="font-size:1.15rem; line-height:1.9; color:#333; margin-bottom:20px;" data-aos="fade-up" data-aos-delay="300">
-        <strong style="color:#0077b6;">Low Maintenance, High Rewards:</strong>  
-        With its hardy nature and minimal upkeep, the <strong>UF Plant</strong> is a reliable choice for both seasoned professionals and beginners.  
-      </p>
-
-      <p style="font-size:1.15rem; line-height:1.9; color:#444; margin-bottom:20px;" data-aos="fade-up" data-aos-delay="400">
-        Ultrafiltration is a <strong>low-pressure membrane process</strong> designed to separate <em>bacteria, viruses, high molecular weight compounds, colloidal particles</em>, and other impurities from feed water.  
-      </p>
-
-      <p style="font-size:1.15rem; line-height:1.9; color:#444; margin-bottom:20px;" data-aos="fade-up" data-aos-delay="500">
-        It ensures <strong>consistent water quality</strong> regardless of the source, comes with a <strong>compact footprint</strong>, removes <strong>up to 99–100% of pathogens</strong>, and requires no chemicals (except during membrane cleaning).  
-      </p>
-
-      <!-- Highlighted Info Box -->
-      <p style="font-size:1.05rem; line-height:1.8; color:#555; background:#f0fbff; padding:15px 20px; border-left:4px solid #00b4d8; border-radius:8px;" data-aos="fade-up" data-aos-delay="600">
-        ✅ Stable water output &nbsp; | &nbsp; ✅ Compact & efficient design &nbsp; | &nbsp; ✅ Chemical-free operation
-      </p>
-    </div>
-
-  </div>
-</section>
 
 
 

@@ -261,71 +261,82 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <!-- Logo -->
-    <a href="index.html" class="logo">
-      <img src="images/LOGO_02.png" alt="Aquagreen Logo">
-    </a>
+<nav class="navbar" id="navbar">
+  <!-- Logo -->
+  <a href="index.html" class="logo">
+    <img src="images/LOGO_02.png" alt="Aquagreen Logo">
+  </a>
 
-    <!-- Mobile Toggle -->
-    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+  <!-- Mobile Toggle -->
+  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
 
-    <!-- Navigation -->
-<ul class="nav-links" id="navLinks">
-  <li><a href="index.html">HOME</a></li>
-  <li><a href="About.html">ABOUT US</a></li>
+  <!-- Navigation -->
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="About.html">ABOUT US</a></li>
 
-  <!-- PRODUCTS DROPDOWN -->
-  <li class="dropdown">
-    <a href="PRODUCT.html" class="dropdown-toggle">
-      PRODUCTS <span class="arrow">▼</span>
-    </a>
-    <ul class="dropdown-menu">
-      <!-- Mobile-only "All Products" link -->
-      <li class="mobile-only"><a href="PRODUCT.html"><strong>All Products</strong></a></li>
+   <!-- PRODUCTS DROPDOWN -->
+<li class="dropdown">
+  <a href="PRODUCT.html" class="dropdown-toggle">
+    PRODUCTS <span class="arrow">▼</span>
+  </a>
+  <ul class="dropdown-menu">
+    <!-- Mobile-only "All Products" link -->
+    <li class="mobile-only"><a href="PRODUCT.html"><strong>All Products</strong></a></li>
+        <li class="sub-dropdown">
+      <a href="#">More ▸</a>
+      <ul class="sub-dropdown-menu">
+        <li><a href="CSTP.html">CSTP</a></li>
+        <li><a href="CETP.html">CETP</a></li>
+        <li><a href="STP.html">STP</a></li>
+        <li><a href="ETP.html">ETP</a></li>
+        <li><a href="MEE.html">MEE</a></li>
+        <li><a href="RO.html">RO</a></li>
+        <li><a href="ZLD.html">ZLD</a></li>
+        <li><a href="Softener.html">Softeners</a></li>
+        <li><a href="DM.html">DM</a></li>
+        <li><a href="MPCB.html">MPCB</a></li>
+      </ul>
+    </li>
 
-      <li class="sub-dropdown">
-        <a href="PRODUCT.html">Water Treatment Systems ▸</a>
-        <ul class="sub-dropdown-menu">
-          <li><a href="Ozonw_SyS.html">Ozone System</a></li>
-        </ul>
-      </li>
-      <li class="sub-dropdown">
-        <a href="PRODUCT.html">Wastewater Treatment ▸</a>
-        <ul class="sub-dropdown-menu">
-          <li><a href="DAF.html">DAF Unit</a></li>
-          <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
-          <li><a href="Wet.html">Wet Fume Scrubber</a></li>
-        </ul>
-      </li>
-      <li><a href="CHEmical.html">Chemicals</a></li>
-    </ul>
-  </li>
+    <!-- Direct Products -->
+    <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+    <li><a href="UF.html">Ultrafiltration (UF)</a></li>
+    <li><a href="DAF.html">Dissolved Air Flotation Unit</a></li>
+    <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+    <li><a href="Wet.html">Wet Fume Scrubber</a></li>
+    <li><a href="OCEMS.html">OCEMS</a></li>
 
-  <!-- SERVICES DROPDOWN -->
-  <li class="dropdown">
-    <a href="Services.html" class="dropdown-toggle">
-      SERVICES <span class="arrow">▼</span>
-    </a>
-    <ul class="dropdown-menu">
-      <!-- Mobile-only "All Services" link -->
-      <li class="mobile-only"><a href="Services.html"><strong>All Services</strong></a></li>
+    <!-- More -->
 
-      <li class="sub-dropdown">
-        <a href="AMC.html">AMC </a>
+  </ul>
+</li>
 
-      </li>
+
+    <!-- SERVICES DROPDOWN -->
+    <li class="dropdown">
+      <a href="Services.html" class="dropdown-toggle">
+        SERVICES <span class="arrow">▼</span>
+      </a>
+      <ul class="dropdown-menu">
+        <!-- Mobile-only "All Services" link -->
+        <li class="mobile-only"><a href="Services.html"><strong>All Services</strong></a></li>
+
+        <li class="sub-dropdown"><a href="AMC.html">AMC</a></li>
         <li><a href="EPR.html">EPR Registration</a></li>
-      <li><a href="CGWA.html">NOC from CGWA</a></li>
-      <li><a href="Env_Monitoring.html">Environmental</a></li>
-    </ul>
-  </li>
+        <li><a href="CGWA.html">NOC from CGWA</a></li>
+        <li><a href="Env_Monitoring.html">Environmental Monitoring</a></li>
+        <li><a href="ENv_Managment.html">Environmental Management</a></li>
+        <li><a href="CHEmical.html">Chemicals</a></li>
+      </ul>
+    </li>
 
-  <li><a href="Our_Work.html">OUR WORK</a></li>
-  <li><a href="contact.html">CONTACT</a></li>
-</ul>
-
-  </nav>
+    <li><a href="Our_Work.html">OUR WORK</a></li>
+    <li><a href="Gallery.html">GALLERY</a></li>
+    <li><a href="Career.html">CAREER</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
 
@@ -417,29 +428,170 @@
 
 
 
+<section id="services" 
+style="margin-top:60px; 
+       padding:140px 8vw; 
+       font-family:'Poppins', sans-serif; 
+       color:#333;
+       position:relative;
+       overflow:hidden;
+
+       /* Background same as testimonials */
+       background: linear-gradient(
+                    135deg, 
+                    rgba(230,242,255,0) 0%, 
+                    rgba(240,255,244,0) 100%
+                  ),
+                  url('images/TESTIMONIAL__00111.png');
+       background-size: 40%; 
+       background-position: left bottom;
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-blend-mode: overlay;">
+  
+
+  <!-- Watermark Background Image -->
+  <img src="https://cdn-icons-png.flaticon.com/512/728/728093.png" 
+       alt="watermark" 
+       class="watermark-bg"
+       style="position:absolute; 
+              top:50%; 
+              right:5%; 
+              transform:translateY(-50%); 
+              opacity:0.07; 
+              width:200px; 
+              z-index:1;">
+
+
+  <div style="position:relative; z-index:2; text-align:center;">
+    <!-- Main Section Title -->
+    <div style="text-align:center;">
+      <h2 style="font-family: 'Raleway', sans-serif;
+                 font-size:3.2rem; 
+                 font-weight:400; 
+                 color:#F24D29; 
+                 text-shadow: 3px 3px 10px rgba(0,0,0,0.2); 
+                 position:relative; 
+                 display:inline-block; 
+                 letter-spacing:1px; 
+                 margin-bottom:80px;">
+        Our Products & Solutions
+        <span style="position:absolute; 
+                     bottom:-12px; 
+                     left:50%; 
+                     transform:translateX(-50%); 
+                     width:90%; 
+                     height:5px; 
+                     background:linear-gradient(90deg, #ff7b00, #07d67a, #00bcd4); 
+                     border-radius:4px;"></span>
+      </h2>
+    </div>
+    <p style="max-width:700px; margin:0 auto; font-size:1.2rem; line-height:1.8;">
+      We provide innovative and sustainable solutions to meet your industrial and environmental needs.
+    </p>
+  </div>
+  
 
 
 
 
 
-<!-- ============ PRODUCTS SECTION ============ -->
-<!-- ============ PRODUCTS SECTION ============ -->
-<section id="products" 
-style="margin-top:60px; padding:140px 8vw; background:linear-gradient(135deg,#f9f9f9 0%,#f0faff 100%); font-family:'Poppins', sans-serif; color:#333;">
+  <!-- ================= CATEGORY TEMPLATE ================= -->
+  <div class="service-category">
 
+    <div class="product-grid">
 
-  <!-- Main Section Title -->
-<h2 style="font-size:2.2rem; font-weight:700; color:#F24D29; text-align:center; margin:0 auto 60px auto; position:relative; display:block; max-width:100%; word-wrap:break-word;">
-  Our Products & Solutions
-  <span style="display:block; width:100px; height:5px; background:#6CC04A; margin:14px auto 0; border-radius:3px;"></span>
-</h2>
+      <div class="product-card">
+        <h3>CSTP (Common Sewage Treatment Plants)</h3>
+        <p>
+          Advanced sewage treatment solutions designed for residential, commercial, and industrial needs.  
+          Ensures proper treatment, recycling.
+        </p>
+        <a href="CSTP.html" target="_blank"><button>View More</button></a>
+      </div>
 
-  <!-- ================= WATER TREATMENT SYSTEMS ================= -->
-  <h3 style="font-size:2rem; margin-bottom:30px; color:#007ACC; border-left:6px solid #6CC04A; padding-left:12px; font-weight:600;">
-    Water Treatment Systems
-  </h3>
-  <div class="product-grid">
+      <div class="product-card">
+        <h3>CETP (Common Effluent Treatment Plants)</h3>
+        <p>
+          Centralized effluent treatment for multiple industries.  
+          Helps achieve regulatory compliance and minimizes environmental impact.
+        </p>
+        <a href="CETP.html" target="_blank"><button>View More</button></a>
+      </div>
 
+      <div class="product-card">
+        <h3>Sewage Treatment Plants (STP)</h3>
+        <p>
+          Primary & biological treatment to remove pollutants.  
+          Prevents water pollution with proper operation and maintenance.
+        </p>
+        <a href="STP.html" target="_blank"><button>View More</button></a>
+      </div>
+
+      <div class="product-card">
+        <h3>Effluent Treatment Plants (ETP)</h3>
+        <p>
+          Chemical & biological treatment neutralizes pollutants.  
+          Regular monitoring ensures compliance with regulations.
+        </p>
+        <a href="ETP.html" target="_blank"><button>View More</button></a>
+      </div>
+
+      <div class="product-card">
+        <h3>Multiple Effect Evaporators (MEE)</h3>
+        <p>
+          Concentrates wastewater and recovers valuable resources.  
+          Scale management and safety measures are essential.
+        </p>
+        <a href="MEE.html" target="_blank"><button>View More</button></a>
+      </div>
+
+      <div class="product-card">
+        <h3>Reverse Osmosis (RO)</h3>
+        <p>
+          Membrane cleaning and pressure monitoring to maintain efficiency.  
+          Sanitization prevents biofouling and microbial growth.
+        </p>
+        <a href="RO.html" target="_blank"><button>View More</button></a>
+      </div>
+
+      <div class="product-card">
+        <h3>ZLD (Zero Liquid Discharge Systems)</h3>
+        <p>
+          Advanced treatment system ensuring minimal liquid waste discharge.  
+          Combines RO, MEE, and crystallizers for sustainable water recovery.
+        </p>
+        <a href="ZLD.html" target="_blank"><button>View More</button></a>
+      </div>
+
+      <div class="product-card">
+        <h3>Softeners</h3>
+        <p>
+          Removes hardness-causing calcium and magnesium ions from water.  
+          Ensures scale-free equipment and improves efficiency in industrial applications.
+        </p>
+        <a href="Softnres.html" target="_blank"><button>View More</button></a>
+      </div>
+
+      <div class="product-card">
+        <h3>DM (Demineralization Plants)</h3>
+        <p>
+          Produces high-purity water by removing dissolved salts and minerals.  
+          Uses ion-exchange technology for reliable and consistent output.
+        </p>
+        <a href="DM.html" target="_blank"><button>View More</button></a>
+      </div>
+
+      <div class="product-card">
+        <h3>MPCB Consent</h3>
+        <p>
+          Assistance in obtaining consent from Maharashtra Pollution Control Board (MPCB)  
+          for establishing and operating industries in compliance with environmental norms.
+        </p>
+        <a href="MPCB.html" target="_blank"><button>View More</button></a>
+      </div>
+
+  
     <div class="product-card">
       <h3>Ozone System</h3>
       <p>The Ozone system reduces organic matter, COD/BOD load, disinfects odour & colour, and oxidizes pollutants effectively.</p>
@@ -455,17 +607,7 @@ style="margin-top:60px; padding:140px 8vw; background:linear-gradient(135deg,#f9
         <button>View More</button>
       </a>
     </div>
-
-  </div>
-
-  <!-- ================= WASTEWATER TREATMENT ================= -->
-  <h3 style="font-size:2rem; margin:60px 0 30px; color:#007ACC; border-left:6px solid #6CC04A; padding-left:12px; font-weight:600;">
-    Wastewater Treatment
-  </h3>
-  
-  <div class="product-grid">
-
-     <div class="product-card">
+  <div class="product-card">
 <h3>Dissolved Air Flotation Unit</h3>
 <p>Efficiently removes suspended solids, oils, and grease through air bubble flotation and skimming.</p>
 
@@ -488,23 +630,72 @@ style="margin-top:60px; padding:140px 8vw; background:linear-gradient(135deg,#f9
         <button>View More</button>
       </a>
     </div>
-  </div>
+<div class="product-card">
+  <h3>OCEMS</h3>
+  <p>Online Continuous Effluent Monitoring System for real-time water quality tracking and regulatory compliance.</p>
+  <a href="OCEMS.html" target="_blank">
+    <button>View More</button>
+  </a>
+</div>
 
-  <!-- ================= CHEMICALS ================= -->
-  <h3 style="font-size:2rem; margin:60px 0 30px; color:#007ACC; border-left:6px solid #6CC04A; padding-left:12px; font-weight:600;">
-    Chemicals
-  </h3>
-  <div class="product-grid">
-    <div class="product-card">
-      <h3>Chemicals</h3>
-      <p>We supply antiscalants, membrane cleaners, bio-cultures, odor removers, and ETP/STP treatment chemicals.</p>
-      <a href="CHEmical.html" target="_blank">
-        <button>View More</button>
-      </a>
     </div>
   </div>
+<!-- 
+  ================= ENVIRONMENTAL ================= -->
+  <!-- <div class="service-category">
+    <h3 class="category-title">Environmental Services</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <h3>Environmental Monitoring</h3>
+        <p>Ambient air & noise monitoring, stack emission analysis, ventilation surveys, and ETP/STP sample testing.</p>
+        <a href="Env_Monitoring.html" target="_blank"><button>View More</button></a>
+      </div>
+            <div class="product-card">
+        <h3>Environmental Management and Statutory Compliances</h3>
+        <p>
+          Comprehensive solutions for environmental management, ensuring adherence to  
+          statutory requirements such as air, water, and waste management regulations.
+        </p>
+        <a href="ENv_Managment.html" target="_blank"><button>View More</button></a>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- ================= EPR SERVICES ================= -->
+  <!-- <div class="service-category">
+    <h3 class="category-title">Extended Producer Responsibility (EPR)</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <h3>EPR Registration</h3>
+        <p>
+          We provide assistance for Extended Producer Responsibility (EPR) registration including:  
+          <br>> Plastic Packaging Waste  
+          <br>> E-Waste  
+          <br>> Battery Waste  
+        </p>
+        <a href="EPR.html" target="_blank"><button>View More</button></a>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- ================= CGWA SERVICES ================= -->
+  <!-- <div class="service-category">
+    <h3 class="category-title">Central Ground Water Authority (CGWA)</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <h3>NOC from CGWA</h3>
+        <p>
+          We assist in obtaining NOC from Central Ground Water Authority for extraction of groundwater for:  
+          <br>> Industries with existing/proposed Borewell or Dugwell  
+          <br>> Authorized Water Suppliers / Tankers  
+        </p>
+        <a href="CGWA.html" target="_blank"><button>View More</button></a>
+      </div>
+    </div>
+  </div> -->
 
 </section>
+
 
 <!-- Document Viewer -->
 
