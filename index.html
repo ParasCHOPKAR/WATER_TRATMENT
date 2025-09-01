@@ -1408,6 +1408,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
 <section class="services-section">
 <div style="text-align:center; margin:50px 0;">
   <h2 style="font-family: 'Raleway', sans-serif;
@@ -1544,13 +1545,13 @@ const services = [
   {
     title: "Ozone System",
     image: "images/OZON_01.jpg",
-    link: "MAC_DERMIDE.html",
+    link: "Ozonw_SyS.html",
     description: "The Ozone system reduces organic matter, COD/BOD load, disinfects odour & colour. It generates ozone using UV or corona discharge and oxidizes pollutants effectively."
   },
   {
     title: "Ultrafiltration (UF)",
     image: "images/02.jpg",
-    link: "Orafol.html",
+    link: "UF.html",
     description: "Low-maintenance membrane process that removes bacteria, viruses & colloidal matter. Produces consistent water quality with 90–100% pathogen removal."
   },
   {
@@ -1562,94 +1563,95 @@ const services = [
   {
     title: "DM Plant",
     image: "images/04.jpg",
-    link: "Sabic.html",
+    link: "DM.html",
     description: "Cutting-edge technology to remove impurities for industrial & human consumption. Built with durability & compliance in mind, backed by full support & AMC."
   },
   {
     title: "Reverse Osmosis (RO) Plant",
     image: "images/05.jpg",
-    link: "Stretching.html",
+    link: "RO.html",
     description: "Durable & low maintenance, Smart monitoring & alerts, Energy-efficient operation."
   },
   {
     title: "Water Softener",
     image: "images/06.jpg",
-    link: "Exposing.html",
+    link: "Softnres.html",
     description: "Ion exchange resin-based softening system with regeneration & brine tanks. Ensures scale-free, smooth water for industrial & domestic use."
   },
   {
     title: "Effluent Treatment Plant (ETP)",
     image: "images/07.jpg",
-    link: "MAchine_Stre.html",
+    link: "ETP.html",
     description: " MBR, SBR & FAB technologies for industrial effluent purification, ensuring compliance with environmental standards."
   },
   {
     title: "Multi Effect Evaporator (MEE)",
     image: "images/11.jpg",
-    link: "Machines_EXPO.html",
+    link: "MEE.html",
     description: "End-to-end maintenance of WTP, STP, ETP, MEE, RO & UF systems for continuous, efficient operations."
   },
   {
     title: "Sewage Treatment Plant (STP)",
     image: "images/08.jpg",
-    link: "Nittoku.html",
+    link: "STP.html",
     description: "Multi-stage process with ASP, MBBR, MBR, SBR & RBC. Energy-efficient, modular, and designed for safe water reuse."
   },
   {
     title: "Clarifiers",
     image: "images/10.jpg",
-    link: "Print_color.html",
+    link: "Clasifier.html",
     description: "Gravity settling system for suspended solids, producing sludge & scum removal with enhanced coagulants."
   },
   {
     title: "Dissolved Air Flotation (DAF)",
     image: "images/DAF_01.jpg",
-    link: "Yessor.html",
+    link: "DAF.html",
     description: "Removes oils & solids by tiny air bubbles. Widely used in Dairy, Paper, Oil, Refineries & Textile industries."
   },
   {
     title: "Wet Fume Scrubber",
     image: "images/12.jpg",
-    link: "Sansui.html",
+    link: "Wet.html",
     description: "Neutralizes corrosive gases & particulate matter in compact installations. Safe handling of high-temp gas streams."
   },
   {
     title: "Central Ground Water Authority (CGWA) NOC",
     image: "images/CGWA.jpg",
-    link: "NittoL.html",
+    link: "CGWA.html",
     description: "NOC facilitation for industries, borewells & authorized water suppliers for ground water extraction."
   },
   {
     title: "Water & Waste Water Treatment Chemicals",
     image: "images/CHEMICAL.jpg",
-    link: "NittoL.html",
+    link: "CHEmical.html",
     description: "Lime/alum replacement, boiler & cooling tower chemicals, RO antiscalants, odor removers, bio-cultures & flocculants."
   },
   {
     title: "Environmental Monitoring",
     image: "images/16.jpg",
-    link: "NittoL.html",
+    link: "Env_Monitoring.html",
     description: " Ambient Air Monitoring,Stack Emissions Monitoring, Workplace/ Indoor Air Monitoring , Noise Monitoring, Illumination Monitoring, Ventilation Survey."
   },
     {
     title: "MPCB Consent",
     image: "images/MPCB_01.jpeg",
-    link: "NittoL.html",
+    link: "MPCB.html",
     description: " Consent to Establish/Operate/Renewal from SPCB, Amendment in the Consent, Application for Intimation for White Category, Consultancy for change in category."
   },
     {
     title: "Environmental Management",
     image: "images/Enviromental_01.jpg",
-    link: "NittoL.html",
+    link: "ENv_Managment.html",
     description: "Environmental Audit, Hazardous Waste Audit, Water Audit, Six Monthly Compliance Report of Environment Clearance, Environment Statement Report etc."
   },
   {
     title: "Extended Producer Responsibility (EPR)",
     image: "images/1111111.jpg",
-    link: "Avery.html",
+    link: "EPR.html",
     description: "Registrations & compliance services for Plastic Waste, E-Waste & Battery Waste management."
   }
 ];
+
 
 const slider = document.getElementById('servicesSlider');
 services.forEach(service => {
@@ -1666,8 +1668,9 @@ services.forEach(service => {
     </div>
   `;
 
+  // Use the service.link instead of hardcoded PRODUCT.html
   const viewBtn = document.createElement('a');
-  viewBtn.href = "PRODUCT.html";
+  viewBtn.href = service.link;
   viewBtn.className = 'services-view-button';
   viewBtn.textContent = 'View';
 
@@ -1704,6 +1707,11 @@ slider.addEventListener("mouseleave", () => {
 });
   </script>
 </section>
+
+
+
+
+
 
 
 
