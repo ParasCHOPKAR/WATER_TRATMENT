@@ -1,28 +1,3 @@
-<!-- background: linear-gradient(135deg, #f9f9f9, #fff); -->
-
-<!-- ✅ Breakdown of where I used your brand colors:
-
-Title ("About Us") → Orange-Red #F24D29
-
-Underline under title → Leaf Green #6CC04A
-
-Company name in paragraph → Bright Lime Green #8DC63F
-
-“Reduce • Recycle • Reuse” → Medium Blue #007ACC
-
-Tagline text ("...because we care for you!") → Dark Navy #1C2A5B
-
-Card 1 (Recognitions) → Leaf Green #6CC04A
-
-Card 2 (Industries We Serve) → Aqua Blue #00CFFF
-
-Card 3 (Commitment) → Deep Green #3A8E3D -->
-
-<!-- 
-<section id="about-us" style="width:100%; padding:100px 20px; font-family:'Poppins', sans-serif; 
-background: linear-gradient(135deg, #e6f2ff 0%, #f9f9f9 100%), url('https://www.transparenttextures.com/patterns/cubes.png');
-background-size: cover;
-color:#333; position:relative; overflow:hidden;"> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -325,8 +300,7 @@ color:#333; position:relative; overflow:hidden;"> -->
   </a>
   <ul class="nav-links">
     <li><a href="index.html">HOME</a></li>
-<li><a href="About.html" style="color:#ff7b00;">ABOUT US</a></li>
-
+   <li><a href="About.html" style="color:#ff7b00;">ABOUT US</a></li>
 
     <!-- Products -->
     <li class="dropdown">
@@ -367,7 +341,8 @@ color:#333; position:relative; overflow:hidden;"> -->
     <li><a href="Our_Work.html">PROJETCS</a></li>
        <li><a href="Gallery.html">OUR EVENTS</a></li>
     <li><a href="Career.html">CAREER</a></li>
-    <li><a href="contact.html">CONTACT</a></li>
+   <li><a href="contact.html">CONTACT</a></li>
+
   </ul>
 </nav>
 
@@ -530,7 +505,6 @@ window.addEventListener('scroll', () => {
   </script>
 </body>
 </html>
-
 
 
 <section id="about-hero" style="position: relative; width: 100%; height: 70vh; font-family: 'Poppins', sans-serif; overflow: hidden;">
@@ -750,7 +724,7 @@ window.addEventListener('scroll', () => {
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:40px; margin-bottom:70px;">
       
       <!-- Recognitions Card -->
-      <div class="card" onclick="openOUR EVENTS()" style="background:linear-gradient(135deg, #6CC04A, #8DC63F); cursor:pointer;">
+      <div class="card" onclick="openGallery()" style="background:linear-gradient(135deg, #6CC04A, #8DC63F); cursor:pointer;">
         <h3>Recognitions</h3>
         <p>Our solutions have been recognized by top industries and clients for innovation, sustainability, and measurable impact.</p>
       </div>
@@ -803,10 +777,10 @@ window.addEventListener('scroll', () => {
       </div>
     </div>
 
-    <!-- OUR EVENTS Modal -->
-    <div id="OUR EVENTSModal" class="OUR EVENTS-modal">
-      <span onclick="closeOUR EVENTS()" class="OUR EVENTS-close">&times;</span>
-      <div class="OUR EVENTS-container">
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="gallery-modal">
+      <span onclick="closeGallery()" class="gallery-close">&times;</span>
+      <div class="gallery-container">
         <img src="images/CERTIFICATE_01.png" alt="Certificate 1">
         <img src="images/CERTIFICATE_02.png" alt="Certificate 2">
         <img src="images/CERTIFICATE_03.png" alt="Certificate 3">
@@ -909,8 +883,8 @@ window.addEventListener('scroll', () => {
   from {opacity:0; transform:scale(0.9);}
   to {opacity:1; transform:scale(1);}
 }
-/* OUR EVENTS Modal (Desktop stays same) */
-.OUR EVENTS-modal {
+/* Gallery Modal (Desktop stays same) */
+.gallery-modal {
   display:none;
   position:fixed;
   top:0; left:0;
@@ -924,7 +898,7 @@ window.addEventListener('scroll', () => {
   overflow-y:auto;
 }
 
-.OUR EVENTS-close {
+.gallery-close {
   position:absolute;
   top:15px; right:25px;
   font-size:40px;
@@ -932,7 +906,7 @@ window.addEventListener('scroll', () => {
   cursor:pointer;
 }
 
-.OUR EVENTS-container {
+.gallery-container {
   display:flex;
   gap:20px;
   flex-wrap:wrap;
@@ -941,19 +915,19 @@ window.addEventListener('scroll', () => {
   margin:auto;
 }
 
-.OUR EVENTS-container img {
+.gallery-container img {
   max-width:30%;
   border-radius:12px;
   box-shadow:0 6px 20px rgba(0,0,0,0.3);
   transition:transform 0.3s ease;
 }
 
-.OUR EVENTS-container img:hover { transform:scale(1.05); }
+.gallery-container img:hover { transform:scale(1.05); }
 
 /* 📱 Mobile Redesign */
 /* 📱 Mobile Redesign (Single Column) */
 @media (max-width: 768px) {
-  .OUR EVENTS-container {
+  .gallery-container {
     display: flex;
     flex-direction: column;   /* stack vertically */
     align-items: center;      /* center images */
@@ -963,7 +937,7 @@ window.addEventListener('scroll', () => {
     padding: 15px;
   }
 
-  .OUR EVENTS-container img {
+  .gallery-container img {
     width: 58%;              /* almost full width */
     max-width: 450px;        /* keeps images from getting too wide */
     height: auto;            /* keeps aspect ratio */
@@ -972,7 +946,7 @@ window.addEventListener('scroll', () => {
     box-shadow: 0 6px 20px rgba(0,0,0,0.25);
   }
 
-  .OUR EVENTS-close {
+  .gallery-close {
     font-size: 32px;
     top: 12px;
     right: 15px;
@@ -991,17 +965,17 @@ function openIndustryModal() {
 function closeIndustryModal() {
   document.getElementById('industriesModal').style.display = "none";
 }
-function openOUR EVENTS() {
-  document.getElementById('OUR EVENTSModal').style.display = "flex";
+function openGallery() {
+  document.getElementById('galleryModal').style.display = "flex";
 }
-function closeOUR EVENTS() {
-  document.getElementById('OUR EVENTSModal').style.display = "none";
+function closeGallery() {
+  document.getElementById('galleryModal').style.display = "none";
 }
 window.onclick = function(event) {
   let industryModal = document.getElementById('industriesModal');
-  let OUR EVENTSModal = document.getElementById('OUR EVENTSModal');
+  let galleryModal = document.getElementById('galleryModal');
   if (event.target === industryModal) closeIndustryModal();
-  if (event.target === OUR EVENTSModal) closeOUR EVENTS();
+  if (event.target === galleryModal) closeGallery();
 }
 </script>
 
@@ -1141,6 +1115,97 @@ function closeModal(){
 </script>
 
 
+
+
+
+<!-- Floating Contact Section -->
+<div class="floating-contact">
+  
+  <!-- Contact Button + Text Wrapper -->
+  <div class="contact-btn-wrapper">
+    <div class="vertical-text">Get in Touch</div>
+    <a href="contact.html" class="float-btn contact">
+      <i class="fas fa-info"></i>
+    </a>
+  </div>
+
+  <!-- WhatsApp Icon -->
+  <a href="https://wa.me/9766878070" target="_blank" class="float-btn whatsapp">
+    <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
+  </a>
+
+</div>
+
+<!-- CSS -->
+<style>
+  .floating-contact {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999;
+  }
+
+  .contact-btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Vertical Text */
+  .vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px; /* place above button */
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Common Button Style */
+  .float-btn {
+    background: #25D366;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white; 
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .float-btn img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .float-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Contact Icon Different Color */
+  .float-btn.contact {
+    background: #0BA34E;
+  }
+
+  /* Show text when hovering on contact button */
+  .contact-btn-wrapper:hover .vertical-text {
+    opacity: 1;
+  }
+</style>
+
 <!-- ============ FOOTER ============ -->
 <footer id="footer" style="background: linear-gradient(135deg, #e8fdf3, #f7fff9, #d6fdea); color:#333; font-family:'Poppins', sans-serif; position:relative; overflow:hidden;">
 
@@ -1233,94 +1298,6 @@ function closeModal(){
 
 </footer>
 
-<!-- //////////////////////////////// OUR CLIENT////////////////////////////// -->
-<!-- Floating Contact Section -->
-<div class="floating-contact">
-  
-  <!-- Contact Button + Text Wrapper -->
-  <div class="contact-btn-wrapper">
-    <div class="vertical-text">Get in Touch</div>
-    <a href="contact.html" class="float-btn contact">
-      <i class="fas fa-info"></i>
-    </a>
-  </div>
-
-  <!-- WhatsApp Icon -->
-  <a href="https://wa.me/9766878070" target="_blank" class="float-btn whatsapp">
-    <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
-  </a>
-
-</div>
-
-<!-- CSS -->
-<style>
-  .floating-contact {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    z-index: 9999;
-  }
-
-  .contact-btn-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Vertical Text */
-  .vertical-text {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    font-size: 14px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px; /* place above button */
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: 1px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  /* Common Button Style */
-  .float-btn {
-    background: #25D366;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: white; 
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-  .float-btn img {
-    width: 28px;
-    height: 28px;
-  }
-
-  .float-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  /* Contact Icon Different Color */
-  .float-btn.contact {
-    background: #0BA34E;
-  }
-
-  /* Show text when hovering on contact button */
-  .contact-btn-wrapper:hover .vertical-text {
-    opacity: 1;
-  }
-</style>
 
   <!-- ================= SCRIPTS ================= -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
