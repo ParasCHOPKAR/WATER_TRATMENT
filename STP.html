@@ -7,145 +7,259 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    body {
-      font-family: 'Poppins', sans-serif;
- background:linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);
-    }
+  body {
+    font-family: 'Poppins', sans-serif;
+ background:linear-gradient(135deg, #e6f9ff 0%, #f9f9f9 100%);
+  }
 
-    /* ================= NAVBAR ================= */
+  /* ================= NAVBAR ================= */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+    z-index: 1000;
+  }
+
+  .navbar.scrolled {
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 3px solid rgba(0, 207, 255, 0.6);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .nav-links li,
+  .dropdown-menu li,
+  .sub-dropdown-menu li {
+    list-style: none;
+  }
+
+  .logo img {
+    height: 100px;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    list-style: none;
+  }
+
+  .nav-links li {
+    position: relative;
+  }
+
+  .nav-links > li > a {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #444;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links > li > a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #00CFFF, #6CC04A);
+    transition: width 0.3s ease-in-out;
+  }
+
+  .nav-links > li > a:hover {
+    color: #ff7b00;
+  }
+
+  .nav-links > li > a:hover::after {
+    width: 100%;
+  }
+
+  /* ================= DESKTOP DROPDOWNS ================= */
+  .dropdown-menu,
+  .sub-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: #fff;
+    min-width: 200px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    z-index: 1000;
+  }
+
+  .dropdown-menu a,
+  .sub-dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .dropdown-menu a:hover,
+  .sub-dropdown-menu a:hover {
+    background: #ff7b00;
+    color: white;
+  }
+
+  .nav-links li:hover > .dropdown-menu {
+    display: flex;
+  }
+
+  .sub-dropdown:hover > .sub-dropdown-menu {
+    display: flex;
+    top: 0;
+    left: 100%;
+  }
+
+  .arrow {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .arrow.rotate {
+    transform: rotate(180deg);
+  }
+
+  /* ================= MOBILE VIEW ================= */
+  @media (max-width: 768px) {
     .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 0px 80px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: transparent;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
-      z-index: 1000;
+      padding: 15px 20px;
+      background: rgba(0, 0, 0, 0.95);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
 
-    .navbar.scrolled {
-      background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
-      backdrop-filter: blur(10px);
-      border-bottom: 3px solid rgba(0, 207, 255, 0.6);
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
-      transition: all 0.5s ease-in-out;
-    }
-
-    .nav-links li,
-    .dropdown-menu li,
-    .sub-dropdown-menu li {
-      list-style: none;
-    }
-
+    /* Logo scales */
     .logo img {
-      height: 100px;
+      height: 60px;
+      max-width: 160px;
     }
 
+    /* Hamburger menu */
     .menu-toggle {
-      display: none;
-      font-size: 24px;
-      color: white;
+      display: block;
+      font-size: 28px;
+      color: #fff;
       cursor: pointer;
       z-index: 1001;
     }
 
+    /* Sidebar Nav */
     .nav-links {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      list-style: none;
+      position: fixed;
+      top: 0;
+      left: -280px;
+      height: 100vh;
+      width: 260px;
+      background: #111;
+      flex-direction: column;
+      padding: 80px 20px;
+      transition: left 0.3s ease-in-out;
+      overflow-y: auto;
     }
 
-    .nav-links li {
-      position: relative;
-    }
-
-    .nav-links > li > a {
-      font-family: 'Montserrat', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #444;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      position: relative;
-      padding: 6px 0;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links > li > a::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
+    .nav-links.active {
       left: 0;
-      width: 0%;
-      height: 2px;
-      background: linear-gradient(90deg, #00CFFF, #6CC04A);
-      transition: width 0.3s ease-in-out;
     }
 
-    .nav-links > li > a:hover {
-      color: #ff7b00;
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
     }
 
-    .nav-links > li > a:hover::after {
+    .overlay.show {
+      display: block;
+    }
+
+    /* Sidebar Links */
+    .nav-links > li {
       width: 100%;
     }
 
-    /* Dropdowns */
-    .dropdown-menu,
-    .sub-dropdown-menu {
+    .nav-links > li > a {
+      color: #fff;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Sidebar Dropdown (Mobile) */
+    .dropdown-menu {
+      background: #1a1a1a;
+      margin: 5px 0 10px 0;
+      border-radius: 6px;
+      padding: 6px 0;
       display: none;
-      position: absolute;
-      top: 100%;
-      background: #fff;
-      min-width: 200px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
       flex-direction: column;
-      z-index: 1000;
     }
 
-    .dropdown-menu a,
-    .sub-dropdown-menu a {
+    .dropdown-menu a {
+      color: #ddd;
+      font-size: 15px;
+      padding: 12px 18px;
       display: block;
-      padding: 10px 15px;
-      color: #333;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 900;
-      white-space: nowrap;
+      transition: background 0.2s ease, color 0.2s ease;
+      white-space: normal;   /* allow wrapping */
+      word-break: break-word; /* break long words */
+      line-height: 1.4em;
     }
 
-    .dropdown-menu a:hover,
-    .sub-dropdown-menu a:hover {
-      background: #ff7b00;
-      color: white;
+    .dropdown-menu a:hover {
+      background: #262626;
+      color: #ffcc00;
     }
 
-    .nav-links li:hover > .dropdown-menu {
-      display: flex;
+    .dropdown-menu.show {
+      display: flex !important;
     }
 
-    .sub-dropdown:hover > .sub-dropdown-menu {
-      display: flex;
-      top: 0;
-      left: 100%;
-    }
-
+    /* Arrow improvements */
     .arrow {
       font-size: 12px;
+      margin-left: 8px;
       transition: transform 0.3s ease;
     }
 
@@ -153,138 +267,46 @@
       transform: rotate(180deg);
     }
 
-    /* ================= MOBILE VIEW ================= */
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.95);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        position: fixed;
-        top: 0;
-        left: -280px;
-        height: 100vh;
-        width: 280px;
-        background: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        padding: 80px 20px;
-        transition: left 0.3s ease;
-        overflow-y: auto;
-      }
-
-      .nav-links.active {
-        left: 0;
-      }
-
-      .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        display: none;
-      }
-
-      .overlay.show {
-        display: block;
-      }
-
-      .nav-links > li > a {
-        color: white;
-        padding: 12px 20px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .dropdown-menu,
-      .sub-dropdown-menu {
-        position: static;
-        display: none;
-        background: #222;
-        box-shadow: none;
-        width: 100%;
-      }
-
-      .dropdown-menu a,
-      .sub-dropdown-menu a {
-        color: white;
-        padding-left: 30px;
-      }
-
-      .sub-dropdown-menu {
-        padding-left: 10px;
-      }
-
-      .dropdown-menu.show,
-      .sub-dropdown-menu.show {
-        display: flex !important;
-        flex-direction: column;
-      }
-
-      .nav-links li:hover > .dropdown-menu,
-      .sub-dropdown:hover > .sub-dropdown-menu {
-        display: none;
-      }
-
-      .nav-links .dropdown-toggle {
-        cursor: pointer;
-      }
+    /* Mobile-only extra links */
+    .mobile-only {
+      display: block;
     }
 
-    /* Hide mobile-only links on desktop */
-.mobile-only { display: none; }
-
-/* Show only inside mobile sidebar */
-@media (max-width: 768px) {
-  .mobile-only { 
-    display: block; 
+    .mobile-only a {
+      color: #ffcc00;
+      font-weight: bold;
+    }
   }
-  .mobile-only a {
-    color: #ffcc00;
-    font-weight: bold;
-    padding: 10px 15px;
-  }
-}
 
-  </style>
+  /* ================= RESPONSIVE SWITCH ================= */
+  .navbar-desktop { display: flex; }
+  .navbar-mobile { display: none; }
+
+  @media (max-width: 768px) {
+    .navbar-desktop { display: none; }
+    .navbar-mobile { display: flex; }
+  }
+</style>
+
 </head>
 <body>
 
   <!-- Navbar -->
-<nav class="navbar" id="navbar">
-  <!-- Logo -->
+<!-- DESKTOP NAVBAR -->
+<!-- DESKTOP NAVBAR -->
+<nav class="navbar navbar-desktop" id="navbarDesktop">
   <a href="index.html" class="logo">
     <img src="images/LOGO_02.png" alt="Aquagreen Logo">
   </a>
-
-  <!-- Mobile Toggle -->
-  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
-
-  <!-- Navigation -->
-  <ul class="nav-links" id="navLinks">
+  <ul class="nav-links">
     <li><a href="index.html">HOME</a></li>
     <li><a href="About.html">ABOUT US</a></li>
 
-   <!-- PRODUCTS DROPDOWN -->
-<li class="dropdown">
-  <a href="PRODUCT.html" class="dropdown-toggle">
-    PRODUCTS <span class="arrow">▼</span>
-  </a>
-  <ul class="dropdown-menu">
-    <!-- Mobile-only "All Products" link -->
-    <li class="mobile-only"><a href="PRODUCT.html"><strong>All Products</strong></a></li>
-     
-  
-        <li><a href="CSTP.html">Common Sewage Treatment Plants(CSTP)</a></li>
+    <!-- Products -->
+    <li class="dropdown">
+      <a href="PRODUCT.html">PRODUCTS</a>
+      <ul class="dropdown-menu">
+        <li><a href="CSTP.html">Common Sewage Treatment Plants (CSTP)</a></li>
         <li><a href="CETP.html">Common Effluent Treatment Plants (CETP)</a></li>
         <li><a href="STP.html">Sewage Treatment Plants (STP)</a></li>
         <li><a href="ETP.html">Effluent Treatment Plants (ETP)</a></li>
@@ -294,31 +316,20 @@
         <li><a href="Softnres.html">Softeners</a></li>
         <li><a href="DM.html">Demineralization Plants (DM)</a></li>
         <li><a href="MPCB.html">MPCB Consent</a></li>
+        <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+        <li><a href="UF.html">Ultrafiltration (UF)</a></li>
+        <li><a href="DAF.html">Dissolved Air Flotation Unit</a></li>
+        <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+        <li><a href="Wet.html">Wet Fume Scrubber</a></li>
+        <li><a href="OCEMS.html">OCEMS</a></li>
+      </ul>
+    </li>
 
-    <!-- Direct Products -->
-    <li><a href="Ozonw_SyS.html">Ozone System</a></li>
-    <li><a href="UF.html">Ultrafiltration (UF)</a></li>
-    <li><a href="DAF.html">Dissolved Air Flotation Unit</a></li>
-    <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
-    <li><a href="Wet.html">Wet Fume Scrubber</a></li>
-    <li><a href="OCEMS.html">OCEMS</a></li>
-
-    <!-- More -->
-
-  </ul>
-</li>
-
-
-    <!-- SERVICES DROPDOWN -->
+    <!-- Services -->
     <li class="dropdown">
-      <a href="Services.html" class="dropdown-toggle">
-        SERVICES <span class="arrow">▼</span>
-      </a>
+      <a href="Services.html">SERVICES</a>
       <ul class="dropdown-menu">
-        <!-- Mobile-only "All Services" link -->
-        <li class="mobile-only"><a href="Services.html"><strong>All Services</strong></a></li>
-
-        <li class="sub-dropdown"><a href="AMC.html">AMC</a></li>
+        <li><a href="AMC.html">AMC</a></li>
         <li><a href="EPR.html">EPR Registration</a></li>
         <li><a href="CGWA.html">NOC from CGWA</a></li>
         <li><a href="Env_Monitoring.html">Environmental Monitoring</a></li>
@@ -327,13 +338,76 @@
       </ul>
     </li>
 
-    <li><a href="Our_Work.html">OUR WORK</a></li>
-    <li><a href="Gallery.html">GALLERY</a></li>
+    <li><a href="Our_Work.html">PROJETCS</a></li>
+       <li><a href="Gallery.html">OUR EVENTS</a></li>
     <li><a href="Career.html">CAREER</a></li>
     <li><a href="contact.html">CONTACT</a></li>
   </ul>
 </nav>
 
+<!-- MOBILE NAVBAR -->
+<nav class="navbar navbar-mobile" id="navbarMobile">
+  <a href="index.html" class="logo">
+    <img src="images/LOGO_02.png" alt="Aquagreen Logo">
+  </a>
+  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="About.html">ABOUT US</a></li>
+
+    <!-- Mobile Products -->
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle">
+        PRODUCTS <span class="arrow">▼</span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="CSTP.html">Common Sewage Treatment Plants (CSTP)</a></li>
+        <li><a href="CETP.html">Common Effluent Treatment Plants (CETP)</a></li>
+        <li><a href="STP.html">Sewage Treatment Plants (STP)</a></li>
+        <li><a href="ETP.html">Effluent Treatment Plants (ETP)</a></li>
+        <li><a href="MEE.html">Multiple Effect Evaporators (MEE)</a></li>
+        <li><a href="RO.html">Reverse Osmosis (RO)</a></li>
+        <li><a href="ZLD.html">Zero Liquid Discharge Systems (ZLD)</a></li>
+        <li><a href="Softnres.html">Softeners</a></li>
+        <li><a href="DM.html">Demineralization Plants (DM)</a></li>
+        <li><a href="MPCB.html">MPCB Consent</a></li>
+        <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+        <li><a href="UF.html">Ultrafiltration (UF)</a></li>
+        <li><a href="DAF.html">Dissolved Air Flotation Unit</a></li>
+        <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+        <li><a href="Wet.html">Wet Fume Scrubber</a></li>
+        <li><a href="OCEMS.html">OCEMS</a></li>
+        <!-- All Products Button -->
+               <li><a href="PRODUCT.html" style="font-weight:bold; color:#ff7b00;">All Products →</a></li>
+      </ul>
+    </li>
+
+    <!-- Mobile Services -->
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle">
+        SERVICES <span class="arrow">▼</span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="AMC.html">AMC</a></li>
+        <li><a href="EPR.html">EPR Registration</a></li>
+        <li><a href="CGWA.html">NOC from CGWA</a></li>
+        <li><a href="Env_Monitoring.html">Environmental Monitoring</a></li>
+        <li><a href="ENv_Managment.html">Environmental Management</a></li>
+        <li><a href="CHEmical.html">Chemicals</a></li>
+        <!-- All Services Button -->
+        <li><a href="Services.html" style="font-weight:bold; color:#ff7b00;">All Services →</a></li>
+      </ul>
+    </li>
+
+    <li><a href="Our_Work.html">PROJETCS</a></li>
+       <li><a href="Gallery.html">OUR EVENTS</a></li>
+    <li><a href="Career.html">CAREER</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
+
+
+<div class="overlay" id="overlay"></div>
 
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
@@ -345,10 +419,19 @@
     const navLinks = document.getElementById('navLinks');
     const overlay = document.getElementById('overlay');
 
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
+const navbarDesktop = document.getElementById('navbarDesktop');
+const navbarMobile = document.getElementById('navbarMobile');
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbarDesktop?.classList.add('scrolled');
+    navbarMobile?.classList.add('scrolled');
+  } else {
+    navbarDesktop?.classList.remove('scrolled');
+    navbarMobile?.classList.remove('scrolled');
+  }
+});
 
     // Mobile menu toggle
     menuToggle.addEventListener('click', () => {
@@ -419,44 +502,31 @@
       });
     });
   </script>
-
 </body>
 </html>
 
-<!-- CSTP Section -->
-<!-- Sewage Treatment Plant Section -->
-<section id="stp" style="padding:100px 20px; background:linear-gradient(135deg, #e6f9ff 0%, #f9f9f9 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
-  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; flex-direction:row; align-items:center; gap:40px;">
-    
-    <!-- Left Content -->
-    <div style="flex:1; min-width:300px;">
-      <h2 style="
-        font-size:2.5rem; 
-        font-weight:700; 
-        color:#007ACC; 
-        margin-top: 50px;
-        border-left:6px solid #F24D29; 
-        padding-left:15px; 
-        white-space:nowrap; 
-        display:inline-block; 
-        text-align:center;
-      ">
-        Sewage Treatment Plant (STP)
-      </h2>
 
-      <p style="font-size:1.1rem; color:#333; margin-bottom:20px; line-height:1.6;">
-        Techniques We Offer:
-      </p>
-      <ul style="list-style:none; padding:0; margin:0; font-size:1rem; line-height:1.8; color:#444;">
-        <li style="margin-bottom:10px;"><span style="color:#F24D29; font-weight:bold;">&#10003;</span> Activated Sludge Process</li>
-        <li style="margin-bottom:10px;"><span style="color:#F24D29; font-weight:bold;">&#10003;</span> Moving Bio Bed Reactor (MBBR)</li>
-        <li style="margin-bottom:10px;"><span style="color:#F24D29; font-weight:bold;">&#10003;</span> Membrane Bio Reactor (MBR)</li>
-        <li style="margin-bottom:10px;"><span style="color:#F24D29; font-weight:bold;">&#10003;</span> Electro Coagulation System</li>
-        <li style="margin-bottom:10px;"><span style="color:#F24D29; font-weight:bold;">&#10003;</span> Sequential Bio Reactor (SBR)</li>
-        <li style="margin-bottom:10px;"><span style="color:#F24D29; font-weight:bold;">&#10003;</span> Rotating Bio Reactor (RBC)</li>
+
+
+<!-- 🌊 Sewage Treatment Plant Section (All in One) -->
+<section id="stp-all" style="padding:100px 20px;margin-top: 70px; background:linear-gradient(135deg, #e6f9ff 0%, #f9f9f9 100%); font-family:'Poppins', sans-serif; overflow:hidden;">
+  <div class="stp-container">
+    
+    <!-- Intro Content -->
+    <div class="stp-content" data-aos="fade-right">
+      <h2 class="stp-heading">Sewage Treatment Plant (STP)</h2>
+
+      <p class="stp-subtitle">Techniques We Offer:</p>
+      <ul class="stp-list">
+        <li><span>&#10003;</span> Activated Sludge Process</li>
+        <li><span>&#10003;</span> Moving Bed Biofilm Reactor (MBBR)</li>
+        <li><span>&#10003;</span> Membrane Bio Reactor (MBR)</li>
+        <li><span>&#10003;</span> Electro Coagulation System</li>
+        <li><span>&#10003;</span> Sequential Batch Reactor (SBR)</li>
+        <li><span>&#10003;</span> Rotating Biological Contactor (RBC)</li>
       </ul>
 
-      <p style="margin-top:20px; font-size:1rem; color:#333; line-height:1.7;">
+      <p class="stp-points">
         &#10003; Advanced multi-stage treatment process for comprehensive wastewater purification.<br>
         &#10003; High-quality effluent suitable for discharge or safe reuse.<br>
         &#10003; Compact and modular design, adaptable to varying capacity requirements.<br>
@@ -468,168 +538,153 @@
       </p>
     </div>
 
-    <!-- Right Image -->
-    <div style="flex:1; min-width:300px;">
-      <img src="images/STP__001.jpg" alt="Sewage Treatment Plant" style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15);">
+    <!-- Intro Image -->
+    <div class="stp-image" data-aos="fade-left">
+      <img src="images/STP__001.jpg" alt="Sewage Treatment Plant">
     </div>
-
   </div>
-</section>
 
-
-<section id="stp-techniques" style="padding:80px 20px;background:linear-gradient(135deg, #e6f9ff 0%, #f9f9f9 100%); font-family:'Poppins', sans-serif;">
-  <div style="max-width:1200px; margin:auto; display:flex; flex-direction:column; gap:80px;">
+  <!-- ✅ STP Techniques -->
+  <div class="techniques">
     
-    <!-- ✅ MBBR -->
-    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-      <!-- Text -->
-      <div style="flex:1; min-width:300px;" data-aos="fade-right" data-aos-duration="1000">
-        <h3 style="font-size:2rem; font-weight:700; color:#007ACC; margin-bottom:15px; border-left:5px solid #F24D29; padding-left:15px;">
-          Moving Bed Biofilm Reactor (MBBR)
-        </h3>
-        <p style="font-size:1.05rem; color:#444; line-height:1.7;">
-          The <strong>MBBR</strong> process uses specially designed biofilm carriers suspended in wastewater. 
-          Microorganisms grow on these carriers, breaking down organic pollutants efficiently. 
-          It requires less space and ensures stable treatment performance even under variable loads.
-        </p>
-        <ul style="list-style:none; padding:0; font-size:1rem; line-height:1.8; color:#333;">
+    <!-- MBBR -->
+    <div class="tech-box">
+      <div class="tech-text" data-aos="fade-right">
+        <h3>Moving Bed Biofilm Reactor (MBBR)</h3>
+        <p>The <strong>MBBR</strong> process uses specially designed biofilm carriers suspended in wastewater. Microorganisms grow on these carriers, breaking down organic pollutants efficiently. It requires less space and ensures stable treatment performance even under variable loads.</p>
+        <ul>
           <li>✔ Compact & cost-effective</li>
           <li>✔ Handles shock loads efficiently</li>
           <li>✔ Low sludge generation</li>
           <li>✔ Minimal operator attention required</li>
         </ul>
       </div>
-      <!-- Image -->
-      <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-left" data-aos-duration="1000">
-        <img src="Client_Logo/MBBR_PHOTO.jpg" alt="MBBR STP" style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15);">
+      <div class="tech-img" data-aos="fade-left">
+        <img src="Client_Logo/MBBR_PHOTO.jpg" alt="MBBR STP">
       </div>
     </div>
 
-    <!-- ✅ MBR -->
-    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px; flex-direction:row-reverse;">
-      <!-- Text -->
-      <div style="flex:1; min-width:300px;" data-aos="fade-left" data-aos-duration="1000">
-        <h3 style="font-size:2rem; font-weight:700; color:#007ACC; margin-bottom:15px; border-left:5px solid #F24D29; padding-left:15px;">
-          Membrane Bio Reactor (MBR)
-        </h3>
-        <p style="font-size:1.05rem; color:#444; line-height:1.7;">
-          <strong>MBR</strong> combines biological treatment with membrane filtration (UF/MF membranes). 
-          It produces crystal-clear, pathogen-free water suitable for reuse in gardening, cooling, or industrial purposes.
-        </p>
-        <ul style="list-style:none; padding:0; font-size:1rem; line-height:1.8; color:#333;">
+    <!-- MBR -->
+    <div class="tech-box reverse">
+      <div class="tech-text" data-aos="fade-left">
+        <h3>Membrane Bio Reactor (MBR)</h3>
+        <p><strong>MBR</strong> combines biological treatment with membrane filtration. It produces crystal-clear, pathogen-free water suitable for reuse in gardening, cooling, or industrial purposes.</p>
+        <ul>
           <li>✔ High-quality effluent (almost drinking standard)</li>
           <li>✔ Compact footprint</li>
           <li>✔ Eliminates need for secondary clarification</li>
           <li>✔ Ideal for water reuse applications</li>
         </ul>
       </div>
-      <!-- Image -->
-      <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-right" data-aos-duration="1000">
-        <img src="Client_Logo/MBR_photo.webp" alt="MBR STP" style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15);">
+      <div class="tech-img" data-aos="fade-right">
+        <img src="Client_Logo/MBR_photo.webp" alt="MBR STP">
       </div>
     </div>
 
-    <!-- ✅ SBR -->
-    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-      <!-- Text -->
-      <div style="flex:1; min-width:300px;" data-aos="fade-right" data-aos-duration="1000">
-        <h3 style="font-size:2rem; font-weight:700; color:#007ACC; margin-bottom:15px; border-left:5px solid #F24D29; padding-left:15px;">
-          Sequential Batch Reactor (SBR)
-        </h3>
-        <p style="font-size:1.05rem; color:#444; line-height:1.7;">
-          The <strong>SBR</strong> is a fill-and-draw activated sludge system. 
-          Treatment occurs in batches through stages: fill, aeration, settling, decanting, and sludge removal. 
-          It’s highly flexible and efficient in nutrient removal.
-        </p>
-        <ul style="list-style:none; padding:0; font-size:1rem; line-height:1.8; color:#333;">
+    <!-- SBR -->
+    <div class="tech-box">
+      <div class="tech-text" data-aos="fade-right">
+        <h3>Sequential Batch Reactor (SBR)</h3>
+        <p>The <strong>SBR</strong> is a fill-and-draw activated sludge system. Treatment occurs in batches through stages: fill, aeration, settling, decanting, and sludge removal. It’s highly flexible and efficient in nutrient removal.</p>
+        <ul>
           <li>✔ Flexible operation for varying loads</li>
-          <li>✔ Excellent nutrient (N & P) removal</li>
+          <li>✔ Excellent nutrient removal</li>
           <li>✔ Suitable for medium to large installations</li>
           <li>✔ Automated cycle operation</li>
         </ul>
       </div>
-      <!-- Image -->
-      <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-left" data-aos-duration="1000">
-        <img src="Client_Logo/SBR_photo.webp" alt="SBR STP" style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15);">
+      <div class="tech-img" data-aos="fade-left">
+        <img src="Client_Logo/SBR_photo.webp" alt="SBR STP">
       </div>
     </div>
 
-    <!-- ✅ RBC -->
-    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px; flex-direction:row-reverse;">
-      <!-- Text -->
-      <div style="flex:1; min-width:300px;" data-aos="fade-left" data-aos-duration="1000">
-        <h3 style="font-size:2rem; font-weight:700; color:#007ACC; margin-bottom:15px; border-left:5px solid #F24D29; padding-left:15px;">
-          Rotating Biological Contactor (RBC)
-        </h3>
-        <p style="font-size:1.05rem; color:#444; line-height:1.7;">
-          <strong>RBC</strong> uses large rotating discs partially submerged in wastewater. 
-          As the discs rotate, microorganisms attached to the surface degrade organic matter effectively.
-        </p>
-        <ul style="list-style:none; padding:0; font-size:1rem; line-height:1.8; color:#333;">
+    <!-- RBC -->
+    <div class="tech-box reverse">
+      <div class="tech-text" data-aos="fade-left">
+        <h3>Rotating Biological Contactor (RBC)</h3>
+        <p><strong>RBC</strong> uses large rotating discs partially submerged in wastewater. As the discs rotate, microorganisms attached to the surface degrade organic matter effectively.</p>
+        <ul>
           <li>✔ Low energy consumption</li>
           <li>✔ Simple & reliable operation</li>
           <li>✔ Low sludge generation</li>
           <li>✔ Long service life with minimal maintenance</li>
         </ul>
       </div>
-      <!-- Image -->
-      <div style="flex:1; min-width:300px; text-align:center;" data-aos="fade-right" data-aos-duration="1000">
-        <img src="Client_Logo/RBC_photo.png"RBC STP" style="width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15);">
+      <div class="tech-img" data-aos="fade-right">
+        <img src="Client_Logo/RBC_photo.png" alt="RBC STP">
       </div>
     </div>
+  </div>
 
+  <!-- ✅ Activated Sludge Process -->
+  <div class="extra-section" data-aos="fade-up">
+    <h2>Activated Sludge Process <span></span></h2>
+    <p>The Activated Sludge Process is a biological wastewater treatment method that uses a mass of microorganisms to break down organic pollutants. Oxygen is supplied to support microbial growth, which converts impurities into carbon dioxide, water, and stable sludge.</p>
+  </div>
+
+  <!-- ✅ Electro Coagulation -->
+  <div class="extra-section" data-aos="fade-up">
+    <h2>Electro Coagulation System <span></span></h2>
+    <p>The Electro Coagulation System is an advanced water and wastewater treatment process that uses electric current to remove contaminants. It destabilizes suspended, emulsified, or dissolved particles, enabling them to aggregate and be easily separated. Effective in removing heavy metals, oil & grease, and color.</p>
   </div>
 </section>
 
-<!-- Activated Sludge Process Section -->
-<section style="padding:120px 8vw; background:linear-gradient(135deg, #e6f9ff 0%, #f9f9f9 100%); font-family:'Poppins', sans-serif; color:#333;">
-  <div style="max-width:1200px; margin:auto;">
-    <h2 style="font-size:3rem; font-weight:700; color:#0077b6; position:relative; display:inline-block;">
-      Activated Sludge Process
-      <span style="position:absolute; bottom:-12px; left:50%; transform:translateX(-50%); width:100px; height:5px; 
-      background:linear-gradient(90deg,#00b4d8,#0077b6); border-radius:5px;"></span>
-    </h2>
+<!-- ✅ CSS -->
+<style>
+.stp-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+.stp-content { flex: 1; min-width: 300px; }
+.stp-heading { font-size: 2.5rem; font-weight: 700; color:#007ACC; border-left:6px solid #F24D29; padding-left:15px; }
+.stp-subtitle { font-size: 1.1rem; margin:15px 0; }
+.stp-list { list-style:none; padding:0; }
+.stp-list li { margin-bottom:10px; color:#444; }
+.stp-list span { color:#F24D29; font-weight:bold; }
+.stp-points { margin-top:15px; line-height:1.7; font-size:1rem; color:#333; }
+.stp-image img { width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); }
 
-    <p style="margin-top:40px; font-size:1.2rem; line-height:1.9;">
-      The Activated Sludge Process is a biological wastewater treatment method that uses a mass of microorganisms 
-      to break down organic pollutants. Oxygen is supplied to support microbial growth, which converts impurities into 
-      carbon dioxide, water, and stable sludge. This process is highly efficient for treating domestic and industrial 
-      wastewater with high organic load.
-    </p>
-  </div>
-</section>
+/* Techniques */
+.techniques { max-width:1200px; margin:80px auto; display:flex; flex-direction:column; gap:80px; }
+.tech-box { display:flex; flex-wrap:wrap; align-items:center; gap:40px; }
+.tech-box.reverse { flex-direction:row-reverse; }
+.tech-text { flex:1; min-width:300px; }
+.tech-text h3 { font-size:2rem; font-weight:700; color:#007ACC; border-left:5px solid #F24D29; padding-left:15px; margin-bottom:15px; }
+.tech-text p { font-size:1.05rem; color:#444; line-height:1.7; margin-bottom:15px; }
+.tech-text ul { list-style:none; padding:0; }
+.tech-text ul li { margin-bottom:8px; }
+.tech-img { flex:1; min-width:300px; text-align:center; }
+.tech-img img { width:100%; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.15); }
 
-<!-- Electro Coagulation System Section -->
-<section style="padding:120px 8vw;background:linear-gradient(135deg, #e6f9ff 0%, #f9f9f9 100%); font-family:'Poppins', sans-serif; color:#333;">
-  <div style="max-width:1200px; margin:auto;">
-    <h2 style="font-size:3rem; font-weight:700; color:#0077b6; position:relative; display:inline-block;">
-      Electro Coagulation System
-      <span style="position:absolute; bottom:-12px; left:50%; transform:translateX(-50%); width:100px; height:5px; 
-      background:linear-gradient(90deg,#00b4d8,#0077b6); border-radius:5px;"></span>
-    </h2>
+/* Extra Sections */
+.extra-section { max-width:1200px; margin:100px auto; text-align:center; }
+.extra-section h2 { font-size:3rem; font-weight:700; color:#0077b6; position:relative; display:inline-block; }
+.extra-section h2 span { position:absolute; bottom:-12px; left:50%; transform:translateX(-50%); width:100px; height:5px; background:linear-gradient(90deg,#00b4d8,#0077b6); border-radius:5px; }
+.extra-section p { margin-top:30px; font-size:1.2rem; line-height:1.9; }
 
-    <p style="margin-top:40px; font-size:1.2rem; line-height:1.9;">
-      The Electro Coagulation System is an advanced water and wastewater treatment process that uses 
-      electric current to remove contaminants. The system destabilizes suspended, emulsified, or dissolved 
-      particles, enabling them to aggregate and be easily separated. It is highly effective in removing 
-      heavy metals, oil & grease, color, and other persistent pollutants from wastewater.
-    </p>
-  </div>
-</section>
+/* Responsive */
+@media (max-width:992px){
+  .stp-container { flex-direction:column; text-align:center; }
+  .tech-box, .tech-box.reverse { flex-direction:column; }
+  .stp-heading { font-size:2rem; }
+  .extra-section h2 { font-size:2.2rem; }
+}
+@media (max-width:576px){
+  .stp-heading { font-size:1.6rem; }
+  .extra-section h2 { font-size:1.8rem; }
+  .extra-section h2 span { width:70px; height:4px; }
+  .extra-section p { font-size:0.95rem; line-height:1.6; }
+}
+</style>
 
-
-
-<!-- AOS Library -->
+<!-- ✅ AOS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1200,
-    once: true
-  });
-</script>
-
-
+<script>AOS.init({ duration:1200, once:true });</script>
 
 
 
@@ -641,42 +696,93 @@
 
 
 <!-- //////////////////////////////// OUR CLIENT////////////////////////////// -->
-<!-- WhatsApp Floating Button -->
-<div class="whatsapp-float">
-   <a href="https://wa.me/9766878070" target="_blank">
+<!-- Floating Contact Section -->
+<div class="floating-contact">
+  
+  <!-- Contact Button + Text Wrapper -->
+  <div class="contact-btn-wrapper">
+    <div class="vertical-text">Get in Touch</div>
+    <a href="contact.html" class="float-btn contact">
+      <i class="fas fa-info"></i>
+    </a>
+  </div>
+
+  <!-- WhatsApp Icon -->
+  <a href="https://wa.me/9766878070" target="_blank" class="float-btn whatsapp">
     <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
   </a>
+
 </div>
 
 <!-- CSS -->
 <style>
-  .whatsapp-float {
+  .floating-contact {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999;
+  }
+
+  .contact-btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Vertical Text */
+  .vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px; /* place above button */
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Common Button Style */
+  .float-btn {
     background: #25D366;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white; 
+    font-size: 20px;
+    cursor: pointer;
   }
 
-  .whatsapp-float:hover {
+  .float-btn img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .float-btn:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   }
 
-  .whatsapp-float img {
-    width: 35px;
-    height: 35px;
+  /* Contact Icon Different Color */
+  .float-btn.contact {
+    background: #0BA34E;
+  }
+
+  /* Show text when hovering on contact button */
+  .contact-btn-wrapper:hover .vertical-text {
+    opacity: 1;
   }
 </style>
-
 
 
 
@@ -688,73 +794,90 @@
   <div style="position:absolute; inset:0; background:radial-gradient(circle at top left, rgba(7,214,122,0.12), transparent 60%), radial-gradient(circle at bottom right, rgba(11,163,78,0.12), transparent 60%); z-index:0;"></div>
 
   <!-- Top Section -->
-  <div style="max-width:1400px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:50px; padding:60px 20px 40px; position:relative; z-index:1;">
+  <div style="
+    max-width:1400px; 
+    margin:auto; 
+    display:grid; 
+    grid-template-columns: 1.2fr 1fr 0.8fr; 
+    gap:50px; 
+    padding:70px 20px 50px; 
+    position:relative; 
+    z-index:1; 
+    align-items:start;
+  ">
 
     <!-- Logo + About -->
     <div>
-      <img src="images/LOGO_02.png" alt="Aquagreen Logo" style="height:120px; margin-bottom:20px;">
-      <p style="line-height:1.8; font-size:16px; color:#444;">
-        Aquagreen Tech Solutions delivers sustainable innovations in water & wastewater treatment, ensuring a greener and cleaner future for industries and communities.
+      <img src="images/LOGO_02.png" alt="Aquagreen Logo" style="height:110px; margin-bottom:20px;">
+      <p style="line-height:1.8; font-size:15px; color:#444; text-align:justify;">
+        At <strong>Aquagreen Tech Solutions</strong>, we are committed to advancing environmental sustainability by delivering innovative, cost-effective, and compliant solutions across water and wastewater treatment, pollution control board certification, energy management, water audits, industrial fabrication, and the provision of specialized water treatment chemicals.
       </p>
     </div>
 
-    <!-- Quick Links -->
-    <div>
-      <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Quick Links</h3>
-      <ul style="list-style:none; padding:0; margin:0; display:grid; gap:8px;">
-        <li><a href="index.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Home</a></li>
-        <li><a href="About.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">About Us</a></li>
-        <li><a href="PRODUCT.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Products</a></li>
-        <li><a href="Services.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Services</a></li>
-        <li><a href="Our_Work.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Our Work</a></li>
-        <li><a href="contact.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Contact</a></li>
-      </ul>
-    </div>
-
-
     <!-- Contact -->
-    <div>
+    <div style="text-align:left; margin-left:140px;">  <!-- added margin-left -->
       <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Contact Us</h3>
-      <p style="line-height:1.8; font-size:16px; color:#444;">
-        Office No. 171, Jay Ganesh Vision B Wing, Akurdi, Pune 411035<br>
-        Registered Address: A201, Renuka Gulmohar 2, B/H City One Mall, Morwadi, Pimpri Pune-411018<br><br>
+      <p style="line-height:1.9; font-size:15px; color:#444; margin:0;">
+        <strong>Office Address:</strong><br>
+        Office No. 171, Jay Ganesh Vision B Wing, Akurdi, Pune 411035<br><br>
+        <strong>Registered Address:</strong><br>
+        A201, Renuka Gulmohar 2, B/H City One Mall, Morwadi, Pimpri Pune-411018<br><br>
         <strong>Phone:</strong> 9766878070 / 7276368070<br>
         <strong>Email:</strong> <a href="mailto:aquagreentechs@gmail.com" style="color:#0BA34E; text-decoration:none;">aquagreentechs@gmail.com</a>
       </p>
     </div>
-
     <!-- Socials -->
-    <div>
+    <div style="text-align:right;">
       <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Follow Us</h3>
-      <div class="socials" style="display:flex; gap:18px; font-size:28px;">
-        <!-- <a href="#" style="color:#444; transition:0.3s;"><i class="ri-facebook-circle-fill"></i></a>
-        <a href="#" style="color:#444; transition:0.3s;"><i class="ri-twitter-x-fill"></i></a> -->
-        <a href="#" style="color:#444; transition:0.3s;"><i class="ri-linkedin-box-fill"></i></a>
-        <a href="https://www.instagram.com/aquagreen_tech_solutions/?igsh=a2k2c2l1cmtvajVw&utm_source=qr#" style="color:#444; transition:0.3s;"><i class="ri-instagram-fill"></i></a>
+      <div class="socials" style="display:flex; gap:18px; font-size:30px; justify-content:flex-end; align-items:center;">
+        <a href="#" class="social-icon"><i class="ri-facebook-circle-fill"></i></a>
+        <a href="#" class="social-icon"><i class="ri-linkedin-box-fill"></i></a>
+        <a href="https://www.instagram.com/aquagreen_tech_solutions/?igsh=a2k2c2l1cmtvajVw&utm_source=qr#" class="social-icon"><i class="ri-instagram-fill"></i></a>
       </div>
     </div>
   </div>
+
   <!-- Bottom Bar -->
-  <div style="text-align:center; padding:20px 20px; font-size:15px; color:#fff; background:linear-gradient(90deg,#6CC04A,#00CFFF,#3A8E3D); position:relative; z-index:1;">
+  <div style="text-align:center; padding:18px 20px; font-size:14px; color:#fff; background:linear-gradient(90deg,#6CC04A,#00CFFF,#3A8E3D); position:relative; z-index:1;">
     © <script>document.write(new Date().getFullYear());</script> Aquagreen Tech Solutions. All Rights Reserved.<br>
-    <span style="font-size:14px; color:#f1f1f1;">Developed By <strong>DW INNOVATION PVT. LTD.</strong></span>
+    <span style="font-size:13px; color:#f1f1f1;">Developed By <strong>DW INNOVATION PVT. LTD.</strong></span>
   </div>
 
   <style>
-    #footer a:hover {
-      color:#ff7b00 !important;
-      padding-left:4px;
-      transition:0.3s;
+    /* General link hover */
+    #footer a {
+      color: #444;
+      text-decoration: none;
+      transition: 0.3s;
     }
-    #footer .socials a:hover {
+    #footer a:hover {
+      color: #ff7b00 !important;
+      padding-left: 3px;
+    }
+
+    /* Social icons */
+    #footer .socials .social-icon {
+      color:#444;
+      transition:all 0.3s ease;
+    }
+    #footer .socials .social-icon:hover {
       color:#07d67a !important;
-      transform:scale(1.25) rotate(5deg);
-      transition:0.3s;
+      transform:scale(1.25) rotate(8deg);
+    }
+
+    /* Responsive */
+    @media(max-width:1000px) {
+      #footer > div {
+        grid-template-columns: 1fr;
+        text-align:center !important;
+      }
+      #footer .socials {
+        justify-content:center !important;
+      }
     }
   </style>
 
 </footer>
-
   <!-- ================= SCRIPTS ================= -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>

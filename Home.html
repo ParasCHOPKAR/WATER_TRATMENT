@@ -40,259 +40,145 @@ color:#333; position:relative; overflow:hidden;"> -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);
-  }
+    body {
+      font-family: 'Poppins', sans-serif;
+ background:linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);
+    }
 
-  /* ================= NAVBAR ================= */
-  .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 0px 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: transparent;
-    transition: background 0.4s ease, box-shadow 0.4s ease;
-    z-index: 1000;
-  }
-
-  .navbar.scrolled {
-    background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
-    backdrop-filter: blur(10px);
-    border-bottom: 3px solid rgba(0, 207, 255, 0.6);
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
-    transition: all 0.5s ease-in-out;
-  }
-
-  .nav-links li,
-  .dropdown-menu li,
-  .sub-dropdown-menu li {
-    list-style: none;
-  }
-
-  .logo img {
-    height: 100px;
-  }
-
-  .menu-toggle {
-    display: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-    z-index: 1001;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    list-style: none;
-  }
-
-  .nav-links li {
-    position: relative;
-  }
-
-  .nav-links > li > a {
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    position: relative;
-    padding: 6px 0;
-    transition: color 0.3s ease;
-  }
-
-  .nav-links > li > a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: linear-gradient(90deg, #00CFFF, #6CC04A);
-    transition: width 0.3s ease-in-out;
-  }
-
-  .nav-links > li > a:hover {
-    color: #ff7b00;
-  }
-
-  .nav-links > li > a:hover::after {
-    width: 100%;
-  }
-
-  /* ================= DESKTOP DROPDOWNS ================= */
-  .dropdown-menu,
-  .sub-dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    background: #fff;
-    min-width: 200px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    flex-direction: column;
-    z-index: 1000;
-  }
-
-  .dropdown-menu a,
-  .sub-dropdown-menu a {
-    display: block;
-    padding: 10px 15px;
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 900;
-    white-space: nowrap;
-  }
-
-  .dropdown-menu a:hover,
-  .sub-dropdown-menu a:hover {
-    background: #ff7b00;
-    color: white;
-  }
-
-  .nav-links li:hover > .dropdown-menu {
-    display: flex;
-  }
-
-  .sub-dropdown:hover > .sub-dropdown-menu {
-    display: flex;
-    top: 0;
-    left: 100%;
-  }
-
-  .arrow {
-    font-size: 12px;
-    transition: transform 0.3s ease;
-  }
-
-  .arrow.rotate {
-    transform: rotate(180deg);
-  }
-
-  /* ================= MOBILE VIEW ================= */
-  @media (max-width: 768px) {
+    /* ================= NAVBAR ================= */
     .navbar {
-      padding: 15px 20px;
-      background: rgba(0, 0, 0, 0.95);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 0px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+      z-index: 1000;
     }
 
-    /* Logo scales */
+    .navbar.scrolled {
+      background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 3px solid rgba(0, 207, 255, 0.6);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+      transition: all 0.5s ease-in-out;
+    }
+
+    .nav-links li,
+    .dropdown-menu li,
+    .sub-dropdown-menu li {
+      list-style: none;
+    }
+
     .logo img {
-      height: 60px;
-      max-width: 160px;
+      height: 100px;
     }
 
-    /* Hamburger menu */
     .menu-toggle {
-      display: block;
-      font-size: 28px;
-      color: #fff;
+      display: none;
+      font-size: 24px;
+      color: white;
       cursor: pointer;
       z-index: 1001;
     }
 
-    /* Sidebar Nav */
     .nav-links {
-      position: fixed;
-      top: 0;
-      left: -280px;
-      height: 100vh;
-      width: 260px;
-      background: #111;
-      flex-direction: column;
-      padding: 80px 20px;
-      transition: left 0.3s ease-in-out;
-      overflow-y: auto;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      list-style: none;
     }
 
-    .nav-links.active {
-      left: 0;
-    }
-
-    /* Overlay */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-      display: none;
-    }
-
-    .overlay.show {
-      display: block;
-    }
-
-    /* Sidebar Links */
-    .nav-links > li {
-      width: 100%;
+    .nav-links li {
+      position: relative;
     }
 
     .nav-links > li > a {
-      color: #fff;
-      padding: 14px 20px;
-      font-size: 16px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    /* Sidebar Dropdown (Mobile) */
-    .dropdown-menu {
-      background: #1a1a1a;
-      margin: 5px 0 10px 0;
-      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      position: relative;
       padding: 6px 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links > li > a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00CFFF, #6CC04A);
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-links > li > a:hover {
+      color: #ff7b00;
+    }
+
+    .nav-links > li > a:hover::after {
+      width: 100%;
+    }
+
+    /* Dropdowns */
+    .dropdown-menu,
+    .sub-dropdown-menu {
       display: none;
+      position: absolute;
+      top: 100%;
+      background: #fff;
+      min-width: 200px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
       flex-direction: column;
+      z-index: 1000;
     }
 
-    .dropdown-menu a {
-      color: #ddd;
-      font-size: 15px;
-      padding: 12px 18px;
+    .dropdown-menu a,
+    .sub-dropdown-menu a {
       display: block;
-      transition: background 0.2s ease, color 0.2s ease;
-      white-space: normal;   /* allow wrapping */
-      word-break: break-word; /* break long words */
-      line-height: 1.4em;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+      white-space: nowrap;
     }
 
-    .dropdown-menu a:hover {
-      background: #262626;
-      color: #ffcc00;
+    .dropdown-menu a:hover,
+    .sub-dropdown-menu a:hover {
+      background: #ff7b00;
+      color: white;
     }
 
-    .dropdown-menu.show {
-      display: flex !important;
+    .nav-links li:hover > .dropdown-menu {
+      display: flex;
     }
 
-    /* Arrow improvements */
+    .sub-dropdown:hover > .sub-dropdown-menu {
+      display: flex;
+      top: 0;
+      left: 100%;
+    }
+
     .arrow {
       font-size: 12px;
-      margin-left: 8px;
       transition: transform 0.3s ease;
     }
 
@@ -300,30 +186,112 @@ color:#333; position:relative; overflow:hidden;"> -->
       transform: rotate(180deg);
     }
 
-    /* Mobile-only extra links */
-    .mobile-only {
-      display: block;
+    /* ================= MOBILE VIEW ================= */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.95);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        height: 100vh;
+        width: 280px;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 80px 20px;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+      }
+
+      .overlay.show {
+        display: block;
+      }
+
+      .nav-links > li > a {
+        color: white;
+        padding: 12px 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .dropdown-menu,
+      .sub-dropdown-menu {
+        position: static;
+        display: none;
+        background: #222;
+        box-shadow: none;
+        width: 100%;
+      }
+
+      .dropdown-menu a,
+      .sub-dropdown-menu a {
+        color: white;
+        padding-left: 30px;
+      }
+
+      .sub-dropdown-menu {
+        padding-left: 10px;
+      }
+
+      .dropdown-menu.show,
+      .sub-dropdown-menu.show {
+        display: flex !important;
+        flex-direction: column;
+      }
+
+      .nav-links li:hover > .dropdown-menu,
+      .sub-dropdown:hover > .sub-dropdown-menu {
+        display: none;
+      }
+
+      .nav-links .dropdown-toggle {
+        cursor: pointer;
+      }
     }
 
-    .mobile-only a {
-      color: #ffcc00;
-      font-weight: bold;
-    }
+    /* Hide mobile-only links on desktop */
+.mobile-only { display: none; }
+
+/* Show only inside mobile sidebar */
+@media (max-width: 768px) {
+  .mobile-only { 
+    display: block; 
   }
-
-  /* ================= RESPONSIVE SWITCH ================= */
-  .navbar-desktop { display: flex; }
-  .navbar-mobile { display: none; }
-
-  @media (max-width: 768px) {
-    .navbar-desktop { display: none; }
-    .navbar-mobile { display: flex; }
+  .mobile-only a {
+    color: #ffcc00;
+    font-weight: bold;
+    padding: 10px 15px;
   }
-</style>
+}
 
+  </style>
 </head>
 <body>
-      <section id="loader" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:#e0f7fa; display:flex; justify-content:center; align-items:center; z-index:9999; overflow:hidden; font-family:'Poppins', sans-serif; flex-direction:column; text-align:center; padding:20px;">
+    <section id="loader" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:#e0f7fa; display:flex; justify-content:center; align-items:center; z-index:9999; overflow:hidden; font-family:'Poppins', sans-serif; flex-direction:column; text-align:center; padding:20px;">
 
 
 <!-- Background Watermark Logo -->
@@ -390,77 +358,31 @@ color:#333; position:relative; overflow:hidden;"> -->
 </section>
 
   <!-- Navbar -->
-<!-- DESKTOP NAVBAR -->
-<!-- DESKTOP NAVBAR -->
-<nav class="navbar navbar-desktop" id="navbarDesktop">
+<nav class="navbar" id="navbar">
+  <!-- Logo -->
   <a href="index.html" class="logo">
     <img src="images/LOGO_02.png" alt="Aquagreen Logo">
   </a>
-  <ul class="nav-links">
-   <li><a href="index.html" style="color: #ff7b00;">HOME</a></li>
 
-    <li><a href="About.html">ABOUT US</a></li>
-
-    <!-- Products -->
-    <li class="dropdown">
-      <a href="PRODUCT.html">PRODUCTS</a>
-      <ul class="dropdown-menu">
-        <li><a href="CSTP.html">Common Sewage Treatment Plants (CSTP)</a></li>
-        <li><a href="CETP.html">Common Effluent Treatment Plants (CETP)</a></li>
-        <li><a href="STP.html">Sewage Treatment Plants (STP)</a></li>
-        <li><a href="ETP.html">Effluent Treatment Plants (ETP)</a></li>
-        <li><a href="MEE.html">Multiple Effect Evaporators (MEE)</a></li>
-        <li><a href="RO.html">Reverse Osmosis (RO)</a></li>
-        <li><a href="ZLD.html">Zero Liquid Discharge Systems (ZLD)</a></li>
-        <li><a href="Softnres.html">Softeners</a></li>
-        <li><a href="DM.html">Demineralization Plants (DM)</a></li>
-        <li><a href="MPCB.html">MPCB Consent</a></li>
-        <li><a href="Ozonw_SyS.html">Ozone System</a></li>
-        <li><a href="UF.html">Ultrafiltration (UF)</a></li>
-        <li><a href="DAF.html">Dissolved Air Flotation Unit</a></li>
-        <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
-        <li><a href="Wet.html">Wet Fume Scrubber</a></li>
-        <li><a href="OCEMS.html">OCEMS</a></li>
-      </ul>
-    </li>
-
-    <!-- Services -->
-    <li class="dropdown">
-      <a href="Services.html">SERVICES</a>
-      <ul class="dropdown-menu">
-        <li><a href="AMC.html">AMC</a></li>
-        <li><a href="EPR.html">EPR Registration</a></li>
-        <li><a href="CGWA.html">NOC from CGWA</a></li>
-        <li><a href="Env_Monitoring.html">Environmental Monitoring</a></li>
-        <li><a href="ENv_Managment.html">Environmental Management</a></li>
-        <li><a href="CHEmical.html">Chemicals</a></li>
-      </ul>
-    </li>
-
-    <li><a href="Our_Work.html">PROJETCS</a></li>
-       <li><a href="Gallery.html">OUR EVENTS</a></li>
-    <li><a href="Career.html">CAREER</a></li>
-    <li><a href="contact.html">CONTACT</a></li>
-  </ul>
-</nav>
-
-<!-- MOBILE NAVBAR -->
-<nav class="navbar navbar-mobile" id="navbarMobile">
-  <a href="index.html" class="logo">
-    <img src="images/LOGO_02.png" alt="Aquagreen Logo">
-  </a>
+  <!-- Mobile Toggle -->
   <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+
+  <!-- Navigation -->
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">HOME</a></li>
     <li><a href="About.html">ABOUT US</a></li>
 
-    <!-- Mobile Products -->
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle">
-        PRODUCTS <span class="arrow">▼</span>
-      </a>
-      <ul class="dropdown-menu">
-        <li><a href="CSTP.html">Common Sewage Treatment Plants (CSTP)</a></li>
+   <!-- PRODUCTS DROPDOWN -->
+<li class="dropdown">
+  <a href="PRODUCT.html" class="dropdown-toggle">
+    PRODUCTS <span class="arrow">▼</span>
+  </a>
+  <ul class="dropdown-menu">
+    <!-- Mobile-only "All Products" link -->
+    <li class="mobile-only"><a href="PRODUCT.html"><strong>All Products</strong></a></li>
+     
+  
+        <li><a href="CSTP.html">Common Sewage Treatment Plants(CSTP)</a></li>
         <li><a href="CETP.html">Common Effluent Treatment Plants (CETP)</a></li>
         <li><a href="STP.html">Sewage Treatment Plants (STP)</a></li>
         <li><a href="ETP.html">Effluent Treatment Plants (ETP)</a></li>
@@ -470,31 +392,36 @@ color:#333; position:relative; overflow:hidden;"> -->
         <li><a href="Softnres.html">Softeners</a></li>
         <li><a href="DM.html">Demineralization Plants (DM)</a></li>
         <li><a href="MPCB.html">MPCB Consent</a></li>
-        <li><a href="Ozonw_SyS.html">Ozone System</a></li>
-        <li><a href="UF.html">Ultrafiltration (UF)</a></li>
-        <li><a href="DAF.html">Dissolved Air Flotation Unit</a></li>
-        <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
-        <li><a href="Wet.html">Wet Fume Scrubber</a></li>
-        <li><a href="OCEMS.html">OCEMS</a></li>
-        <!-- All Products Button -->
-               <li><a href="PRODUCT.html" style="font-weight:bold; color:#ff7b00;">All Products →</a></li>
-      </ul>
-    </li>
 
-    <!-- Mobile Services -->
+    <!-- Direct Products -->
+    <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+    <li><a href="UF.html">Ultrafiltration (UF)</a></li>
+    <li><a href="DAF.html">Dissolved Air Flotation Unit</a></li>
+    <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+    <li><a href="Wet.html">Wet Fume Scrubber</a></li>
+    <li><a href="OCEMS.html">OCEMS</a></li>
+
+    <!-- More -->
+
+  </ul>
+</li>
+
+
+    <!-- SERVICES DROPDOWN -->
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle">
+      <a href="Services.html" class="dropdown-toggle">
         SERVICES <span class="arrow">▼</span>
       </a>
       <ul class="dropdown-menu">
-        <li><a href="AMC.html">AMC</a></li>
+        <!-- Mobile-only "All Services" link -->
+        <li class="mobile-only"><a href="Services.html"><strong>All Services</strong></a></li>
+
+        <li class="sub-dropdown"><a href="AMC.html">AMC</a></li>
         <li><a href="EPR.html">EPR Registration</a></li>
         <li><a href="CGWA.html">NOC from CGWA</a></li>
         <li><a href="Env_Monitoring.html">Environmental Monitoring</a></li>
         <li><a href="ENv_Managment.html">Environmental Management</a></li>
         <li><a href="CHEmical.html">Chemicals</a></li>
-        <!-- All Services Button -->
-        <li><a href="Services.html" style="font-weight:bold; color:#ff7b00;">All Services →</a></li>
       </ul>
     </li>
 
@@ -505,9 +432,7 @@ color:#333; position:relative; overflow:hidden;"> -->
   </ul>
 </nav>
 
-
-<div class="overlay" id="overlay"></div>
-
+  
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
 
@@ -608,7 +533,6 @@ window.addEventListener('scroll', () => {
 
 
 
-
 <section id="hero-slider-section">
 
   <style>
@@ -698,7 +622,7 @@ window.addEventListener('scroll', () => {
       </div>
     </div>
     <!-- Slide 2 -->
-    <div class="swiper-slide" style="background-image:url('images/MAHARASHTRA_PLOU_HERO_02.webp')">
+    <div class="swiper-slide" style="background-image:url('images/HERO____CHAT_GPT.png')">
       <div class="slide-content">
         <h2 class="slide-title">Engineered for Pure Water</h2>
         <p class="slide-description">Innovative treatment systems ensuring purity, safety, and reliability for industries and communities.</p>
@@ -724,7 +648,7 @@ window.addEventListener('scroll', () => {
     <!-- Slide 5 -->
     <div class="swiper-slide" style="background-image:url('images/HERO_666666.jpg')">
       <div class="slide-content">
-        <h2 class="slide-title">Aquagreen Tech Solutions  – For a Cleaner Tomorrow</h2>
+        <h2 class="slide-title">Aquagreen – For a Cleaner Tomorrow</h2>
         <p class="slide-description">Committed to delivering sustainable water and wastewater solutions worldwide.</p>
         <!-- <a href="product.html" class="slide-button">Get Started</a> -->
       </div>
@@ -735,7 +659,7 @@ window.addEventListener('scroll', () => {
   <div class="slider-controls">
     <ul class="slider-pagination">
       <li class="slider-tab current">Water Treatment</li>
-      <li class="slider-tab">Environmental Legal Consultancy</li>
+      <li class="slider-tab">Purification Systems</li>
       <li class="slider-tab">Wastewater Solutions</li>
       <li class="slider-tab">Environmental Engineering</li>
       <li class="slider-tab">Sustainability</li>
@@ -827,9 +751,9 @@ color:#333; position:relative; overflow:hidden; text-align:center;">
               margin-left:auto; 
               margin-right:auto;">
       <b style="color:#8DC63F;">Aquagreen Tech Solutions (AGTS)</b> creates sustainable, innovative, and eco-friendly solutions in 
-      <b> wastewater treatment, energy management, water audits, industrial fabrication, MPCB, CPCB, CGWA, Environmental legal compliance</b>, and <b>Waste and Water Chemicals Treatment</b>.
+      <b>water treatment, wastewater treatment, energy management, water audits, industrial fabrication</b>, and <b>treatment chemicals</b>.
       <br><br>
-      Guided by <b style="color:#007ACC;">Towards a Sustainable Future</b>, we protect natural resources for future generations.
+      Guided by <b style="color:#007ACC;">Towards Sustainability Future</b>, we protect natural resources for future generations.
       <i style="color:#1C2A5B; display:block; margin-top:10px;">...because we care for you!</i>
     </p>
   </div>
@@ -900,11 +824,8 @@ From manufacturing to municipal services, we deliver tailored solutions across d
     <ul class="industry-list">
       <li>Food & Beverages</li>
       <li>Textile Industry</li>
-     <li>Pharmaceuticals</li>
-
-      <li>Coal and Mining</li>
-  <li>Residential and Commercial</li>
-  <li>Civil Construction</li>
+      <li>Pharmaceuticals</li>
+      <li>Chemicals</li>
       <li>Automobile</li>
       <li>Electronics</li>
       <li>Construction</li>
@@ -913,12 +834,12 @@ From manufacturing to municipal services, we deliver tailored solutions across d
       <li>Steel & Metals</li>
       <li>Mining</li>
       <li>Agriculture</li>
-     <li>IT Industries</li>
+      <li>IT Parks</li>
       <li>Hospitals</li>
       <li>Hotels & Hospitality</li>
       <li>Housing Societies</li>
       <li>Paper & Pulp</li>
-    
+      <li>Water Treatment</li>
       <li>Plastic Industry</li>
       <li>Logistics & Warehousing</li>
       <li>Education Institutions</li>
@@ -1049,10 +970,7 @@ window.onclick = function(event) {
 
 
     <!-- Card 3 -->
-<div class="hover-card" 
-     style="position:relative; overflow:hidden; border-radius:15px; height:350px; 
-            box-shadow:0 10px 25px rgba(0,0,0,0.12); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-
+    <div class="hover-card" style="position:relative; overflow:hidden; border-radius:15px; height:350px; box-shadow:0 10px 25px rgba(0,0,0,0.12); cursor:pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;">
       <img src="images/HOME_ABOUT_01.jpg" alt="Commitment" style="width:100%; height:100%; object-fit:cover; position:absolute; inset:0; opacity:0; transition:opacity 0.5s ease;">
       <div style="position:absolute; inset:0; background:#fff; padding:30px 20px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; transition:opacity 0.5s ease;">
         
@@ -1278,7 +1196,6 @@ background-size: cover; background-attachment: fixed; color:#333;">
   <div style="max-width: 1400px; margin:auto; overflow:hidden; position:relative;">
     <div class="clients-slider">
       <img src="Client_Logo/Coal_India_Logo.svg.png" alt="Client 1">
-      <img src="images/Raliway_logo.png" alt="Client 15">
       <img src="Client_Logo/DRDO.png" alt="Client 2">
       <img src="Client_Logo/BCCL_logo.png" alt="Client 3">
       <img src="Client_Logo/RCF_LOGO.png" alt="Client 4">
@@ -1291,7 +1208,7 @@ background-size: cover; background-attachment: fixed; color:#333;">
       <img src="Client_Logo/UB_logo.jpeg" alt="Client 16">
       <img src="Client_Logo/KALYANI_logo.jpg" alt="Client 15">
       <img src="Client_Logo/Bilcare_logo.png" alt="Client 15">
-      <!-- <img src="Client_Logo/DANA_LOGO.png" alt="Client 12"> -->
+      <img src="Client_Logo/DANA_LOGO.png" alt="Client 12">
       <img src="Client_Logo/Kider.png" alt="Client 13">
       <img src="Client_Logo/Asian_Paints.png" alt="Client 14">
       <img src="Client_Logo/ROHA_logo.png" alt="Client 14">
@@ -1303,11 +1220,11 @@ background-size: cover; background-attachment: fixed; color:#333;">
       <img src="images/ALKYL_logo.jpeg" alt="Client 13">
       <img src="Client_Logo/HCCB_logo.cms" alt="Client 14">
       <img src="Client_Logo/MARS.png" alt="Client 14">
-      <!-- <img src="Client_Logo/INDUS_BIO.png" alt="Client 15"> -->
+      <img src="Client_Logo/INDUS_BIO.png" alt="Client 15">
       <img src="Client_Logo/ABHAY.webp" alt="Client 15">
       <img src="Client_Logo/MERCK.png" alt="Client 13">
       <img src="Client_Logo/KOTAK.png" alt="Client 14">
-      <!-- <img src="Client_Logo/Enzene_Biosciences_Logo.jpg" alt="Client 14"> -->
+      <img src="Client_Logo/Enzene_Biosciences_Logo.jpg" alt="Client 14">
       <img src="Client_Logo/GOKUL_LOGO.jpeg" alt="Client 15">
       <img src="Client_Logo/SKHm_LOGO.png" alt="Client 15">
       <img src="Client_Logo/Magna_logo.png" alt="Client 15">
@@ -1333,7 +1250,6 @@ background-size: cover; background-attachment: fixed; color:#333;">
       
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:20px;">
          <img src="Client_Logo/Coal_India_Logo.svg.png" alt="Client 1">
-              <img src="images/Raliway_logo.png" alt="Client 15">
       <img src="Client_Logo/DRDO.png" alt="Client 2">
       <img src="Client_Logo/BCCL_logo.png" alt="Client 3">
       <img src="Client_Logo/RCF_LOGO.png" alt="Client 4">
@@ -1346,7 +1262,7 @@ background-size: cover; background-attachment: fixed; color:#333;">
       <img src="Client_Logo/UB_logo.jpeg" alt="Client 16">
       <img src="Client_Logo/KALYANI_logo.jpg" alt="Client 15">
       <img src="Client_Logo/Bilcare_logo.png" alt="Client 15">
-      <!-- <img src="Client_Logo/DANA_LOGO.png" alt="Client 12"> -->
+      <img src="Client_Logo/DANA_LOGO.png" alt="Client 12">
       <img src="Client_Logo/Kider.png" alt="Client 13">
       <img src="Client_Logo/Asian_Paints.png" alt="Client 14">
       <img src="Client_Logo/ROHA_logo.png" alt="Client 14">
@@ -1358,11 +1274,11 @@ background-size: cover; background-attachment: fixed; color:#333;">
       <img src="images/ALKYL_logo.jpeg" alt="Client 13">
       <img src="Client_Logo/HCCB_logo.cms" alt="Client 14">
       <img src="Client_Logo/MARS.png" alt="Client 14">
-      <!-- <img src="Client_Logo/INDUS_BIO.png" alt="Client 15"> -->
+      <img src="Client_Logo/INDUS_BIO.png" alt="Client 15">
       <img src="Client_Logo/ABHAY.webp" alt="Client 15">
       <img src="Client_Logo/MERCK.png" alt="Client 13">
       <img src="Client_Logo/KOTAK.png" alt="Client 14">
-      <!-- <img src="Client_Logo/Enzene_Biosciences_Logo.jpg" alt="Client 14"> -->
+      <img src="Client_Logo/Enzene_Biosciences_Logo.jpg" alt="Client 14">
       <img src="Client_Logo/GOKUL_LOGO.jpeg" alt="Client 15">
       <img src="Client_Logo/SKHm_LOGO.png" alt="Client 15">
       <img src="Client_Logo/Magna_logo.png" alt="Client 15">
@@ -1556,39 +1472,6 @@ document.addEventListener("DOMContentLoaded", () => {
   padding: 10px 0;
   flex: 1;
 }
-/* === SLIDER ARROWS === */
-.services-scroll-btn {
-  background: rgba(255, 255, 255, 0.9);
-  color: #333;
-  border: none;
-  border-radius: 50%;
-  font-size: 28px;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-.services-scroll-btn:hover {
-  background: #f24d29;
-  color: #fff;
-  transform: scale(1.1);
-}
-
-/* Position left & right */
-.services-scroll-btn.left {
-  margin-left: 0px;
-}
-
-.services-scroll-btn.right {
-  margin-right: 0px;
-}
-
 
 .services-container::-webkit-scrollbar { display: none; }
 
@@ -1645,57 +1528,21 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 /* === MOBILE RESPONSIVE === */
-/* === MOBILE RESPONSIVE === */
-/* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
-  /* Remove arrows */
-  .services-scroll-btn {
-    display: none !important;
-  }
-
-  .services-slider-wrapper {
-    gap: 0;
-  }
-
   .services-container {
-    gap: 0;
-    scroll-snap-type: x mandatory;
+    gap: 0; /* no gap so cards align edge-to-edge */
   }
-
   .services-card-wrapper {
-    min-width: 100%;
-    max-width: 100%;
-    scroll-snap-align: start;
+    min-width: 100%;  /* full width */
+    max-width: 100%;  /* force single card per view */
   }
-
   .services-card {
-    height: 520px;  /* 🔹 Increased height */
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    padding-bottom: 55px; /* 🔹 Space for View button */
+    height: auto; /* let height adapt */
   }
-
   .services-card img {
-    height: 240px; /* 🔹 Slightly taller image */
-    flex-shrink: 0;
-  }
-
-  .services-card-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-
-  .services-view-button {
-    opacity: 1; /* 🔹 Always visible on mobile */
-    bottom: 0;
-    border-radius: 0 0 20px 20px;
+    height: 200px;
   }
 }
-
-
 </style>
 
   <script>
@@ -1712,24 +1559,18 @@ const services = [
     link: "UF.html",
     description: "Low-maintenance membrane process that removes bacteria, viruses & colloidal matter. Produces consistent water quality with 90–100% pathogen removal."
   },
-
+  {
+    title: "Water Treatment Plant",
+    image: "images/03.jpg",
+    link: "3M.html",
+    description: "Advanced oxidation systems for safe drinking water. Combines coagulation, filtration & disinfection with UF/NF/RO for pure, healthy water."
+  },
   {
     title: "DM Plant",
     image: "images/04.jpg",
     link: "DM.html",
     description: "Cutting-edge technology to remove impurities for industrial & human consumption. Built with durability & compliance in mind, backed by full support & AMC."
   },
-  
-    {
-    title: "Chemical",
-    image: "images/CHEMICAL.jpg",
-    link: "CHEmical.html",
-description: "Specially formulated water treatment chemicals to enhance purification, prevent scaling & fouling, and ensure safe water quality. backed by expert support & AMC."
-
-  },
-  
-
-
   {
     title: "Reverse Osmosis (RO) Plant",
     image: "images/05.jpg",
@@ -1844,12 +1685,8 @@ services.forEach(service => {
 });
 
 function getScrollAmount() {
-  if (window.innerWidth <= 768) {
-    return slider.clientWidth; // one full card width on mobile
-  }
-  return 340; // approx one card width on desktop
+  return window.innerWidth <= 768 ? slider.clientWidth : 340;
 }
-
 
 function scrollServices(direction) {
   slider.scrollLeft += direction * getScrollAmount();
@@ -1875,6 +1712,13 @@ slider.addEventListener("mouseleave", () => {
 });
   </script>
 </section>
+
+
+
+
+
+
+
 
 
 
@@ -1926,7 +1770,7 @@ font-family: 'NEW', sans-serif;
            letter-spacing:1px;
            position:relative;
            text-shadow:2px 2px 8px rgba(0,0,0,0.4);">
- Our Testimonials
+  What Our Clients Say
   <span style="position:absolute; 
                bottom:-12px; 
                left:50%; 
@@ -2109,18 +1953,18 @@ font-family: 'NEW', sans-serif;
 <!-- Floating Contact Section -->
 <div class="floating-contact">
   
-  <!-- Contact Button + Text Wrapper -->
-  <div class="contact-btn-wrapper">
-    <div class="vertical-text">Get in Touch</div>
-    <a href="contact.html" class="float-btn contact">
-      <i class="fas fa-info"></i>
-    </a>
-  </div>
-
+  <!-- Vertical Text -->
+  <div class="vertical-text">Get in Touch</div>
+<a href="contact.html" class="float-btn contact">
+  <i class="fas fa-info"></i>
+</a>
   <!-- WhatsApp Icon -->
   <a href="https://wa.me/9766878070" target="_blank" class="float-btn whatsapp">
     <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
   </a>
+
+  <!-- Contact Page Icon -->
+
 
 </div>
 
@@ -2137,12 +1981,6 @@ font-family: 'NEW', sans-serif;
     z-index: 9999;
   }
 
-  .contact-btn-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   /* Vertical Text */
   .vertical-text {
     writing-mode: vertical-rl;
@@ -2150,11 +1988,9 @@ font-family: 'NEW', sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: #333;
-    margin-bottom: 8px; /* place above button */
+    margin-bottom: 10px;
     font-family: 'Poppins', sans-serif;
     letter-spacing: 1px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
   }
 
   /* Common Button Style */
@@ -2168,9 +2004,6 @@ font-family: 'NEW', sans-serif;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: white; 
-    font-size: 20px;
-    cursor: pointer;
   }
 
   .float-btn img {
@@ -2185,20 +2018,406 @@ font-family: 'NEW', sans-serif;
 
   /* Contact Icon Different Color */
   .float-btn.contact {
-    background: #0BA34E;
-  }
-
-  /* Show text when hovering on contact button */
-  .contact-btn-wrapper:hover .vertical-text {
-    opacity: 1;
+    background: #0BA34E; /* green shade */
   }
 </style>
 
-
 <!-- Achievements Section -->
-<!-- Achievements Section -->
+<section id="achievements" style="
+  background: linear-gradient(
+                135deg, 
+                rgba(230,242,255,0) 0%, 
+                rgba(240,255,244,0) 100%
+              ),
+              url('images/ACHIVE_PHOTO.png');
+  background-size: 40%; /* reduce image size */
+    background-position: right bottom;
+
+  background-repeat: no-repeat; /* prevent tiling */
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+
+  color:#333;
+font-family: 'NEW', sans-serif;
+
+  padding:100px 20px;
+  position:relative;
+  overflow:hidden;
+">
 
 
+
+
+
+
+
+
+
+
+
+
+  <div style="max-width:1200px; margin:auto;">
+
+    <!-- Title -->
+    <!-- <h2 style="text-align:center; font-size:2.5rem; font-weight:700;  
+      background: linear-gradient(135deg, rgb(242, 77, 41), #d93b1d);
+       -webkit-background-clip:text; -webkit-text-fill-color:transparent; 
+       margin-bottom:50px;">
+      We Successfully Achieved...!
+    </h2>
+  <div style="max-width:1200px; margin:auto;"> -->
+
+    <!-- Title -->
+<h2 style="text-align:center; 
+           font-family: 'Raleway', sans-serif;
+           font-size:3.2rem; 
+           font-weight:400; 
+           margin-bottom:70px; 
+           letter-spacing:1px;
+           background: linear-gradient(135deg, rgb(242, 77, 41), #d93b1d);
+           -webkit-background-clip:text; 
+           -webkit-text-fill-color:transparent;
+           text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+           position:relative;">
+  We Successfully Achieved...!
+  <span style="position:absolute; 
+               bottom:-12px; 
+               left:50%; 
+               transform:translateX(-50%); 
+               width:90%; 
+               height:5px; 
+               background:linear-gradient(90deg,#6CC04A,#B6FF40); 
+               border-radius:4px; 
+               box-shadow:0 4px 10px rgba(0,0,0,0.1);"></span>
+</h2>
+
+
+    <!-- Timeline -->
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-icon">💧</div>
+        <div class="timeline-content"><a href="Our_Work.html" style="text-decoration:none; color:inherit;">
+  <h3 style="font-size:1.5rem; font-weight:600; color:#007ACC; margin-bottom:10px;">
+    Effluent Treatment Plant 
+  </h3>
+  <p style="font-size:1rem; color:#444; line-height:1.6; margin:0;">
+    Turnkey Project 100 KLD ETP & STP – MBBR Technology, executed for Magna Automotive India Pvt. Ltd.
+  </p>
+</a>
+
+          </a>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">🏭</div>
+        <div class="timeline-content">
+  <a href="Our_Work.html" style="text-decoration:none; color:inherit;">
+  <h3 style="font-size:1.5rem; font-weight:600; color:#007ACC; margin-bottom:10px;">
+ Primary Secondary Clarifier
+  </h3>
+  <p style="font-size:1rem; color:#444; line-height:1.6; margin:0;">
+   Secondary Clarifier provided at Bajaj Auto Ltd. Akurdi
+  </p>
+</a>
+        </div>
+      </div>
+
+
+      <div class="timeline-item">
+        <div class="timeline-icon">⚙️</div>
+        <div class="timeline-content">
+     <a href="Our_Work.html" style="text-decoration:none; color:inherit;">
+  <h3 style="font-size:1.5rem; font-weight:600; color:#007ACC; margin-bottom:10px;">
+Dissolved Air Flotation Unit
+  </h3>
+  <p style="font-size:1rem; color:#444; line-height:1.6; margin:0;">
+High quality standards achieved.
+  </p>
+</a>
+        </div>
+      </div>
+
+
+
+      <div class="timeline-item">
+        <div class="timeline-icon">🚰</div>
+        <div class="timeline-content">
+  <a href="Our_Work.html" style="text-decoration:none; color:inherit;">
+  <h3 style="font-size:1.5rem; font-weight:600; color:#007ACC; margin-bottom:10px;">
+   Multi-Effect Evaporator
+  </h3>
+  <p style="font-size:1rem; color:#444; line-height:1.6; margin:0;">
+10 KLD Multi Effect Evaporator
+  </p>
+</a>
+        </div>
+      </div>
+
+
+
+      <div class="timeline-item">
+        <div class="timeline-icon">📡</div>
+        <div class="timeline-content">
+       <a href="Our_Work.html" style="text-decoration:none; color:inherit;">
+  <h3 style="font-size:1.5rem; font-weight:600; color:#007ACC; margin-bottom:10px;">
+Reverse Osmosis (RO),(SS) Plant
+  </h3>
+  <p style="font-size:1rem; color:#444; line-height:1.6; margin:0;">
+250 LPH RO System at Merck Life Sciences, Patalganga, MH
+  </p>
+</a>
+        </div>
+      </div>
+
+
+
+      <div class="timeline-item">
+        <div class="timeline-icon">🔥</div>
+        <div class="timeline-content">
+       <a href="Our_Work.html" style="text-decoration:none; color:inherit;">
+  <h3 style="font-size:1.5rem; font-weight:600; color:#007ACC; margin-bottom:10px;">
+    Effluent Treatment Plant Turnkey Project
+  </h3>
+  <p style="font-size:1rem; color:#444; line-height:1.6; margin:0;">
+    100 KLD ETP & STP – MBBR Technology, executed for Magna Automotive India Pvt. Ltd.
+  </p>
+</a>
+
+        </div>
+      </div>
+
+            <div class="timeline-item">
+        <div class="timeline-icon">🔥</div>
+        <div class="timeline-content">
+       <a href="Our_Work.html" style="text-decoration:none; color:inherit;">
+  <h3 style="font-size:1.5rem; font-weight:600; color:#007ACC; margin-bottom:10px;">
+Wet Fume Scrubber
+  </h3>
+  <p style="font-size:1rem; color:#444; line-height:1.6; margin:0;">
+  Batch Type ETP at DBC Uran
+  </p>
+</a>
+
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-icon">🏗️</div>
+        <div class="timeline-content">
+      <a href="Our_Work.html" style="text-decoration:none; color:inherit;">
+  <h3 style="font-size:1.5rem; font-weight:600; color:#007ACC; margin-bottom:10px;">
+Sewage Treatment Plant
+  </h3>
+  <p style="font-size:1rem; color:#444; line-height:1.6; margin:0;">
+WESTERN COALFIELDS LIMITED, MAJARIin our work
+  </p>
+</a>
+
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">💦</div>
+        <div class="timeline-content">
+<a href="Our_Work.html" style="text-decoration:none; color:inherit;">
+  <h3 style="font-size:1.5rem; font-weight:600; color:#007ACC; margin-bottom:10px;">
+    Effluent Treatment Plant 
+  </h3>
+  <p style="font-size:1rem; color:#444; line-height:1.6; margin:0;">
+    Batch Type ETP at DBC Uran.
+  </p>
+</a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Styles -->
+<style>
+/* Timeline container */
+/* Timeline container */
+.timeline {
+  position: relative;
+  margin: 40px 0;
+  padding: 0;
+}
+/* Vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: var(--line-height, 0);
+  background: linear-gradient(to bottom, #F24D29, #6CC04A, #00CFFF, #3A8E3D);
+  border-radius: 3px;
+  transition: height 0.2s linear;
+}
+
+/* Timeline item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+.timeline-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.timeline-item:nth-child(odd) { left: 0; text-align: right; }
+.timeline-item:nth-child(even) { left: 50%; text-align: left; }
+
+/* Timeline icons — assign different brand colors by nth-child */
+.timeline-icon {
+  position: absolute;
+  top: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+/* Custom icon colors */
+.timeline-item:nth-child(1) .timeline-icon { border:3px solid #8DC63F; color:#8DC63F; }
+.timeline-item:nth-child(2) .timeline-icon { border:3px solid #00CFFF; color:#00CFFF; }
+.timeline-item:nth-child(3) .timeline-icon { border:3px solid #3A8E3D; color:#3A8E3D; }
+.timeline-item:nth-child(4) .timeline-icon { border:3px solid #007ACC; color:#007ACC; }
+.timeline-item:nth-child(5) .timeline-icon { border:3px solid #1C2A5B; color:#1C2A5B; }
+.timeline-item:nth-child(6) .timeline-icon { border:3px solid #F24D29; color:#F24D29; }
+.timeline-item:nth-child(7) .timeline-icon { border:3px solid #6CC04A; color:#6CC04A; }
+.timeline-item:nth-child(8) .timeline-icon { border:3px solid #00CFFF; color:#00CFFF; }
+
+/* Position icons */
+.timeline-item:nth-child(odd) .timeline-icon { right: -24px; }
+.timeline-item:nth-child(even) .timeline-icon { left: -24px; }
+
+/* Timeline content */
+.timeline-content {
+  background: linear-gradient(145deg, #ffffff, #f1f6ff);
+  padding: 24px 30px;
+  border-radius: 18px;
+  border: 2px solid transparent;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  display: inline-block;
+  max-width: 420px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.timeline-content:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+  border-color: currentColor;
+}
+.timeline-content a {
+  text-decoration: none;
+  color: #222;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.6;
+  display: block;
+  letter-spacing: 0.4px;
+  transition: color 0.3s ease;
+}
+.timeline-content a:hover { color: currentColor; }
+
+/* Spacing adjustments */
+.timeline-item:nth-child(odd) .timeline-content { margin-right: 80px; }
+.timeline-item:nth-child(even) .timeline-content { margin-left: 80px; }
+
+/* Glow effect for hover */
+.timeline-item:hover .timeline-icon {
+  background: currentColor;
+  color: #fff;
+  box-shadow: 0 0 18px currentColor;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline::before { left: 28px; }
+  .timeline-item { width: 100%; padding: 20px 20px 20px 70px; }
+  .timeline-item:nth-child(even), 
+  .timeline-item:nth-child(odd) { left: 0; text-align: left; }
+  .timeline-icon { left: 0 !important; right: auto !important; }
+  .timeline-content { margin: 0 0 0 70px !important; }
+}
+
+</style>
+
+<!-- Scroll Animation Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => { 
+  const items = document.querySelectorAll(".timeline-item");
+
+  const revealOnScroll = () => {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    items.forEach((item, i) => {
+      const boxTop = item.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        setTimeout(() => {
+          item.classList.add("show");
+        }, i * 50);
+      }
+    });
+  };
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => { 
+  const timeline = document.querySelector(".timeline");
+  const items = document.querySelectorAll(".timeline-item");
+
+  let currentHeight = 0;
+
+  const revealOnScroll = () => {
+    const rect = timeline.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    let targetHeight = Math.min(windowHeight - rect.top, rect.height);
+    targetHeight = Math.max(0, targetHeight);
+
+    // Smoothly approach target height
+    currentHeight += (targetHeight - currentHeight) * 0.08; // smaller = slower
+    timeline.style.setProperty("--line-height", currentHeight + "px");
+
+    // Reveal items
+    const triggerBottom = window.innerHeight * 0.55;
+    items.forEach((item, i) => {
+      const boxTop = item.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        setTimeout(() => {
+          item.classList.add("show");
+        }, i * 30);
+      }
+    });
+
+    requestAnimationFrame(revealOnScroll);
+  };
+
+  revealOnScroll();
+});
+
+</script>
 
 
 <!-- ============ FOOTER ============ -->
@@ -2211,93 +2430,73 @@ font-family: 'NEW', sans-serif;
   <div style="position:absolute; inset:0; background:radial-gradient(circle at top left, rgba(7,214,122,0.12), transparent 60%), radial-gradient(circle at bottom right, rgba(11,163,78,0.12), transparent 60%); z-index:0;"></div>
 
   <!-- Top Section -->
-  <div style="
-    max-width:1400px; 
-    margin:auto; 
-    display:grid; 
-    grid-template-columns: 1.2fr 1fr 0.8fr; 
-    gap:50px; 
-    padding:70px 20px 50px; 
-    position:relative; 
-    z-index:1; 
-    align-items:start;
-  ">
+  <div style="max-width:1400px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:50px; padding:60px 20px 40px; position:relative; z-index:1;">
 
     <!-- Logo + About -->
     <div>
-      <img src="images/LOGO_02.png" alt="Aquagreen Logo" style="height:110px; margin-bottom:20px;">
-      <p style="line-height:1.8; font-size:15px; color:#444; text-align:justify;">
-        At <strong>Aquagreen Tech Solutions</strong>, we are committed to advancing environmental sustainability by delivering innovative, cost-effective, and compliant solutions across water and wastewater treatment, pollution control board certification, energy management, water audits, industrial fabrication, and the provision of specialized water treatment chemicals.
+      <img src="images/LOGO_02.png" alt="Aquagreen Logo" style="height:120px; margin-bottom:20px;">
+      <p style="line-height:1.8; font-size:16px; color:#444;">
+        Aquagreen Tech Solutions delivers sustainable innovations in water & wastewater treatment, ensuring a greener and cleaner future for industries and communities.
       </p>
     </div>
 
+    <!-- Quick Links -->
+    <div>
+      <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Quick Links</h3>
+      <ul style="list-style:none; padding:0; margin:0; display:grid; gap:8px;">
+        <li><a href="index.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Home</a></li>
+        <li><a href="About.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">About Us</a></li>
+        <li><a href="PRODUCT.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Products</a></li>
+        <li><a href="Services.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Services</a></li>
+        <li><a href="Our_Work.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">PROJETCS</a></li>
+        <li><a href="contact.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Contact</a></li>
+      </ul>
+    </div>
+
+
     <!-- Contact -->
-    <!-- Contact -->
-    <div style="text-align:left; margin-left:140px;">  <!-- added margin-left -->
+    <div>
       <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Contact Us</h3>
-      <p style="line-height:1.9; font-size:15px; color:#444; margin:0;">
-        <strong>Office Address:</strong><br>
-        Office No. 171, Jay Ganesh Vision B Wing, Akurdi, Pune 411035<br><br>
-        <strong>Registered Address:</strong><br>
-        A201, Renuka Gulmohar 2, B/H City One Mall, Morwadi, Pimpri Pune-411018<br><br>
+      <p style="line-height:1.8; font-size:16px; color:#444;">
+        Office No. 171, Jay Ganesh Vision B Wing, Akurdi, Pune 411035<br>
+        Registered Address: A201, Renuka Gulmohar 2, B/H City One Mall, Morwadi, Pimpri Pune-411018<br><br>
         <strong>Phone:</strong> 9766878070 / 7276368070<br>
         <strong>Email:</strong> <a href="mailto:aquagreentechs@gmail.com" style="color:#0BA34E; text-decoration:none;">aquagreentechs@gmail.com</a>
       </p>
     </div>
 
     <!-- Socials -->
-    <div style="text-align:right;">
+    <div>
       <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Follow Us</h3>
-      <div class="socials" style="display:flex; gap:18px; font-size:30px; justify-content:flex-end; align-items:center;">
-        <a href="#" class="social-icon"><i class="ri-facebook-circle-fill"></i></a>
-        <a href="#" class="social-icon"><i class="ri-linkedin-box-fill"></i></a>
-        <a href="https://www.instagram.com/aquagreen_tech_solutions/?igsh=a2k2c2l1cmtvajVw&utm_source=qr#" class="social-icon"><i class="ri-instagram-fill"></i></a>
+      <div class="socials" style="display:flex; gap:18px; font-size:28px;">
+        <!-- <a href="#" style="color:#444; transition:0.3s;"><i class="ri-facebook-circle-fill"></i></a>
+        <a href="#" style="color:#444; transition:0.3s;"><i class="ri-twitter-x-fill"></i></a> -->
+        <a href="#" style="color:#444; transition:0.3s;"><i class="ri-linkedin-box-fill"></i></a>
+        <a href="https://www.instagram.com/aquagreen_tech_solutions/?igsh=a2k2c2l1cmtvajVw&utm_source=qr#"style="color:#444; transition:0.3s;"><i class="ri-instagram-fill"></i></a>
       </div>
     </div>
   </div>
 
   <!-- Bottom Bar -->
-  <div style="text-align:center; padding:18px 20px; font-size:14px; color:#fff; background:linear-gradient(90deg,#6CC04A,#00CFFF,#3A8E3D); position:relative; z-index:1;">
+  <div style="text-align:center; padding:20px 20px; font-size:15px; color:#fff; background:linear-gradient(90deg,#6CC04A,#00CFFF,#3A8E3D); position:relative; z-index:1;">
     © <script>document.write(new Date().getFullYear());</script> Aquagreen Tech Solutions. All Rights Reserved.<br>
-    <span style="font-size:13px; color:#f1f1f1;">Developed By <strong>DW INNOVATION PVT. LTD.</strong></span>
+    <span style="font-size:14px; color:#f1f1f1;">Developed By <strong>DW INNOVATION PVT. LTD.</strong></span>
   </div>
 
   <style>
-    /* General link hover */
-    #footer a {
-      color: #444;
-      text-decoration: none;
-      transition: 0.3s;
-    }
     #footer a:hover {
-      color: #ff7b00 !important;
-      padding-left: 3px;
+      color:#ff7b00 !important;
+      padding-left:4px;
+      transition:0.3s;
     }
-
-    /* Social icons */
-    #footer .socials .social-icon {
-      color:#444;
-      transition:all 0.3s ease;
-    }
-    #footer .socials .social-icon:hover {
+    #footer .socials a:hover {
       color:#07d67a !important;
-      transform:scale(1.25) rotate(8deg);
-    }
-
-    /* Responsive */
-    @media(max-width:1000px) {
-      #footer > div {
-        grid-template-columns: 1fr;
-        text-align:center !important;
-      }
-      #footer .socials {
-        justify-content:center !important;
-      }
+      transform:scale(1.25) rotate(5deg);
+      transition:0.3s;
     }
   </style>
 
 </footer>
-
 
 
   <!-- ================= SCRIPTS ================= -->

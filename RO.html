@@ -7,145 +7,259 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    body {
-      font-family: 'Poppins', sans-serif;
- background:linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);
-    }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);
+  }
 
-    /* ================= NAVBAR ================= */
+  /* ================= NAVBAR ================= */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+    z-index: 1000;
+  }
+
+  .navbar.scrolled {
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 3px solid rgba(0, 207, 255, 0.6);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .nav-links li,
+  .dropdown-menu li,
+  .sub-dropdown-menu li {
+    list-style: none;
+  }
+
+  .logo img {
+    height: 100px;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    list-style: none;
+  }
+
+  .nav-links li {
+    position: relative;
+  }
+
+  .nav-links > li > a {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #444;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links > li > a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #00CFFF, #6CC04A);
+    transition: width 0.3s ease-in-out;
+  }
+
+  .nav-links > li > a:hover {
+    color: #ff7b00;
+  }
+
+  .nav-links > li > a:hover::after {
+    width: 100%;
+  }
+
+  /* ================= DESKTOP DROPDOWNS ================= */
+  .dropdown-menu,
+  .sub-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: #fff;
+    min-width: 200px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    z-index: 1000;
+  }
+
+  .dropdown-menu a,
+  .sub-dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .dropdown-menu a:hover,
+  .sub-dropdown-menu a:hover {
+    background: #ff7b00;
+    color: white;
+  }
+
+  .nav-links li:hover > .dropdown-menu {
+    display: flex;
+  }
+
+  .sub-dropdown:hover > .sub-dropdown-menu {
+    display: flex;
+    top: 0;
+    left: 100%;
+  }
+
+  .arrow {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .arrow.rotate {
+    transform: rotate(180deg);
+  }
+
+  /* ================= MOBILE VIEW ================= */
+  @media (max-width: 768px) {
     .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 0px 80px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: transparent;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
-      z-index: 1000;
+      padding: 15px 20px;
+      background: rgba(0, 0, 0, 0.95);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
 
-    .navbar.scrolled {
-      background: linear-gradient(135deg, #ffffff 0%, #ffffff 25%, #00CFFF 60%, #6CC04A 100%);
-      backdrop-filter: blur(10px);
-      border-bottom: 3px solid rgba(0, 207, 255, 0.6);
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
-      transition: all 0.5s ease-in-out;
-    }
-
-    .nav-links li,
-    .dropdown-menu li,
-    .sub-dropdown-menu li {
-      list-style: none;
-    }
-
+    /* Logo scales */
     .logo img {
-      height: 100px;
+      height: 60px;
+      max-width: 160px;
     }
 
+    /* Hamburger menu */
     .menu-toggle {
-      display: none;
-      font-size: 24px;
-      color: white;
+      display: block;
+      font-size: 28px;
+      color: #fff;
       cursor: pointer;
       z-index: 1001;
     }
 
+    /* Sidebar Nav */
     .nav-links {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      list-style: none;
+      position: fixed;
+      top: 0;
+      left: -280px;
+      height: 100vh;
+      width: 260px;
+      background: #111;
+      flex-direction: column;
+      padding: 80px 20px;
+      transition: left 0.3s ease-in-out;
+      overflow-y: auto;
     }
 
-    .nav-links li {
-      position: relative;
-    }
-
-    .nav-links > li > a {
-      font-family: 'Montserrat', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #444;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      position: relative;
-      padding: 6px 0;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links > li > a::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
+    .nav-links.active {
       left: 0;
-      width: 0%;
-      height: 2px;
-      background: linear-gradient(90deg, #00CFFF, #6CC04A);
-      transition: width 0.3s ease-in-out;
     }
 
-    .nav-links > li > a:hover {
-      color: #ff7b00;
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
     }
 
-    .nav-links > li > a:hover::after {
+    .overlay.show {
+      display: block;
+    }
+
+    /* Sidebar Links */
+    .nav-links > li {
       width: 100%;
     }
 
-    /* Dropdowns */
-    .dropdown-menu,
-    .sub-dropdown-menu {
+    .nav-links > li > a {
+      color: #fff;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Sidebar Dropdown (Mobile) */
+    .dropdown-menu {
+      background: #1a1a1a;
+      margin: 5px 0 10px 0;
+      border-radius: 6px;
+      padding: 6px 0;
       display: none;
-      position: absolute;
-      top: 100%;
-      background: #fff;
-      min-width: 200px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
       flex-direction: column;
-      z-index: 1000;
     }
 
-    .dropdown-menu a,
-    .sub-dropdown-menu a {
+    .dropdown-menu a {
+      color: #ddd;
+      font-size: 15px;
+      padding: 12px 18px;
       display: block;
-      padding: 10px 15px;
-      color: #333;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 900;
-      white-space: nowrap;
+      transition: background 0.2s ease, color 0.2s ease;
+      white-space: normal;   /* allow wrapping */
+      word-break: break-word; /* break long words */
+      line-height: 1.4em;
     }
 
-    .dropdown-menu a:hover,
-    .sub-dropdown-menu a:hover {
-      background: #ff7b00;
-      color: white;
+    .dropdown-menu a:hover {
+      background: #262626;
+      color: #ffcc00;
     }
 
-    .nav-links li:hover > .dropdown-menu {
-      display: flex;
+    .dropdown-menu.show {
+      display: flex !important;
     }
 
-    .sub-dropdown:hover > .sub-dropdown-menu {
-      display: flex;
-      top: 0;
-      left: 100%;
-    }
-
+    /* Arrow improvements */
     .arrow {
       font-size: 12px;
+      margin-left: 8px;
       transition: transform 0.3s ease;
     }
 
@@ -153,138 +267,46 @@
       transform: rotate(180deg);
     }
 
-    /* ================= MOBILE VIEW ================= */
-    @media (max-width: 768px) {
-      .navbar {
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.95);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        position: fixed;
-        top: 0;
-        left: -280px;
-        height: 100vh;
-        width: 280px;
-        background: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        padding: 80px 20px;
-        transition: left 0.3s ease;
-        overflow-y: auto;
-      }
-
-      .nav-links.active {
-        left: 0;
-      }
-
-      .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        display: none;
-      }
-
-      .overlay.show {
-        display: block;
-      }
-
-      .nav-links > li > a {
-        color: white;
-        padding: 12px 20px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .dropdown-menu,
-      .sub-dropdown-menu {
-        position: static;
-        display: none;
-        background: #222;
-        box-shadow: none;
-        width: 100%;
-      }
-
-      .dropdown-menu a,
-      .sub-dropdown-menu a {
-        color: white;
-        padding-left: 30px;
-      }
-
-      .sub-dropdown-menu {
-        padding-left: 10px;
-      }
-
-      .dropdown-menu.show,
-      .sub-dropdown-menu.show {
-        display: flex !important;
-        flex-direction: column;
-      }
-
-      .nav-links li:hover > .dropdown-menu,
-      .sub-dropdown:hover > .sub-dropdown-menu {
-        display: none;
-      }
-
-      .nav-links .dropdown-toggle {
-        cursor: pointer;
-      }
+    /* Mobile-only extra links */
+    .mobile-only {
+      display: block;
     }
 
-    /* Hide mobile-only links on desktop */
-.mobile-only { display: none; }
-
-/* Show only inside mobile sidebar */
-@media (max-width: 768px) {
-  .mobile-only { 
-    display: block; 
+    .mobile-only a {
+      color: #ffcc00;
+      font-weight: bold;
+    }
   }
-  .mobile-only a {
-    color: #ffcc00;
-    font-weight: bold;
-    padding: 10px 15px;
-  }
-}
 
-  </style>
+  /* ================= RESPONSIVE SWITCH ================= */
+  .navbar-desktop { display: flex; }
+  .navbar-mobile { display: none; }
+
+  @media (max-width: 768px) {
+    .navbar-desktop { display: none; }
+    .navbar-mobile { display: flex; }
+  }
+</style>
+
 </head>
 <body>
 
   <!-- Navbar -->
-<nav class="navbar" id="navbar">
-  <!-- Logo -->
+<!-- DESKTOP NAVBAR -->
+<!-- DESKTOP NAVBAR -->
+<nav class="navbar navbar-desktop" id="navbarDesktop">
   <a href="index.html" class="logo">
     <img src="images/LOGO_02.png" alt="Aquagreen Logo">
   </a>
-
-  <!-- Mobile Toggle -->
-  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
-
-  <!-- Navigation -->
-  <ul class="nav-links" id="navLinks">
+  <ul class="nav-links">
     <li><a href="index.html">HOME</a></li>
     <li><a href="About.html">ABOUT US</a></li>
 
-   <!-- PRODUCTS DROPDOWN -->
-<li class="dropdown">
-  <a href="PRODUCT.html" class="dropdown-toggle">
-    PRODUCTS <span class="arrow">▼</span>
-  </a>
-  <ul class="dropdown-menu">
-    <!-- Mobile-only "All Products" link -->
-    <li class="mobile-only"><a href="PRODUCT.html"><strong>All Products</strong></a></li>
-     
-  
-        <li><a href="CSTP.html">Common Sewage Treatment Plants(CSTP)</a></li>
+    <!-- Products -->
+    <li class="dropdown">
+      <a href="PRODUCT.html">PRODUCTS</a>
+      <ul class="dropdown-menu">
+        <li><a href="CSTP.html">Common Sewage Treatment Plants (CSTP)</a></li>
         <li><a href="CETP.html">Common Effluent Treatment Plants (CETP)</a></li>
         <li><a href="STP.html">Sewage Treatment Plants (STP)</a></li>
         <li><a href="ETP.html">Effluent Treatment Plants (ETP)</a></li>
@@ -294,31 +316,20 @@
         <li><a href="Softnres.html">Softeners</a></li>
         <li><a href="DM.html">Demineralization Plants (DM)</a></li>
         <li><a href="MPCB.html">MPCB Consent</a></li>
+        <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+        <li><a href="UF.html">Ultrafiltration (UF)</a></li>
+        <li><a href="DAF.html">Dissolved Air Flotation Unit</a></li>
+        <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+        <li><a href="Wet.html">Wet Fume Scrubber</a></li>
+        <li><a href="OCEMS.html">OCEMS</a></li>
+      </ul>
+    </li>
 
-    <!-- Direct Products -->
-    <li><a href="Ozonw_SyS.html">Ozone System</a></li>
-    <li><a href="UF.html">Ultrafiltration (UF)</a></li>
-    <li><a href="DAF.html">Dissolved Air Flotation Unit</a></li>
-    <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
-    <li><a href="Wet.html">Wet Fume Scrubber</a></li>
-    <li><a href="OCEMS.html">OCEMS</a></li>
-
-    <!-- More -->
-
-  </ul>
-</li>
-
-
-    <!-- SERVICES DROPDOWN -->
+    <!-- Services -->
     <li class="dropdown">
-      <a href="Services.html" class="dropdown-toggle">
-        SERVICES <span class="arrow">▼</span>
-      </a>
+      <a href="Services.html">SERVICES</a>
       <ul class="dropdown-menu">
-        <!-- Mobile-only "All Services" link -->
-        <li class="mobile-only"><a href="Services.html"><strong>All Services</strong></a></li>
-
-        <li class="sub-dropdown"><a href="AMC.html">AMC</a></li>
+        <li><a href="AMC.html">AMC</a></li>
         <li><a href="EPR.html">EPR Registration</a></li>
         <li><a href="CGWA.html">NOC from CGWA</a></li>
         <li><a href="Env_Monitoring.html">Environmental Monitoring</a></li>
@@ -327,13 +338,76 @@
       </ul>
     </li>
 
-    <li><a href="Our_Work.html">OUR WORK</a></li>
-    <li><a href="Gallery.html">GALLERY</a></li>
+    <li><a href="Our_Work.html">PROJETCS</a></li>
+       <li><a href="Gallery.html">OUR EVENTS</a></li>
     <li><a href="Career.html">CAREER</a></li>
     <li><a href="contact.html">CONTACT</a></li>
   </ul>
 </nav>
 
+<!-- MOBILE NAVBAR -->
+<nav class="navbar navbar-mobile" id="navbarMobile">
+  <a href="index.html" class="logo">
+    <img src="images/LOGO_02.png" alt="Aquagreen Logo">
+  </a>
+  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="About.html">ABOUT US</a></li>
+
+    <!-- Mobile Products -->
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle">
+        PRODUCTS <span class="arrow">▼</span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="CSTP.html">Common Sewage Treatment Plants (CSTP)</a></li>
+        <li><a href="CETP.html">Common Effluent Treatment Plants (CETP)</a></li>
+        <li><a href="STP.html">Sewage Treatment Plants (STP)</a></li>
+        <li><a href="ETP.html">Effluent Treatment Plants (ETP)</a></li>
+        <li><a href="MEE.html">Multiple Effect Evaporators (MEE)</a></li>
+        <li><a href="RO.html">Reverse Osmosis (RO)</a></li>
+        <li><a href="ZLD.html">Zero Liquid Discharge Systems (ZLD)</a></li>
+        <li><a href="Softnres.html">Softeners</a></li>
+        <li><a href="DM.html">Demineralization Plants (DM)</a></li>
+        <li><a href="MPCB.html">MPCB Consent</a></li>
+        <li><a href="Ozonw_SyS.html">Ozone System</a></li>
+        <li><a href="UF.html">Ultrafiltration (UF)</a></li>
+        <li><a href="DAF.html">Dissolved Air Flotation Unit</a></li>
+        <li><a href="Clasifier.html">Primary & Secondary Clarifier</a></li>
+        <li><a href="Wet.html">Wet Fume Scrubber</a></li>
+        <li><a href="OCEMS.html">OCEMS</a></li>
+        <!-- All Products Button -->
+               <li><a href="PRODUCT.html" style="font-weight:bold; color:#ff7b00;">All Products →</a></li>
+      </ul>
+    </li>
+
+    <!-- Mobile Services -->
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle">
+        SERVICES <span class="arrow">▼</span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="AMC.html">AMC</a></li>
+        <li><a href="EPR.html">EPR Registration</a></li>
+        <li><a href="CGWA.html">NOC from CGWA</a></li>
+        <li><a href="Env_Monitoring.html">Environmental Monitoring</a></li>
+        <li><a href="ENv_Managment.html">Environmental Management</a></li>
+        <li><a href="CHEmical.html">Chemicals</a></li>
+        <!-- All Services Button -->
+        <li><a href="Services.html" style="font-weight:bold; color:#ff7b00;">All Services →</a></li>
+      </ul>
+    </li>
+
+    <li><a href="Our_Work.html">PROJETCS</a></li>
+       <li><a href="Gallery.html">OUR EVENTS</a></li>
+    <li><a href="Career.html">CAREER</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
+
+
+<div class="overlay" id="overlay"></div>
 
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
@@ -345,10 +419,19 @@
     const navLinks = document.getElementById('navLinks');
     const overlay = document.getElementById('overlay');
 
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
+const navbarDesktop = document.getElementById('navbarDesktop');
+const navbarMobile = document.getElementById('navbarMobile');
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbarDesktop?.classList.add('scrolled');
+    navbarMobile?.classList.add('scrolled');
+  } else {
+    navbarDesktop?.classList.remove('scrolled');
+    navbarMobile?.classList.remove('scrolled');
+  }
+});
 
     // Mobile menu toggle
     menuToggle.addEventListener('click', () => {
@@ -419,7 +502,6 @@
       });
     });
   </script>
-
 </body>
 </html>
 
@@ -505,42 +587,93 @@
 
 
 <!-- //////////////////////////////// OUR CLIENT////////////////////////////// -->
-<!-- WhatsApp Floating Button -->
-<div class="whatsapp-float">
-   <a href="https://wa.me/9766878070" target="_blank">
+<!-- Floating Contact Section -->
+<div class="floating-contact">
+  
+  <!-- Contact Button + Text Wrapper -->
+  <div class="contact-btn-wrapper">
+    <div class="vertical-text">Get in Touch</div>
+    <a href="contact.html" class="float-btn contact">
+      <i class="fas fa-info"></i>
+    </a>
+  </div>
+
+  <!-- WhatsApp Icon -->
+  <a href="https://wa.me/9766878070" target="_blank" class="float-btn whatsapp">
     <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
   </a>
+
 </div>
 
 <!-- CSS -->
 <style>
-  .whatsapp-float {
+  .floating-contact {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999;
+  }
+
+  .contact-btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Vertical Text */
+  .vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px; /* place above button */
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Common Button Style */
+  .float-btn {
     background: #25D366;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white; 
+    font-size: 20px;
+    cursor: pointer;
   }
 
-  .whatsapp-float:hover {
+  .float-btn img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .float-btn:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   }
 
-  .whatsapp-float img {
-    width: 35px;
-    height: 35px;
+  /* Contact Icon Different Color */
+  .float-btn.contact {
+    background: #0BA34E;
+  }
+
+  /* Show text when hovering on contact button */
+  .contact-btn-wrapper:hover .vertical-text {
+    opacity: 1;
   }
 </style>
-
 
 
 
@@ -570,7 +703,7 @@
         <li><a href="About.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">About Us</a></li>
         <li><a href="PRODUCT.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Products</a></li>
         <li><a href="Services.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Services</a></li>
-        <li><a href="Our_Work.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Our Work</a></li>
+        <li><a href="Our_Work.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">PROJETCS</a></li>
         <li><a href="contact.html" style="color:#333; text-decoration:none; font-size:16px; transition:0.3s;">Contact</a></li>
       </ul>
     </div>
