@@ -599,531 +599,662 @@ window.addEventListener('scroll', () => {
 
 
 
-
 <section id="portfolio" style="margin-top:40px; padding:100px 20px; font-family:'Poppins',sans-serif; background:linear-gradient(135deg, #f9f9f9 0%, #e8f7ef 50%, #f0faff 100%);">
   <div style="max-width:1200px; margin:auto; text-align:center;">
-
 
     <!-- Hero Heading -->
     <h2 style="font-size:2.8rem; font-weight:700; margin-bottom:10px; color:rgb(242, 77, 41); position:relative; display:inline-block;">
       OUR PROJECTS
       <span style="display:block; width:90px; height:4px; background:#6CC04A; margin:14px auto 0; border-radius:2px;"></span>
     </h2>
-    <!-- Hero Tagline -->
+
+    <!-- Tagline -->
     <p style="font-size:1.1rem; color:#007ACC; margin-bottom:30px; font-weight:500; line-height:1.7; max-width:850px; margin-left:auto; margin-right:auto;">
-      At <span style="color:#6CC04A; font-weight:600;">Aquagreen Tech Solutions</span>, we don’t just build plants, 
-      we create <strong style="color:#1C2A5B;">sustainable solutions</strong> that protect our environment.  
-      From wastewater treatment and ZLD systems to RO, STP, and industrial fabrications — our projects reflect 
-      innovation, responsibility, and efficiency.  
-    </p>
-    
-    <!-- Hero Subline -->
-    <p style="font-size:1rem; color:#333; font-weight:500; margin-bottom:60px;">
-      <em>Explore our completed installations and turnkey projects where technology meets sustainability.</em>
+      At <span style="color:#6CC04A; font-weight:600;">Aquagreen Tech Solutions</span>, we create <strong style="color:#1C2A5B;">sustainable solutions</strong> 
+      that protect our environment. From wastewater treatment and ZLD systems to RO, STP, and industrial fabrications — our projects reflect innovation and efficiency.
     </p>
 
     <!-- Filter Buttons -->
     <div style="margin:30px 0;">
-      <button class="filter-btn active" onclick="filterSelection('products')">OUR PRODUCTS</button>
-      <button class="filter-btn" onclick="filterSelection('services')">OUR SERVICES</button>
+      <button class="filter-btn active" onclick="filterSelection('products', event)">OUR PRODUCTS</button>
+      <button class="filter-btn" onclick="filterSelection('services', event)">OUR SERVICES</button>
     </div>
 
     <!-- Styles -->
     <style>
       .filter-btn {
-        padding:10px 20px;
+        padding:10px 22px;
         border:none;
-        border-radius:6px;
+        border-radius:8px;
         background:#6CC04A;
         color:#fff;
-        margin:0 8px;
+        margin:0 10px;
         font-weight:600;
         cursor:pointer;
         transition:0.3s;
       }
       .filter-btn:hover, .filter-btn.active { background:#f24d29; }
 
-      /* ✅ Grid Layout instead of Masonry */
-      .portfolio-grid {
+      .portfolio-grid, .services-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-      }
-
-      .grid-item {
-        position:relative;
-        overflow:hidden;
-        border-radius:12px;
-        cursor:pointer;
-        box-shadow:0 4px 12px rgba(0,0,0,0.1);
-        transition:transform .35s ease, box-shadow .35s ease;
-        background:#fff;
-        display:flex;
-        flex-direction:column;
-      }
-
-      .grid-item img { width:100%; height:350px; object-fit:cover; transition:transform .35s ease; }
-      .overlay {
-        position:absolute; left:0; bottom:0; width:100%;
-        padding:15px; color:#fff;
-        background: linear-gradient(0deg, rgba(0,0,0,.7), rgba(0,0,0,.35), rgba(0,0,0,0));
-        opacity:0; transform: translateY(12px);
-        transition: opacity .35s ease, transform .35s ease;
-      }
-      .grid-item:hover { transform:translateY(-6px); box-shadow:0 8px 18px rgba(0,0,0,0.15); }
-      .grid-item:hover img { transform:scale(1.08); }
-      .grid-item:hover .overlay { opacity:1; transform:translateY(0); }
-      .overlay h3 { color:#6CC04A; font-weight:600; margin-bottom:5px; }
-      .overlay p { color:#f0f0f0; font-size:0.9rem; }
-
-      /* Service Cards */
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 25px;
         margin-top:40px;
       }
-      .service-card {
-        background: #fff;
-        border-radius: 14px;
-        overflow: hidden;
-        box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-        transition: all 0.3s ease;
-        display: flex;
-        flex-direction: column;
+
+      .grid-item {
+        background:#fff;
+        border-radius:14px;
+        box-shadow:0 4px 14px rgba(0,0,0,0.1);
+        overflow:hidden;
+        transition:all .35s ease;
+        cursor:pointer;
       }
-      .service-card:hover { transform: translateY(-8px); box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
-      .service-image img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s ease; }
-      .service-card:hover .service-image img { transform: scale(1.05); }
-      .service-content { padding: 20px; text-align: left; }
-      .service-content h3 { font-size: 1.1rem; font-weight: 600; color: #222; margin-bottom: 8px; }
-      .service-content p { font-size: 0.95rem; color: #444; margin-bottom: 8px; }
-      .service-content span { font-size: 0.85rem; color: #0077b6; font-weight: 500; }
+
+      .grid-item img {
+        width:100%; height:220px; object-fit:cover; display:block;
+      }
+
+      .item-info {
+        padding:15px;
+        text-align:left;
+      }
+      .item-info h3 {
+        font-size:1.05rem;
+        font-weight:600;
+        color:#222;
+        margin-bottom:6px;
+      }
+      .item-info p {
+        font-size:0.9rem;
+        color:#555;
+      }
+
+      /* Empty services styling */
+      .services-grid.empty {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:200px;
+        border:2px dashed #6CC04A;
+        border-radius:14px;
+        background:rgba(108,192,74,0.05);
+        font-size:1.1rem;
+        font-weight:500;
+        color:#444;
+        text-align:center;
+        flex-direction:column;
+        gap:10px;
+      }
+      .services-grid.empty span { color:#f24d29; font-weight:600; }
+
+      /* Lightbox */
+      #lightbox {
+        position:fixed;
+        top:0; left:0; right:0; bottom:0;
+        background:rgba(0,0,0,0.85);
+        display:none;
+        justify-content:center;
+        align-items:center;
+        z-index:9999;
+      }
+      #lightbox img {
+        max-width:90%;
+        max-height:80%;
+        border-radius:10px;
+        box-shadow:0 0 20px rgba(255,255,255,0.3);
+      }
     </style>
 
-    <!-- Portfolio Grid -->
-    <div class="portfolio-grid">
-      <!-- OUR PRODUCTS -->
-      <div class="grid-item filterDiv products">
-        <img src="WORK/ETP_02.jpg" alt="ETP">
-        <div class="overlay">
-          <h3>Effluent Treatment Plant</h3>
-          <p>Turnkey project: 100 KLD ETP & STP - MBBR Technology</p>
-        </div>
-      </div>
+    <!-- OUR PRODUCTS -->
 
-      <div class="grid-item filterDiv products">
-        <img src="WORK/Clarifier.jpg" alt="Clarifier">
-        <div class="overlay">
-          <h3>Primary & Secondary Clarifier</h3>
-          <p>Installed at Bajaj Auto Ltd, Akurdi</p>
-        </div>
-      </div>
 
-      <div class="grid-item filterDiv products">
-        <img src="WORK/DAF_01.jpg" alt="DAF">
-        <div class="overlay">
-          <h3>Dissolved Air Flotation</h3>
-          <p>High quality standards achieved</p>
-        </div>
-      </div>
 
-      <div class="grid-item filterDiv products">
-        <img src="WORK/zld.jpeg" alt="ZLD">
-        <div class="overlay">
-          <h3>Zero Liquid Discharge</h3>
-          <p>1 KLD ZLD Plant at Bharat Forge Ltd, Satara</p>
-        </div>
-      </div>
-
-      <div class="grid-item filterDiv products">
-        <img src="WORK/RO_01.jpg" alt="RO">
-        <div class="overlay">
-          <h3>Reverse Osmosis Plant</h3>
-          <p>250 LPH RO System at Merck Life Sciences</p>
-        </div>
-      </div>
-
-      <div class="grid-item filterDiv products">
-        <img src="WORK/STAT_01.jpg" alt="STP">
-        <div class="overlay">
-          <h3>Sewage Treatment Plant</h3>
-          <p>Western Coalfields Limited, Majari</p>
-        </div>
-      </div>
-
-      <div class="grid-item filterDiv products">
-        <img src="WORK/MEE_01.jpg" alt="MEE">
-        <div class="overlay">
+          <div class="portfolio-grid filterDiv products">
+      <!-- Example Items (Add all images like this) -->
+      <div class="grid-item" onclick="openLightbox('WORK/ETP_02.jpg')">
+        <img src="WORK/MEE_01.jpg" alt="ETP">
+        <div class="item-info">
           <h3>Multi-Effect Evaporator</h3>
           <p>10 KLD MEE System</p>
         </div>
       </div>
 
-      <div class="grid-item filterDiv products">
-        <img src="WORK/Wet_Fuems_Scruber.jpg" alt="Scrubber">
-        <div class="overlay">
+
+      <div class="grid-item" onclick="openLightbox('WORK/DAF_01.jpg')">
+        <img src="WORK/DAF_01.jpg" alt="DAF">
+        <div class="item-info">
+          <h3>Dissolved Air Flotation</h3>
+          <p>High quality standards achieved</p>
+        </div>
+      </div>
+      <div class="grid-item" onclick="openLightbox('WORK/ETP_02.jpg')">
+        <img src="WORK/ETP_02.jpg" alt="ETP">
+        <div class="item-info">
+          <h3>Effluent Treatment Plant</h3>
+          <p>Turnkey project: 100 KLD ETP & STP - MBBR Technology</p>
+        </div>
+      </div>
+
+      <div class="grid-item" onclick="openLightbox('WORK/Clarifier.jpg')">
+        <img src="WORK/Clarifier.jpg" alt="Clarifier">
+        <div class="item-info">
+          <h3>Primary & Secondary Clarifier</h3>
+          <p>Bajaj Auto Ltd, Akurdi</p>
+        </div>
+      </div>
+
+      <div class="grid-item" onclick="openLightbox('WORK/DAF_01.jpg')">
+           <img src="WORK/zld.jpeg" alt="ZLD">
+        <div class="item-info">
+          <h3>Zero Liquid Discharge</h3>
+          <p>1 KLD ZLD Plant at Bharat Forge Ltd, Satara</p>
+        </div>
+      </div>
+
+
+      <div class="grid-item" onclick="openLightbox('WORK/ETP_02.jpg')">
+        <img src="WORK/RO_01.jpg" alt="ETP">
+        <div class="item-info">
+          <h3>Reverse Osmosis Plant</h3>
+          <p>250 LPH RO System at Merck Life Sciences</p>
+        </div>
+      </div>
+
+      <div class="grid-item" onclick="openLightbox('WORK/Clarifier.jpg')">
+             <img src="WORK/STAT_01.jpg" alt="STP">
+        <div class="item-info">
+          <h3>Sewage Treatment Plant</h3>
+          <p>Western Coalfields Limited, Majari</p>
+        </div>
+      </div>
+
+      <div class="grid-item" onclick="openLightbox('WORK/DAF_01.jpg')">
+            <img src="WORK/Wet_Fuems_Scruber.jpg" alt="Scrubber">
+        <div class="item-info">
           <h3>Wet Fume Scrubber</h3>
           <p>Installed at DBC Uran</p>
         </div>
       </div>
+
+
+       <!-- 1 -->
+    <div class="grid-item" onclick="openLightbox('WORK/STP_15KLD.jpg')">
+      <img src="WORK/STP_15KLD.jpg" alt="15 KLD STP">
+      <div class="item-info">
+        <h3>Design, Manufacturing, Supply & Installation</h3>
+        <p>15 KLD Sewage Treatment Plant<br><strong>Client:</strong> Central Railway Electric Locomotive Workshop, Bhusawal</p>
+      </div>
     </div>
 
-    <!-- OUR SERVICES -->
-<div class="services-grid filterDiv services">
-
-  <!-- 1 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Design, Manufacturing, Supply & Installation</h3>
-      <p>15 KLD Sewage Treatment Plant</p>
-      <span>Client: Central Railway Electric Locomotive Workshop, Bhusawal</span>
+    <!-- 2 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Portable_STP.jpg')">
+      <img src="WORK/Portable_STP.jpg" alt="Portable STP">
+      <div class="item-info">
+        <h3>Portable Sewage Treatment Plant</h3>
+        <p><strong>Client:</strong> Bharat Forge Ltd, Mundhwa, Pune</p>
+      </div>
     </div>
+
+    <!-- 3 -->
+    <div class="grid-item" onclick="openLightbox('WORK/STP_20KLD.jpg')">
+      <img src="WORK/STP_20KLD.jpg" alt="20 KLD STP">
+      <div class="item-info">
+        <h3>20 KLD STP MBBR Wastewater Process Plant</h3>
+        <p><strong>Client:</strong> Remsons Industries Ltd, Pune</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="grid-item" onclick="openLightbox('WORK/STP_5CMD.jpg')">
+      <img src="WORK/STP_5CMD.jpg" alt="5 CMD STP">
+      <div class="item-info">
+        <h3>5 CMD STP & 500 LPD Effluent Plant</h3>
+        <p><strong>Client:</strong> SCD Nutritionals Pvt Ltd, Pune</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="grid-item" onclick="openLightbox('WORK/DM_Plant.jpg')">
+      <img src="WORK/DM_Plant.jpg" alt="DM Plant">
+      <div class="item-info">
+        <h3>DM Plant</h3>
+        <p>Capacity: 250 LPH<br><strong>Client:</strong> Tata Motors Ltd, Chinchwad</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Nitrogen_Plant.jpg')">
+      <img src="WORK/Nitrogen_Plant.jpg" alt="Nitrogen Gas Plant">
+      <div class="item-info">
+        <h3>Nitrogen Gas Plant</h3>
+        <p><strong>Client:</strong> Tata Motors Ltd, Chinchwad</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="grid-item" onclick="openLightbox('WORK/STP_45KLD.jpg')">
+      <img src="WORK/STP_45KLD.jpg" alt="45 KLD STP">
+      <div class="item-info">
+        <h3>45 KLD Sewage Treatment Plant</h3>
+        <p><strong>Client:</strong> College of Engineering, Pune</p>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="grid-item" onclick="openLightbox('WORK/ZLD_Recycle.jpg')">
+      <img src="WORK/ZLD_Recycle.jpg" alt="ZLD Plant">
+      <div class="item-info">
+        <h3>Automatic ZLD Recycle Water Plant</h3>
+        <p><strong>Client:</strong> Kider India Pvt Ltd, Pune</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Skid_ETP.jpg')">
+      <img src="WORK/Skid_ETP.jpg" alt="Skid Mounted ETP">
+      <div class="item-info">
+        <h3>Skid Mounted ETP</h3>
+        <p>Capacity: 500 LDP<br><strong>Client:</strong> Pune Zillha Sahakari Dudh Utpadak Sangh</p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="grid-item" onclick="openLightbox('WORK/ETP_100LPH.jpg')">
+      <img src="WORK/ETP_100LPH.jpg" alt="100 LPH Evaporation System">
+      <div class="item-info">
+        <h3>100 LPH Evaporation System for ETP ZLD</h3>
+        <p><strong>Client:</strong> Alicon Castloy Pvt Ltd, Shikrapur</p>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="grid-item" onclick="openLightbox('WORK/ZLD_1000LPD.jpg')">
+      <img src="WORK/ZLD_1000LPD.jpg" alt="SITC of ZLD Plant">
+      <div class="item-info">
+        <h3>SITC of ZLD Plant</h3>
+        <p>Capacity: 1000 LPD<br><strong>Client:</strong> Force MTU Power Systems Pvt Ltd</p>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="grid-item" onclick="openLightbox('WORK/ZLD_250LPH.jpg')">
+      <img src="WORK/ZLD_250LPH.jpg" alt="ZLD Plant 250 LPH">
+      <div class="item-info">
+        <h3>Zero Liquid Discharge Plant</h3>
+        <p>250 LPH for ETP<br><strong>Client:</strong> KTR Couplings (India) Pvt Ltd, Pune</p>
+      </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="grid-item" onclick="openLightbox('WORK/ZLD_250LPH_2.jpg')">
+      <img src="WORK/ZLD_250LPH_2.jpg" alt="ZLD Plant 250 LPH">
+      <div class="item-info">
+        <h3>Zero Liquid Discharge Plant</h3>
+        <p>250 LPH<br><strong>Client:</strong> Force Motors Ltd, Pune</p>
+      </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="grid-item" onclick="openLightbox('WORK/ZLD_5KLD.jpg')">
+      <img src="WORK/ZLD_5KLD.jpg" alt="ZLD Plant 5 KLD">
+      <div class="item-info">
+        <h3>Zero Liquid Discharge Plant</h3>
+        <p>5 KLD ETP<br><strong>Client:</strong> Dinex Emission Solution India Pvt Ltd</p>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="grid-item" onclick="openLightbox('WORK/RCC_Effluent.jpg')">
+      <img src="WORK/RCC_Effluent.jpg" alt="RCC Effluent Pit">
+      <div class="item-info">
+        <h3>RCC Construction of Effluent Pit</h3>
+        <p>300 KLD<br><strong>Client:</strong> RCF, Thal, Alibaug</p>
+      </div>
+    </div>
+
+    <!-- 16 -->
+    <div class="grid-item" onclick="openLightbox('WORK/RCC_Trippler.jpg')">
+      <img src="WORK/RCC_Trippler.jpg" alt="Truck Trippler">
+      <div class="item-info">
+        <h3>Construction of Truck Trippler with RCC</h3>
+        <p><strong>Client:</strong> RCF, Thal, Alibaug</p>
+      </div>
+    </div>
+
+    <!-- 17 -->
+    <div class="grid-item" onclick="openLightbox('WORK/DAF_100KLD.jpg')">
+      <img src="WORK/DAF_100KLD.jpg" alt="DAF 100 KLD">
+      <div class="item-info">
+        <h3>DAF System for ETP</h3>
+        <p>Capacity: 100 KLD<br><strong>Client:</strong> Shree Shubhlaxmi Dyeing Pvt Ltd</p>
+      </div>
+    </div>
+
+    <!-- 18 -->
+    <div class="grid-item" onclick="openLightbox('WORK/DAF_150KLD.jpg')">
+      <img src="WORK/DAF_150KLD.jpg" alt="DAF 150 KLD">
+      <div class="item-info">
+        <h3>DAF System for ETP</h3>
+        <p>Capacity: 150 KLD<br><strong>Client:</strong> Tulsi Cloth Processors Pvt Ltd, Mumbai</p>
+      </div>
+    </div>
+
+    <!-- 19 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Wet_Scrubber.jpg')">
+      <img src="WORK/Wet_Scrubber.jpg" alt="Wet Scrubber">
+      <div class="item-info">
+        <h3>Wet Scrubber System for Acid Fumes</h3>
+        <p><strong>Client:</strong> KTR Couplings (India) Pvt Ltd, Pune</p>
+      </div>
+    </div>
+
+    <!-- 20 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Ozone_System.jpg')">
+      <img src="WORK/Ozone_System.jpg" alt="Ozone System">
+      <div class="item-info">
+        <h3>Ozone System</h3>
+        <p><strong>Client:</strong> Mars International India Pvt Ltd</p>
+      </div>
+    </div>
+
+    <!-- 21 -->
+    <div class="grid-item" onclick="openLightbox('WORK/ETP_MBR.jpg')">
+      <img src="WORK/ETP_MBR.jpg" alt="ETP MBR System">
+      <div class="item-info">
+        <h3>Revamping of ETP MBR System</h3>
+        <p>Capacity: 250 KLD<br><strong>Client:</strong> Mars International India Pvt Ltd</p>
+      </div>
+    </div>
+
+    <!-- 22 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Ozonation_300gm.jpg')">
+      <img src="WORK/Ozonation_300gm.jpg" alt="Ozonation 300gm">
+      <div class="item-info">
+        <h3>Ozonation System</h3>
+        <p>300 gm/hr, 40 LPM<br><strong>Client:</strong> Bajaj Auto Ltd, Akurdi</p>
+      </div>
+    </div>
+
+    <!-- 23 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Ozonation_200gm.jpg')">
+      <img src="WORK/Ozonation_200gm.jpg" alt="Ozonation 200gm">
+      <div class="item-info">
+        <h3>Ozonation System</h3>
+        <p>200 gm/hr, 20 LPM<br><strong>Client:</strong> Bajaj Auto Ltd, Akurdi</p>
+      </div>
+    </div>
+
+    <!-- 24 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Clarifier.jpg')">
+      <img src="WORK/Clarifier.jpg" alt="Clarifier">
+      <div class="item-info">
+        <h3>Clarifier Mechanism for ETP</h3>
+        <p><strong>Client:</strong> Bajaj Auto Ltd, Akurdi</p>
+      </div>
+    </div>
+
+    <!-- 25 -->
+    <div class="grid-item" onclick="openLightbox('WORK/STP_Upgrade.jpg')">
+      <img src="WORK/STP_Upgrade.jpg" alt="STP Upgrade">
+      <div class="item-info">
+        <h3>Upgradation of STP Plant</h3>
+        <p><strong>Client:</strong> Bharat Forge Ltd, Satara</p>
+      </div>
+    </div>
+
+    <!-- 26 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Coolant_Treatment.jpg')">
+      <img src="WORK/Coolant_Treatment.jpg" alt="Coolant Plant">
+      <div class="item-info">
+        <h3>Coolant Treatment Plant</h3>
+        <p><strong>Client:</strong> Bharat Forge Ltd, Pune</p>
+      </div>
+    </div>
+
+    <!-- 27 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Diffused_Aeration.jpg')">
+      <img src="WORK/Diffused_Aeration.jpg" alt="Diffused Aeration">
+      <div class="item-info">
+        <h3>Diffused Aeration System</h3>
+        <p><strong>Client:</strong> Bajaj Auto Ltd, Chakan</p>
+      </div>
+    </div>
+
+    <!-- 28 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Primary_Tubesettler.jpg')">
+      <img src="WORK/Primary_Tubesettler.jpg" alt="Primary Tubesettler">
+      <div class="item-info">
+        <h3>Primary Tubesettler for ETP</h3>
+        <p>10 m³/hr MSEP<br><strong>Client:</strong> Bajaj Auto Ltd, Akurdi</p>
+      </div>
+    </div>
+
+    <!-- 29 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Sludge_Dewatering.jpg')">
+      <img src="WORK/Sludge_Dewatering.jpg" alt="Sludge Dewatering">
+      <div class="item-info">
+        <h3>Multi Disc Sludge Dewatering System</h3>
+        <p><strong>Client:</strong> Mars International India Pvt Ltd, Pune</p>
+      </div>
+    </div>
+
+    <!-- 30 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Ozonation_ScrewPress.jpg')">
+      <img src="WORK/Ozonation_ScrewPress.jpg" alt="Ozonation + Screw Press">
+      <div class="item-info">
+        <h3>Ozonation + Multi Disc Screw Press</h3>
+        <p>150 gm/hr, 15 LPM + 1 m³/hr<br><strong>Client:</strong> SKHM Pvt Ltd, Talegaon</p>
+      </div>
+    </div>
+
+    <!-- 31 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Auto_Dosing.jpg')">
+      <img src="WORK/Auto_Dosing.jpg" alt="Auto Dosing System">
+      <div class="item-info">
+        <h3>Auto Dosing System for ETP</h3>
+        <p><strong>Client:</strong> Hindustan Coca Cola Beverages</p>
+      </div>
+    </div>
+
+    <!-- 32 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Softener_5000LPH.jpg')">
+      <img src="WORK/Softener_5000LPH.jpg" alt="5000 LPH Softener">
+      <div class="item-info">
+        <h3>5000 LPH Softener Plant</h3>
+        <p>Automatic with Erection & Commissioning<br><strong>Client:</strong> Perfect Air, Delhi</p>
+      </div>
+    </div>
+
+    <!-- 33 -->
+    <div class="grid-item" onclick="openLightbox('WORK/Effluent_Monitoring.jpg')">
+      <img src="WORK/Effluent_Monitoring.jpg" alt="Effluent Monitoring">
+      <div class="item-info">
+        <h3>Online Effluent Quality Monitoring System</h3>
+        <p>With Sensor, Cloud Data & Connectivity<br><strong>Client:</strong> Firodia Institute, Pune</p>
+      </div>
+    </div>
+
+
+      <!-- 👉 Keep adding all your product + service images here in the same format -->
+    </div>
+
+    <!-- OUR SERVICES (Empty Placeholder) -->
+<!-- OUR SERVICES -->
+<!-- OUR SERVICES -->
+<div class="services-grid filterDiv services" style="display:none;">
+  <div style="overflow-x:auto;">
+    <table class="services-table">
+      <!-- Table Head -->
+      <thead>
+        <tr>
+          <th>Sr. No.</th>
+          <th>Name of Service</th>
+          <th>Client Name / Address</th>
+        </tr>
+      </thead>
+      
+      <!-- Table Body -->
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Refurbishment & revamping of sewage collection sump & pumping station 250 KLD</td>
+          <td>Bhabha Atomic Research Centre, BARC Hospital, Anushaktinagar, Trombay, Mumbai</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Annual O&M in 3 Shifts for 24x7 for 365 days of Revamped Sewage Sump and Pumping Station including all allied equipment</td>
+          <td>Bhabha Atomic Research Centre, BARC Hospital, Anushaktinagar, Trombay, Mumbai</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Operation and maintenance of 10KL batch capacity SBR sewage treatment plant for 24 months inside integrated sewage treatment facility</td>
+          <td>Bhabha Atomic Research Centre, BARC Hospital, Anushaktinagar, Trombay, Mumbai</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>PMC of Sewage Treatment Plant – SBR Technology 30 KLD capacity</td>
+          <td>Kotak Mahindra Bank Ltd, BKC Mumbai</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>PMC of Sewage Treatment Plant – MBR Technology 75 KLD capacity</td>
+          <td>Kotak Mahindra Bank Ltd, BKC Mumbai</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Engineering Design, Consultancy Services for inspection & testing of partially complete STP</td>
+          <td>DRDO, Department Of Military Affairs, Ministry of Defence</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Comprehensive assessment of wastewater treatment facilities (ETP & STP) focusing on operational deficiencies – 150 KLD STP</td>
+          <td>KIMS UAIMS (Ushahkal Abhinav Specialty Hospital), Sangli</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Comprehensive Operation & Maintenance of STP (50 KLD & 100 KLD)</td>
+          <td>SKH M India Pvt Ltd, Talegaon</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Operation and Maintenance of Effluent/Sewage Treatment Plant</td>
+          <td>Indian Railway Institute of Civil Engg., Koregaon Park, Pune</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Project Management Consultancy for 70 KLD MBR & MBBR Technology STP</td>
+          <td>Sukhwani Property Developers</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>MPCB Consent to Establish and Consent to Operate</td>
+          <td>Firodia Institute of Culture Philosophy and History, Maval, Pune</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>CTO renewal application & liaisoning services</td>
+          <td>Force Motors Limited, Akurdi</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>Consent to Establish for Expansion</td>
+          <td>Force Motors Limited, Chakan</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>Consent To Operate with CTE Amalgamation</td>
+          <td>KTR Coupling India Pvt. Ltd.</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>Renewal of Consent To Operate</td>
+          <td>Jaya Hind Industries Pvt Ltd.</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>CTO renewal with name change</td>
+          <td>SKH M India Pvt Ltd, Talegaon</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>Supply of Chemicals and Consumables</td>
+          <td>Hindustan Coca-Cola Beverages Pvt Ltd, Pirangut</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>Supply of DAF Coagulant, poly & ferric alum</td>
+          <td>Mars International India Pvt Ltd.</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
-  <!-- 2 -->
-
-
-  <!-- 3 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Portable Sewage Treatment Plant</h3>
-      <span>Client: Bharat Forge Ltd, Mundhwa, Pune</span>
-    </div>
-  </div>
-
-  <!-- 4 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>20 KLD STP MBBR Wastewater Process Plant</h3>
-      <span>Client: Remsons Industries Ltd, Pune</span>
-    </div>
-  </div>
-
-  <!-- 5 -->
-
-
-  <!-- 6 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>5 CMD Sewage Treatment Plant & 500 LPD Effluent Plant</h3>
-      <span>Client: SCD Nutritionals Pvt Ltd, Pune</span>
-    </div>
-  </div>
-
-  <!-- 7 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>DM Plant</h3>
-      <p>Capacity: 250 LPH</p>
-      <span>Client: Tata Motors Ltd, Chinchwad</span>
-    </div>
-  </div>
-
-  <!-- 8 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Nitrogen Gas Plant</h3>
-      <span>Client: Tata Motors Ltd, Chinchwad</span>
-    </div>
-  </div>
-
-  <!-- 9 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>45 KLD Sewage Treatment Plant</h3>
-      <span>Client: College of Engineering, Pune</span>
-    </div>
-  </div>
-
-  <!-- 10 -->
-
-  <!-- 11 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Automatic ZLD Recycle Water Plant</h3>
-      <span>Client: Kider India Pvt Ltd, Pune</span>
-    </div>
-  </div>
-
-  <!-- 12 -->
-
-  <!-- 13 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Skid Mounted ETP</h3>
-      <p>Capacity: 500 LDP</p>
-      <span>Client: Pune Zillha Sahakari Dudh Utpadak Sangh</span>
-    </div>
-  </div>
-
-  <!-- 14 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>100 LPH Evaporation System for ETP ZLD</h3>
-      <span>Client: Alicon Castloy Pvt Ltd, Shikrapur</span>
-    </div>
-  </div>
-
-  <!-- 15 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>SITC of ZLD Plant</h3>
-      <p>Capacity: 1000 LPD</p>
-      <span>Client: Force MTU Power Systems Pvt Ltd</span>
-    </div>
-  </div>
-
-  <!-- 16 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Zero Liquid Discharge Plant</h3>
-      <p>250 LPH for ETP</p>
-      <span>Client: KTR Couplings (India) Pvt Ltd, Pune</span>
-    </div>
-  </div>
-
-  <!-- 17 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Zero Liquid Discharge Plant</h3>
-      <p>250 LPH</p>
-      <span>Client: Force Motors Ltd, Pune</span>
-    </div>
-  </div>
-
-  <!-- 18 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Zero Liquid Discharge Plant</h3>
-      <p>5 KLD ETP</p>
-      <span>Client: Dinex Emission Solution India Pvt Ltd</span>
-    </div>
-  </div>
-
-  <!-- 19 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>RCC Construction of Effluent Pit</h3>
-      <p>300 KLD</p>
-      <span>Client: RCF, Thal, Alibaug</span>
-    </div>
-  </div>
-
-  <!-- 20 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Construction of Truck Trippler with RCC</h3>
-      <span>Client: RCF, Thal, Alibaug</span>
-    </div>
-  </div>
-
-  <!-- 21 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>DAF System for ETP</h3>
-      <p>Capacity: 100 KLD</p>
-      <span>Client: Shree Shubhlaxmi Dyeing Pvt Ltd</span>
-    </div>
-  </div>
-
-  <!-- 22 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>DAF System for ETP</h3>
-      <p>Capacity: 150 KLD</p>
-      <span>Client: Tulsi Cloth Processors Pvt Ltd, Mumbai</span>
-    </div>
-  </div>
-
-  <!-- 23 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Wet Scrubber System for Acid Fumes</h3>
-      <span>Client: KTR Couplings (India) Pvt Ltd, Pune</span>
-    </div>
-  </div>
-
-  <!-- 24 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Ozone System</h3>
-      <span>Client: Mars International India Pvt Ltd</span>
-    </div>
-  </div>
-
-  <!-- 25 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Revamping of ETP MBR System</h3>
-      <p>Capacity: 250 KLD</p>
-      <span>Client: Mars International India Pvt Ltd</span>
-    </div>
-  </div>
-
-  <!-- 26 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Ozonation System</h3>
-      <p>300 gm/hr, 40 LPM</p>
-      <span>Client: Bajaj Auto Ltd, Akurdi</span>
-    </div>
-  </div>
-
-  <!-- 27 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Ozonation System</h3>
-      <p>200 gm/hr, 20 LPM</p>
-      <span>Client: Bajaj Auto Ltd, Akurdi</span>
-    </div>
-  </div>
-
-  <!-- 28 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Clarifier Mechanism for ETP</h3>
-      <span>Client: Bajaj Auto Ltd, Akurdi</span>
-    </div>
-  </div>
-
-  <!-- 29 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Upgradation of STP Plant</h3>
-      <span>Client: Bharat Forge Ltd, Satara</span>
-    </div>
-  </div>
-
-  <!-- 30 -->
-
-
-  <!-- 31 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Coolant Treatment Plant</h3>
-      <span>Client: Bharat Forge Ltd, Pune</span>
-    </div>
-  </div>
-
-  <!-- 32 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Diffused Aeration System</h3>
-      <span>Client: Bajaj Auto Ltd, Chakan</span>
-    </div>
-  </div>
-
-  <!-- 33 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Primary Tubesettler for ETP</h3>
-      <p>10 m³/hr MSEP</p>
-      <span>Client: Bajaj Auto Ltd, Akurdi</span>
-    </div>
-  </div>
-
-  <!-- 34 -->
-
-
-  <!-- 35 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Multi Disc Sludge Dewatering System</h3>
-      <span>Client: Mars International India Pvt Ltd, Pune</span>
-    </div>
-  </div>
-
-  <!-- 36 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Ozonation + Multi Disc Screw Press</h3>
-      <p>150 gm/hr, 15 LPM + 1 m³/hr</p>
-      <span>Client: SKHM Pvt Ltd, Talegaon</span>
-    </div>
-  </div>
-
-  <!-- 37 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Auto Dosing System for ETP</h3>
-      <span>Client: Hindustan Coca Cola Beverages</span>
-    </div>
-  </div>
-
-  <!-- 38 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>5000 LPH Softener Plant</h3>
-      <p>Automatic with Erection & Commissioning</p>
-      <span>Client: Perfect Air, Delhi</span>
-    </div>
-  </div>
-
-  <!-- 39 -->
-  <div class="service-card">
-    <div class="service-image"><img src="images/03.jpg" alt="Service"></div>
-    <div class="service-content">
-      <h3>Online Effluent Quality Monitoring System</h3>
-      <p>With Sensor, Cloud Data & Connectivity</p>
-      <span>Client: Firodia Institute, Pune</span>
-    </div>
-  </div>
-
 </div>
 
+<!-- Extra Styling -->
+<style>
+  .services-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+  .services-table thead {
+    background: linear-gradient(135deg,#007bff,#00c6ff);
+    color: #fff;
+    text-align: left;
+  }
+  .services-table th {
+    padding: 16px 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .services-table td {
+    padding: 14px;
+    color: #333;
+  }
+  .services-table tbody tr:nth-child(even) {
+    background: #f4f8ff;
+  }
+  .services-table tbody tr:hover {
+    background: #eaf4ff !important;
+    transform: scale(1.01);
+    box-shadow: 0 3px 10px rgba(0,123,255,0.15);
+    transition: all 0.3s ease;
+  }
+</style>
 
-  <!-- JS for Filtering -->
-  <script>
-    filterSelection("products"); // Default
-    function filterSelection(c) {
-      var x = document.getElementsByClassName("filterDiv");
-      for (var i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-        if (x[i].classList.contains(c)) {
-          x[i].style.display = "grid"; // ✅ fixes layout breaking
-        }
+
+    <!-- JS -->
+    <script>
+      function filterSelection(c, evt) {
+        var items = document.getElementsByClassName("filterDiv");
+        for (var i = 0; i < items.length; i++) items[i].style.display = "none";
+        var selected = document.getElementsByClassName(c);
+        for (var j = 0; j < selected.length; j++) selected[j].style.display = "grid";
+        var btns = document.getElementsByClassName("filter-btn");
+        for (var k = 0; k < btns.length; k++) btns[k].classList.remove("active");
+        evt.target.classList.add("active");
       }
-      var btns = document.getElementsByClassName("filter-btn");
-      for (var j = 0; j < btns.length; j++) {
-        btns[j].classList.remove("active");
+
+      function openLightbox(src) {
+        document.getElementById('lightbox-img').src = src;
+        document.getElementById('lightbox').style.display = 'flex';
       }
-      event.target.classList.add("active");
-    }
-  </script>
+      function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+      }
+    </script>
+
+  </div>
 </section>
+
+
+
 
 
 
