@@ -503,25 +503,25 @@ window.addEventListener('scroll', () => {
 </body>
 </html>
 
-
 <section id="about-hero" style="position: relative; width: 100%; height: 70vh; font-family: 'Poppins', sans-serif; overflow: hidden;">
 
-  <!-- Background Image -->
+  <!-- Background Image with Blur -->
   <img src="images/HERO_444.jpg" alt="About Background"
-    style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+    style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; filter:blur(5px); transform:scale(1.05);">
 
   <!-- Overlay for readability -->
-  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.2); z-index:1;"></div>
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.35); z-index:1;"></div>
 
   <!-- Hero Content -->
   <div class="about-hero-content" style="position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center; color:#fff; padding:0 20px;">
     <h1 style="font-size:3rem; font-weight:700; margin-bottom:20px; background:linear-gradient(90deg, #0BA34E, #07d67a); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
-      <!-- You can add a heading here if needed -->
+      <!-- Optional Heading -->
     </h1>
-    <p style="font-size:1.2rem; max-width:1250px; line-height:1.6; margin:0 auto; color:#f1f1f1;">
-      At Aquagreen Tech Solutions, we have been actively serving the environmental sector since  2018. With a strong commitment to advancing environmental sustainability, we deliver innovative, cost-effective, and compliant solutions across a broad spectrum of environmental services—including water and wastewater treatment, energy management, water audits, industrial fabrication, supply of specialized water & waste water treatment chemicals and Legal Environmental Consultancy Services 
-
-      <br><br>Our environmental consultancy services are designed to help clients meet regulatory requirements, improve operational efficiency, and minimize their environmental impact. Through a combination of technical expertise, sustainable practices, and client-focused strategies, we aim to be a trusted partner in building a cleaner and more resilient future.
+    <p style="font-size:1.3rem; font-weight:600; max-width:1250px; line-height:1.8; margin:0 auto; color:#f1f1f1;">
+      At Aquagreen Tech Solutions, we have been actively serving the environmental sector since 2018. With a strong commitment to advancing environmental sustainability, we deliver innovative, cost-effective, and compliant solutions across a broad spectrum of environmental services—including water and wastewater treatment, energy management, water audits, industrial fabrication, supply of specialized water & wastewater treatment chemicals and Legal Environmental Consultancy Services.
+      
+      <br><br>
+      Our environmental consultancy services are designed to help clients meet regulatory requirements, improve operational efficiency, and minimize their environmental impact. Through a combination of technical expertise, sustainable practices, and client-focused strategies, we aim to be a trusted partner in building a cleaner and more resilient future.
     </p>
   </div>
 
@@ -532,10 +532,10 @@ window.addEventListener('scroll', () => {
         height: 60vh;
       }
       #about-hero h1 {
-        font-size: 2.2rem !important;
+        font-size: 2.4rem !important;
       }
       #about-hero p {
-        font-size: 1rem !important;
+        font-size: 1.1rem !important;
       }
     }
 
@@ -545,10 +545,10 @@ window.addEventListener('scroll', () => {
         padding: 0 10px;
       }
       #about-hero h1 {
-        font-size: 1.8rem !important;
+        font-size: 2rem !important;
       }
       #about-hero p {
-        font-size: 0.9rem !important;
+        font-size: 1rem !important;
       }
     }
   </style>
@@ -755,7 +755,8 @@ window.addEventListener('scroll', () => {
   <li>Civil Construction</li>
       <li>Automobile</li>
       <li>Electronics</li>
-      <li>Construction</li>
+     <li>Dairy Industry</li>
+
       <li>Oil & Gas</li>
       <li>Power & Energy</li>
       <li>Steel & Metals</li>
@@ -1165,8 +1166,7 @@ function closeModal(){
     margin-bottom: 8px; /* place above button */
     font-family: 'Poppins', sans-serif;
     letter-spacing: 1px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    opacity: 1; /* ✅ Always visible */
   }
 
   /* Common Button Style */
@@ -1197,12 +1197,12 @@ function closeModal(){
 
   /* Contact Icon Different Color */
   .float-btn.contact {
-    background: #0BA34E;
+    background:#F24D29 ;
   }
 
-  /* Show text when hovering on contact button */
-  .contact-btn-wrapper:hover .vertical-text {
-    opacity: 1;
+  /* ✅ Change <i> icon color to orange */
+  .float-btn.contact i {
+    color: white;
   }
 </style>
 
@@ -1227,7 +1227,7 @@ function closeModal(){
 
     <!-- Logo + About -->
     <div>
-      <img src="images/LOGO_02.png" alt="Aquagreen Logo" style="height:110px; margin-bottom:20px;">
+      <img src="images/LOGO_02.png" alt="Aquagreen Logo" style="height:150px; margin-bottom:20px;">
       <p style="line-height:1.8; font-size:15px; color:#444; text-align:justify;">
         At <strong>Aquagreen Tech Solutions</strong>, we are committed to advancing environmental sustainability by delivering innovative, cost-effective, and compliant solutions across water and wastewater treatment, pollution control board certification, energy management, water audits, industrial fabrication, and the provision of specialized water treatment chemicals.
       </p>
@@ -1238,7 +1238,7 @@ function closeModal(){
       <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Contact Us</h3>
       <p style="line-height:1.9; font-size:15px; color:#444; margin:0;">
         <strong>Office Address:</strong><br>
-        Office No. 171, Jay Ganesh Vision B Wing, Akurdi, Pune 411035<br><br>
+        Office No. 171, Jai Ganesh Vision B Wing, Akurdi, Pune 411035<br><br>
         <strong>Registered Address:</strong><br>
         A201, Renuka Gulmohar 2, B/H City One Mall, Morwadi, Pimpri Pune-411018<br><br>
         <strong>Phone:</strong> 9766878070 / 7276368070<br>

@@ -762,8 +762,7 @@ window.addEventListener('scroll', () => {
     margin-bottom: 8px; /* place above button */
     font-family: 'Poppins', sans-serif;
     letter-spacing: 1px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    opacity: 1; /* ✅ Always visible */
   }
 
   /* Common Button Style */
@@ -794,12 +793,12 @@ window.addEventListener('scroll', () => {
 
   /* Contact Icon Different Color */
   .float-btn.contact {
-    background: #0BA34E;
+    background:#F24D29 ;
   }
 
-  /* Show text when hovering on contact button */
-  .contact-btn-wrapper:hover .vertical-text {
-    opacity: 1;
+  /* ✅ Change <i> icon color to orange */
+  .float-btn.contact i {
+    color: white;
   }
 </style>
 
@@ -827,7 +826,7 @@ window.addEventListener('scroll', () => {
 
     <!-- Logo + About -->
     <div>
-      <img src="images/LOGO_02.png" alt="Aquagreen Logo" style="height:110px; margin-bottom:20px;">
+      <img src="images/LOGO_02.png" alt="Aquagreen Logo" style="height:150px; margin-bottom:20px;">
       <p style="line-height:1.8; font-size:15px; color:#444; text-align:justify;">
         At <strong>Aquagreen Tech Solutions</strong>, we are committed to advancing environmental sustainability by delivering innovative, cost-effective, and compliant solutions across water and wastewater treatment, pollution control board certification, energy management, water audits, industrial fabrication, and the provision of specialized water treatment chemicals.
       </p>
@@ -838,7 +837,7 @@ window.addEventListener('scroll', () => {
       <h3 style="font-size:20px; margin-bottom:18px; color:#0BA34E; letter-spacing:0.5px;">Contact Us</h3>
       <p style="line-height:1.9; font-size:15px; color:#444; margin:0;">
         <strong>Office Address:</strong><br>
-        Office No. 171, Jay Ganesh Vision B Wing, Akurdi, Pune 411035<br><br>
+        Office No. 171, Jai Ganesh Vision B Wing, Akurdi, Pune 411035<br><br>
         <strong>Registered Address:</strong><br>
         A201, Renuka Gulmohar 2, B/H City One Mall, Morwadi, Pimpri Pune-411018<br><br>
         <strong>Phone:</strong> 9766878070 / 7276368070<br>
